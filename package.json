@@ -1,0 +1,30 @@
+{
+    "bugs": {
+        "url": "https://github.com/drmats/velox/issues"
+    },
+    "contributors": [
+        {
+            "name": "drmats",
+            "email": "xcmats@protonmail.com",
+            "url": "https://twitter.com/xcmats/"
+        }
+    ],
+    "description": "Thin web-ui starter.",
+    "engines": {
+        "node": ">=14.0.0",
+        "npm": ">=7.0.0"
+    },
+    "homepage": "https://github.com/drmats/velox",
+    "license": "BSD 2-Clause",
+    "name": "velox",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/drmats/velox.git"
+    },
+    "scripts": {
+        "test": "echo \"Warning: no tests specified (yet)\""
+    },
+    "sideEffects": false,
+    "version": "0.0.1"
+}
