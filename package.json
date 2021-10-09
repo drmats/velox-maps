@@ -10,6 +10,9 @@
         }
     ],
     "description": "Thin web-ui starter.",
+    "devDependencies": {
+        "typescript": "4.4.3"
+    },
     "engines": {
         "node": ">=14.0.0",
         "npm": ">=7.0.0"
@@ -23,7 +26,8 @@
         "url": "git+https://github.com/drmats/velox.git"
     },
     "scripts": {
-        "test": "echo \"Warning: no tests specified (yet)\""
+        "test": "echo \"Warning: no tests specified (yet)\"",
+        "type-check": "tsc --noEmit"
     },
     "sideEffects": false,
     "version": "0.0.1"
