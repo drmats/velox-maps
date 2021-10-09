@@ -11,4 +11,9 @@
 
 
 // ...
-console.info("Velox.");
+window.addEventListener("load", () => {
+    let app = document.getElementById("app");
+
+    if (app) app.innerText = "Velox.";
+    console.info("Velox.");
+});
