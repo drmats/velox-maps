@@ -10,10 +10,12 @@
 
 // ...
 const
+
     presets = [
         "@babel/preset-env",
         "@babel/preset-typescript",
     ],
+
     config = {
         comments: false,
         shouldPrintComment: () => false,
