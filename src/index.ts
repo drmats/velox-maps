@@ -12,8 +12,9 @@
 
 // ...
 window.addEventListener("load", () => {
-    let app = document.getElementById("app");
-
-    if (app) app.innerText = "Velox.";
+    const body = document.getElementsByTagName("body");
+    const app = document.createElement("div");
+    app.innerText = "Velox.";
+    body.item(0)?.appendChild(app);
     console.info("Velox.");
 });
