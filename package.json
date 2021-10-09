@@ -36,7 +36,8 @@
     },
     "scripts": {
         "clean:modules": "rimraf package-lock.json && rimraf node_modules",
-        "test": "echo \"Warning: no tests specified (yet)\"",
+        "lint": "echo \"Linting and typechecking...\" && eslint ./src/ --ext .ts && npm run type-check",
+        "test": "npm run lint && echo \"Warning: no tests specified (yet)\"",
         "type-check": "tsc --noEmit"
     },
     "sideEffects": false,
