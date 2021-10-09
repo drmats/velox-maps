@@ -17,8 +17,9 @@
         "@babel/preset-typescript": "7.15.0",
         "@typescript-eslint/eslint-plugin": "4.33.0",
         "@typescript-eslint/parser": "4.33.0",
-        "eslint-plugin-import": "2.24.2",
         "eslint": "7.32.0",
+        "eslint-plugin-import": "2.24.2",
+        "rimraf": "3.0.2",
         "typescript": "4.4.3"
     },
     "engines": {
@@ -34,6 +35,7 @@
         "url": "git+https://github.com/drmats/velox.git"
     },
     "scripts": {
+        "clean:modules": "rimraf package-lock.json && rimraf node_modules",
         "test": "echo \"Warning: no tests specified (yet)\"",
         "type-check": "tsc --noEmit"
     },
