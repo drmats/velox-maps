@@ -5,10 +5,25 @@
  * @copyright Mat. 2021-present
  */
 
+/* eslint-disable no-constant-condition */
 /* eslint-disable no-console */
 
 import { run } from "@xcmats/js-toolbox/utils";
+import { shuffle } from "@xcmats/js-toolbox/array";
+import { delay } from "@xcmats/js-toolbox/async";
+import { timeUnit } from "@xcmats/js-toolbox/utils";
 import packageInfo from "../package.json";
+
+
+
+
+// ...
+const shuffleIndefinetely = async (x: HTMLDivElement): Promise<void> => {
+    while (true) {
+        x.innerText = shuffle(x.innerText.split("")).join("");
+        await delay(timeUnit.second);
+    }
+};
 
 
 
@@ -25,4 +40,6 @@ run(async () => {
     body.item(0)?.appendChild(app);
 
     console.info(packageInfo.name);
+
+    shuffleIndefinetely(app);
 });
