@@ -12,7 +12,16 @@ import { run } from "@xcmats/js-toolbox/utils";
 import { shuffle } from "@xcmats/js-toolbox/array";
 import { delay } from "@xcmats/js-toolbox/async";
 import { timeUnit } from "@xcmats/js-toolbox/utils";
+import { useMemory as useBareMemory } from "mem-box";
 import packageInfo from "../package.json";
+
+
+
+
+/**
+ * Type-safe instance of useMemory.
+ */
+export const useMemory: (() => Ctx) = useBareMemory;
 
 
 
@@ -54,5 +63,8 @@ declare global {
     interface Window {
         velox: Record<string, unknown>;
     }
+
+    // eslint-disable-next-line @typescript-eslint/no-empty-interface
+    interface Ctx { }
 
 }
