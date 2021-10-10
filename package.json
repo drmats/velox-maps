@@ -45,7 +45,7 @@
         "url": "git+https://github.com/drmats/velox.git"
     },
     "scripts": {
-        "build": "npm run test && webpack --config=webpack.config.js && npm run build:prepare",
+        "build": "npm run test && webpack --progress --config=webpack.config.js && npm run build:prepare",
         "build:prepare": "node scripts/prepare.js",
         "clean": "rimraf dist",
         "clean:modules": "rimraf package-lock.json && rimraf node_modules",
