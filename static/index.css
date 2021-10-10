@@ -1,0 +1,26 @@
+/**
+ * Velox.
+ *
+ * @license BSD-2-Clause
+ * @copyright Mat. 2021-present
+ */
+
+
+
+
+ html {
+    box-sizing: border-box !important;
+    background-color: #000;
+    color: #fff;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
