@@ -10,6 +10,9 @@
             "url": "https://twitter.com/xcmats/"
         }
     ],
+    "dependencies": {
+        "@xcmats/js-toolbox": "0.13.2"
+    },
     "description": "Thin web-ui starter.",
     "devDependencies": {
         "@babel/core": "7.15.8",

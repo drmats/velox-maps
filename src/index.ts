@@ -7,13 +7,14 @@
 
 /* eslint-disable no-console */
 
+import { run } from "@xcmats/js-toolbox/utils";
 import packageInfo from "../package.json";
 
 
 
 
 // ...
-window.addEventListener("load", () => {
+run(async () => {
     const title = document.getElementsByTagName("title").item(0);
     if (title) title.innerText = packageInfo.name;
 

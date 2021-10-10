@@ -14,3 +14,5 @@ Thin web-ui starter.
 * eslint
 * webpack
 * webpack-dev-server
+* base libs:
+    - @xcmats/js-toolbox
