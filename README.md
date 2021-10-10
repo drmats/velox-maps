@@ -7,13 +7,14 @@ Thin web-ui starter.
 
 
 
-## bare -> base | bare-react -> base-react
+## bare -> base | bare-react | bare-styled -> base-react-baseui-styled
 
 * typescript
 * babel
 * eslint
 * webpack
 * webpack-dev-server
+* simple `css` + `favicon`
 * react
 * base libs:
     - @xcmats/js-toolbox
