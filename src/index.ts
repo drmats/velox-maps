@@ -25,3 +25,15 @@ window.addEventListener("load", () => {
 
     console.info(packageInfo.name);
 });
+
+
+
+
+// global declaration merge
+declare global {
+
+    interface Window {
+        velox: Record<string, unknown>;
+    }
+
+}
