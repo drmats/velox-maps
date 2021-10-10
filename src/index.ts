@@ -12,7 +12,9 @@ import packageInfo from "../package.json";
 
 
 
-// ...
+/**
+ * ...
+ */
 window.addEventListener("load", () => {
     const title = document.getElementsByTagName("title").item(0);
     if (title) title.innerText = packageInfo.name;
@@ -30,7 +32,9 @@ window.addEventListener("load", () => {
 
 
 
-// global declaration merge
+/**
+ *  Global declaration merge.
+ */
 declare global {
 
     interface Window {
