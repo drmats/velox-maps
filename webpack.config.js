@@ -45,6 +45,7 @@ module.exports = {
             type: "window",
         },
         filename: "[name].js",
+        chunkFilename: "[contenthash].js",
         globalObject: "this",
         path: resolve(__dirname, "./dist"),
         clean: true,
@@ -71,6 +72,11 @@ module.exports = {
         removeAvailableModules: false,
         removeEmptyChunks: true,
         sideEffects: true,
+    },
+
+
+    performance: {
+        maxAssetSize: 1024*1024,
     },
 
 
