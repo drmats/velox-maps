@@ -39,6 +39,7 @@ run(async () => {
     const body = document.getElementsByTagName("body");
     body.item(0)?.appendChild(app);
 
+    window.velox.version = packageInfo.version;
     console.info(packageInfo.name);
 
     shuffleIndefinetely(app);
