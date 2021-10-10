@@ -43,3 +43,15 @@ run(async () => {
 
     shuffleIndefinetely(app);
 });
+
+
+
+
+// global declaration merge
+declare global {
+
+    interface Window {
+        velox: Record<string, unknown>;
+    }
+
+}
