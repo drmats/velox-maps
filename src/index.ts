@@ -7,6 +7,8 @@
 
 /* eslint-disable no-console */
 
+import packageInfo from "../package.json";
+
 
 
 
@@ -14,7 +16,9 @@
 window.addEventListener("load", () => {
     const body = document.getElementsByTagName("body");
     const app = document.createElement("div");
-    app.innerText = "Velox.";
+
+    app.innerText = packageInfo.name;
     body.item(0)?.appendChild(app);
-    console.info("Velox.");
+
+    console.info(packageInfo.name);
 });
