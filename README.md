@@ -7,7 +7,7 @@ Thin web-ui starter.
 
 
 
-## bare
+## bare -> base
 
 * typescript
 * babel
