@@ -96,7 +96,7 @@ module.exports = {
         static: {
             directory: resolve(__dirname, "static"),
         },
-        liveReload: false,
+        liveReload: true,
         hot: false,
         compress: true,
         port: 8000,
