@@ -15,6 +15,7 @@ const
     { resolve } = require("path"),
     MinifyPlugin = require("terser-webpack-plugin"),
     ESLintPlugin = require("eslint-webpack-plugin"),
+    { git } = require("./scripts/lib"),
     appName = require("./package.json").name,
     appDirectory = realpathSync(process.cwd());
 
@@ -94,9 +95,11 @@ module.exports = {
 
     plugins: [
         new webpack.EnvironmentPlugin({
-            NODE_ENV: "production",
             BABEL_ENV: "production",
             DEBUG: false,
+            GIT_AUTHOR_DATE: git("log -1 --format=%aI"),
+            GIT_VERSION: git("describe --always"),
+            NODE_ENV: "production",
         }),
         new ESLintPlugin({
             context: "src",

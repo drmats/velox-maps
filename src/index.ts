@@ -27,9 +27,11 @@ window.addEventListener("load", () => {
 
     window.velox.version = packageInfo.version;
     window.velox.env = {
-        NODE_ENV: process.env.NODE_ENV,
         BABEL_ENV: process.env.BABEL_ENV,
         DEBUG: process.env.DEBUG,
+        GIT_AUTHOR_DATE: process.env.GIT_AUTHOR_DATE,
+        GIT_VERSION: process.env.GIT_VERSION,
+        NODE_ENV: process.env.NODE_ENV,
     };
     console.info(packageInfo.name);
 });

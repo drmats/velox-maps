@@ -14,6 +14,7 @@ const
     { realpathSync } = require("fs"),
     { resolve } = require("path"),
     ESLintPlugin = require("eslint-webpack-plugin"),
+    { git } = require("./scripts/lib"),
     appName = require("./package.json").name,
     appDirectory = realpathSync(process.cwd());
 
@@ -83,9 +84,11 @@ module.exports = {
 
     plugins: [
         new webpack.EnvironmentPlugin({
-            NODE_ENV: "development",
             BABEL_ENV: "development",
             DEBUG: true,
+            GIT_AUTHOR_DATE: git("log -1 --format=%aI"),
+            GIT_VERSION: git("describe --always"),
+            NODE_ENV: "development",
         }),
         new ESLintPlugin({
             context: "src",
