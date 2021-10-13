@@ -7,10 +7,11 @@ Thin web-ui starter.
 
 
 
-## bare
+## bare -> bare-react
 
 * typescript
 * babel
 * eslint
 * webpack
 * webpack-dev-server
+* react

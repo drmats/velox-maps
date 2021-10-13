@@ -7,6 +7,9 @@
 
 /* eslint-disable no-console */
 
+import { createElement } from "react";
+import { render } from "react-dom";
+import { App } from "./app";
 import packageInfo from "../package.json";
 
 
@@ -20,10 +23,9 @@ window.addEventListener("load", () => {
     if (title) title.innerText = packageInfo.name;
 
     const app = document.createElement("div");
-    app.innerText = packageInfo.name;
-
     const body = document.getElementsByTagName("body");
     body.item(0)?.appendChild(app);
+    render(createElement(App), app);
 
     window.velox.version = packageInfo.version;
     window.velox.env = {
