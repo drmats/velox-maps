@@ -46,11 +46,11 @@
         "url": "git+https://github.com/drmats/velox.git"
     },
     "scripts": {
-        "build": "npm run test && webpack --progress --config=webpack.config.js && npm run build:prepare",
+        "build": "npm run test && webpack --progress --config=webpack.config.prod.js && npm run build:prepare",
         "build:prepare": "node scripts/prepare.js",
         "clean": "rimraf dist",
         "clean:modules": "rimraf package-lock.json && rimraf node_modules",
-        "dev": "webpack serve --config=webpack.config.js --progress --open",
+        "dev": "webpack serve --config=webpack.config.dev.js --progress --open",
         "lint": "echo \"Linting and typechecking...\" && eslint ./src/ --ext .ts && npm run type-check",
         "test": "npm run lint && echo \"Warning: no tests specified (yet)\"",
         "type-check": "tsc --noEmit"
