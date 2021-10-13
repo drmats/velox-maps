@@ -26,6 +26,11 @@ window.addEventListener("load", () => {
     body.item(0)?.appendChild(app);
 
     window.velox.version = packageInfo.version;
+    window.velox.env = {
+        NODE_ENV: process.env.NODE_ENV,
+        BABEL_ENV: process.env.BABEL_ENV,
+        DEBUG: process.env.DEBUG,
+    };
     console.info(packageInfo.name);
 });
 

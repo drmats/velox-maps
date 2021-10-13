@@ -13,7 +13,6 @@ const
     webpack = require("webpack"),
     { realpathSync } = require("fs"),
     { resolve } = require("path"),
-    MinifyPlugin = require("terser-webpack-plugin"),
     ESLintPlugin = require("eslint-webpack-plugin"),
     appName = require("./package.json").name,
     appDirectory = realpathSync(process.cwd());
@@ -24,7 +23,7 @@ const
 // ...
 module.exports = {
 
-    mode: "production",
+    mode: "development",
 
 
     target: "browserslist",
@@ -56,17 +55,7 @@ module.exports = {
     optimization: {
         concatenateModules: true,
         mergeDuplicateChunks: true,
-        minimize: true,
-        minimizer: [
-            new MinifyPlugin({
-                terserOptions: {
-                    output: {
-                        comments: false,
-                    },
-                },
-                extractComments: false,
-            }),
-        ],
+        minimize: false,
         chunkIds: "total-size",
         moduleIds: "size",
         providedExports: true,
@@ -94,13 +83,24 @@ module.exports = {
 
     plugins: [
         new webpack.EnvironmentPlugin({
-            NODE_ENV: "production",
-            BABEL_ENV: "production",
-            DEBUG: false,
+            NODE_ENV: "development",
+            BABEL_ENV: "development",
+            DEBUG: true,
         }),
         new ESLintPlugin({
             context: "src",
         }),
     ],
+
+
+    devServer: {
+        static: {
+            directory: resolve(__dirname, "static"),
+        },
+        liveReload: true,
+        hot: false,
+        compress: true,
+        port: 8000,
+    },
 
 };
