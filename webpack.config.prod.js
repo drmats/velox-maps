@@ -32,7 +32,7 @@ module.exports = {
 
 
     resolve: {
-        extensions: [".js", ".ts", ".json"],
+        extensions: [".js", ".ts", ".jsx", ".tsx", ".json"],
     },
 
 
@@ -85,8 +85,11 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|ts)$/,
+                test: /\.(js|ts|jsx|tsx)$/,
                 loader: "babel-loader",
+                exclude: [
+                    /node_modules\/react-dom/,
+                ],
                 sideEffects: false,
             },
         ],

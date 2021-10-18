@@ -13,12 +13,17 @@
     "parser": "@babel/eslint-parser",
 
     "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
 
     "plugins": [
-        "import"
+        "import",
+        "react",
+        "react-hooks"
     ],
 
     "root": true,
@@ -47,18 +52,39 @@
         "object-curly-newline": "off",
         "prefer-const": "error",
         "quotes": ["error", "double"],
-        "semi": ["error", "always"],
         "space-before-function-paren": ["error", "always"],
+        "semi": ["error", "always"],
         "strict": "off",
 
         "import/first": "error",
         "import/no-amd": "error",
-        "import/no-webpack-loader-syntax": "error"
+        "import/no-webpack-loader-syntax": "error",
+
+        "react/forbid-foreign-prop-types": "error",
+        "react/jsx-closing-bracket-location": ["error", "line-aligned"],
+        "react/jsx-indent-props": ["error", 4],
+        "react/jsx-no-duplicate-props": ["error", { "ignoreCase": false }],
+        "react/jsx-no-undef": "error",
+        "react/jsx-tag-spacing": ["error", { "beforeSelfClosing": "always" }],
+        "react/jsx-uses-react": "off",
+        "react/jsx-uses-vars": "error",
+        "react/no-direct-mutation-state": "error",
+        "react/react-in-jsx-scope": "off",
+        "react/require-render-return": "error",
+        "react/sort-prop-types": ["error", {
+            "ignoreCase": false,
+            "callbacksLast": true,
+            "requiredFirst": true
+        }],
+        "react/style-prop-object": "error",
+
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn"
     },
 
     "overrides": [
         {
-            "files": ["*.ts"],
+            "files": ["*.ts", "*.tsx"],
             "parser": "@typescript-eslint/parser",
             "extends": [
                 "eslint:recommended",
@@ -93,5 +119,12 @@
                 "semi": "off"
             }
         }
-    ]
+    ],
+
+    "settings": {
+        "react": {
+            "pragma": "React",
+            "version": "detect"
+        }
+    }
 }
