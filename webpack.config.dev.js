@@ -76,6 +76,9 @@ module.exports = {
             {
                 test: /\.(js|ts|jsx|tsx)$/,
                 loader: "babel-loader",
+                exclude: [
+                    /node_modules\/react-dom/,
+                ],
                 sideEffects: false,
             },
         ],
