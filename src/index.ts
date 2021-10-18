@@ -81,7 +81,7 @@ run(async () => {
 declare global {
 
     // eslint-disable-next-line @typescript-eslint/no-empty-interface
-    interface Window {}
+    interface Window { }
 
     // eslint-disable-next-line @typescript-eslint/no-empty-interface
     interface Ctx { }
