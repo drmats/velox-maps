@@ -25,13 +25,17 @@ const
     srcDir = "static",
     distDir = "dist",
 
-    deepCopy = (src, dst) => {
+    // copy all files except topmost "index.template.html"
+    // which html-webpack-plugin will take care of
+    deepCopy = (src, dst, level = 0) => {
         mkdirSync(dst, { recursive: true });
         readdirSync(src, { withFileTypes: true })
+            .filter((de) => level !== 0 || de.name !== "index.template.html")
             .forEach((de) =>
-                (de.isFile() ? copyFileSync : deepCopy)(
+                (de.isFile() ? (s, d, _) => copyFileSync(s, d) : deepCopy)(
                     join(src, de.name),
                     join(dst, de.name),
+                    level + 1,
                 ),
             );
     };
