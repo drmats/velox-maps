@@ -16,3 +16,4 @@ Thin web-ui starter.
 * webpack-dev-server
 * base libs:
     - @xcmats/js-toolbox
+    - mem-box
