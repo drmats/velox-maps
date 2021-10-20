@@ -51,7 +51,7 @@ run(async () => {
     // create application DOM attach point
     const body = document.getElementsByTagName("body");
     const app = document.createElement("div");
-    body.item(0)?.appendChild(app);
+    body.item(0)?.prepend(app);
 
     // instantiate root wrapper
     const Root = createRootWrapper(store);
