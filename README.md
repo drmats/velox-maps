@@ -17,4 +17,10 @@ Thin web-ui starter.
 * react
 * base libs:
     - @xcmats/js-toolbox
+    - immer
     - mem-box
+    - prop-types
+    - react-redux
+    - red-g
+    - redux
+    - redux-thunk

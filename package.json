@@ -12,9 +12,16 @@
     ],
     "dependencies": {
         "@xcmats/js-toolbox": "0.13.2",
+        "immer": "9.0.6",
         "mem-box": "1.0.8",
+        "prop-types": "15.7.2",
         "react": "17.0.2",
-        "react-dom": "17.0.2"
+        "react-dom": "17.0.2",
+        "react-redux": "7.2.5",
+        "red-g": "1.0.3",
+        "redux": "4.1.1",
+        "redux-devtools-extension": "2.13.9",
+        "redux-thunk": "2.3.0"
     },
     "description": "Thin web-ui starter.",
     "devDependencies": {
@@ -23,8 +30,10 @@
         "@babel/preset-env": "7.15.8",
         "@babel/preset-react": "7.14.5",
         "@babel/preset-typescript": "7.15.0",
+        "@types/prop-types": "15.7.4",
         "@types/react": "17.0.29",
         "@types/react-dom": "17.0.9",
+        "@types/react-redux": "7.1.19",
         "@typescript-eslint/eslint-plugin": "4.33.0",
         "@typescript-eslint/parser": "4.33.0",
         "babel-loader": "8.2.2",
