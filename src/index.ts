@@ -57,7 +57,7 @@ run(async () => {
     const Root = createRootWrapper(store);
 
     // execute client-entry code
-    clientEntry();
+    await clientEntry();
 
     // embed react application
     render(
