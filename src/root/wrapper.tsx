@@ -8,9 +8,12 @@
 
 import type { FC } from "react";
 import type { Store } from "redux";
+import type { Action } from "red-g";
 import type { InferProps } from "prop-types";
 import { Provider } from "react-redux";
 import PropTypes from "prop-types";
+
+import type { RootState } from "../store/types";
 
 
 
@@ -29,7 +32,9 @@ type RootType = FC<InferProps<typeof rootPropTypes>>;
 /**
  * Root-wrapping element creation.
  */
-export default function createRootWrapper (store: Store): RootType {
+export default function createRootWrapper (
+    store: Store<RootState, Action>,
+): RootType {
     /**
      * `<Root>` - root component.
      */

@@ -8,7 +8,6 @@
 
 /* eslint-disable react-hooks/rules-of-hooks */
 
-
 import type { Middleware } from "redux";
 import thunk from "redux-thunk";
 

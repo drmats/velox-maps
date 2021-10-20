@@ -9,9 +9,23 @@
 
 import { createElement } from "react";
 import { render } from "react-dom";
-import { run } from "@xcmats/js-toolbox/utils";
-import { App } from "./app";
+import {
+    getProcess,
+    run,
+} from "@xcmats/js-toolbox/utils";
+
+import init from "./root/init";
+import createRootWrapper from "./root/wrapper";
+import { App } from "./app/App";
 import packageInfo from "../package.json";
+
+
+
+
+/**
+ * Earliest init code - before DOM is ready.
+ */
+const { clientEntry, store, ctx } = init();
 
 
 
@@ -21,27 +35,37 @@ import packageInfo from "../package.json";
  */
 export const version = packageInfo.version;
 export const env = {
-    BABEL_ENV: process.env.BABEL_ENV,
-    DEBUG: process.env.DEBUG,
+    ...getProcess().env,
     GIT_AUTHOR_DATE: process.env.GIT_AUTHOR_DATE,
     GIT_VERSION: process.env.GIT_VERSION,
-    NODE_ENV: process.env.NODE_ENV,
 };
 
 
 
 
 /**
- * Entry point.
+ * Entry point - DOM ready.
  */
 run(async () => {
-    const title = document.getElementsByTagName("title").item(0);
-    if (title) title.innerText = packageInfo.name;
 
-    const app = document.createElement("div");
+    // create application DOM attach point
     const body = document.getElementsByTagName("body");
+    const app = document.createElement("div");
     body.item(0)?.appendChild(app);
-    render(createElement(App), app);
 
-    console.info(packageInfo.name);
+    // instantiate root wrapper
+    const Root = createRootWrapper(store);
+
+    // execute client-entry code
+    clientEntry();
+
+    // embed react application
+    render(
+        createElement(Root, { element: createElement(App) }),
+        app,
+    );
+
+    // set appropriate redux flag after initial client render
+    ctx.tnk.app.setReady(true);
+
 });

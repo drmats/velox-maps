@@ -10,13 +10,13 @@ import { inc } from "@xcmats/js-toolbox/math";
 import { shuffle } from "@xcmats/js-toolbox/array";
 import { timeUnit } from "@xcmats/js-toolbox/utils";
 
-import packageInfo from "../package.json";
+import packageInfo from "../../package.json";
 
 
 
 
 /**
- * ...
+ * Component example.
  */
 export const App: FC = () => {
     // ...
