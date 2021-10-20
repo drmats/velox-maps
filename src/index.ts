@@ -11,16 +11,7 @@ import { createElement } from "react";
 import { render } from "react-dom";
 import { run } from "@xcmats/js-toolbox/utils";
 import { App } from "./app";
-import { useMemory as useBareMemory } from "mem-box";
 import packageInfo from "../package.json";
-
-
-
-
-/**
- * Type-safe instance of useMemory.
- */
-export const useMemory: (() => Ctx) = useBareMemory;
 
 
 
@@ -54,19 +45,3 @@ run(async () => {
 
     console.info(packageInfo.name);
 });
-
-
-
-
-/**
- *  Global declaration merge.
- */
-declare global {
-
-    // eslint-disable-next-line @typescript-eslint/no-empty-interface
-    interface Window { }
-
-    // eslint-disable-next-line @typescript-eslint/no-empty-interface
-    interface Ctx { }
-
-}
