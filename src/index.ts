@@ -65,7 +65,7 @@ run(async () => {
     app.innerText = packageInfo.name;
 
     const body = document.getElementsByTagName("body");
-    body.item(0)?.appendChild(app);
+    body.item(0)?.prepend(app);
 
     console.info(packageInfo.name);
 
