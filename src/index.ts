@@ -39,7 +39,7 @@ window.addEventListener("load", () => {
 
     const app = document.createElement("div");
     const body = document.getElementsByTagName("body");
-    body.item(0)?.appendChild(app);
+    body.item(0)?.prepend(app);
     render(createElement(App), app);
 
     console.info(packageInfo.name);
