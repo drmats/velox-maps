@@ -53,7 +53,7 @@ export default sliceReducer(initState) (
             (action) =>
                 isStringActionType(action) && action.type.startsWith("App/"),
             (state) => produce(state, (draft) => {
-                inc(draft.actionCount);
+                draft.actionCount = inc(draft.actionCount);
             }),
         ),
 
