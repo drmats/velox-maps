@@ -32,8 +32,6 @@ export enum AppActionType {
 
 /**
  * App component action creators.
- *
- * @constant {Object} action
  */
 export default actionCreators(AppActionType, {
 

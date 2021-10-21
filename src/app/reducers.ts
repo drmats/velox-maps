@@ -56,5 +56,4 @@ export default sliceReducer(initState) (
                 draft.actionCount = inc(draft.actionCount);
             }),
         ),
-
 );
