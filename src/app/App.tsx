@@ -5,6 +5,7 @@
 
 import type { FC } from "react";
 import { styled } from "baseui";
+import { H4 } from "baseui/typography";
 
 import { useShuffle } from "./hooks";
 import packageInfo from "../../package.json";
@@ -19,7 +20,7 @@ const Centered = styled("div", {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "100%",
+    height: "100vh",
 });
 
 
@@ -34,6 +35,6 @@ export const App: FC = () => {
 
     // ...
     return (
-        <Centered>{text}</Centered>
+        <Centered><H4>{text}</H4></Centered>
     );
 };
