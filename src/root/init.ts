@@ -11,6 +11,7 @@ import { assign } from "@xcmats/js-toolbox/struct";
 import { devEnv } from "@xcmats/js-toolbox/utils";
 import { isObject } from "@xcmats/js-toolbox/type";
 import { share } from "mem-box";
+import { Client as Styletron } from "styletron-engine-atomic";
 
 import { useMemory } from "./memory";
 import { createReduxStore } from "../store/setup";
@@ -37,6 +38,7 @@ export default function init (): ({
     clientEntry: () => Promise<void>;
     ctx: Ctx;
     store: ReturnType<typeof createReduxStore>;
+    styletronEngine: Styletron;
 }) {
 
     const
@@ -45,7 +47,10 @@ export default function init (): ({
         ctx = useMemory(),
 
         // redux store with custom middlewares
-        store = createReduxStore();
+        store = createReduxStore(),
+
+        // styletron engine
+        styletronEngine = new Styletron();
 
 
     // share application-specific variables
@@ -91,6 +96,9 @@ export default function init (): ({
 
         // ...
         store,
+
+        // ...
+        styletronEngine,
 
     };
 

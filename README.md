@@ -24,6 +24,8 @@ Thin web-ui starter.
     - red-g
     - redux
     - redux-thunk
+* ui:
+    - baseweb.design
 
 <br />
 

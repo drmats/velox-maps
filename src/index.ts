@@ -25,7 +25,7 @@ import packageInfo from "../package.json";
 /**
  * Earliest init code - before DOM is ready.
  */
-const { clientEntry, store, ctx } = init();
+const { clientEntry, store, ctx, styletronEngine } = init();
 
 
 
@@ -54,7 +54,7 @@ run(async () => {
     body.item(0)?.prepend(app);
 
     // instantiate root wrapper
-    const Root = createRootWrapper(store);
+    const Root = createRootWrapper(store, styletronEngine);
 
     // execute client-entry code
     await clientEntry();
