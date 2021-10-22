@@ -10,7 +10,7 @@ import type { FC } from "react";
 import type { Store } from "redux";
 import type { Action } from "red-g";
 import type { InferProps } from "prop-types";
-import { Provider } from "react-redux";
+import { Provider as ReduxProvider } from "react-redux";
 import PropTypes from "prop-types";
 
 import type { RootState } from "../store/types";
@@ -39,9 +39,9 @@ export default function createRootWrapper (
      * `<Root>` - root component.
      */
     const Root: RootType = ({ element }) =>
-        <Provider store={store}>
+        <ReduxProvider store={store}>
             { element }
-        </Provider>;
+        </ReduxProvider>;
 
     Root.propTypes = rootPropTypes;
 
