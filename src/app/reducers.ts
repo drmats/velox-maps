@@ -38,7 +38,7 @@ export default sliceReducer(initState) (
 
         // regular object composition/decomposition example
         .handle(act.VISIBLE, (state) => ({ ...state, visible: true }))
-        .handle(act.HIDDEN, (state) => ({ ...state, visible: true }))
+        .handle(act.HIDDEN, (state) => ({ ...state, visible: false }))
         .handle(act.CLEAR_ERROR, (state) => ({ ...state, error: null }))
 
         // type-predicate action matcher example (action payload)
