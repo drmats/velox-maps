@@ -12,8 +12,9 @@ import { devEnv } from "@xcmats/js-toolbox/utils";
 import { isObject } from "@xcmats/js-toolbox/type";
 import { share } from "mem-box";
 
-import { useMemory } from "./memory";
 import { createReduxStore } from "../store/setup";
+import { devNamespaceKey } from "./config";
+import { useMemory } from "./memory";
 import packageInfo from "../../package.json";
 
 
@@ -78,6 +79,7 @@ export default function init (): ({
                 } else {
                     window[packageInfo.name] = devNs;
                 }
+                window[devNamespaceKey] = window[packageInfo.name];
             }
 
             // set window title
