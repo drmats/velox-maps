@@ -7,25 +7,13 @@
 
 /* eslint-disable react-hooks/rules-of-hooks */
 
-import { assign } from "@xcmats/js-toolbox/struct";
-import { devEnv } from "@xcmats/js-toolbox/utils";
-import { isObject } from "@xcmats/js-toolbox/type";
 import { share } from "mem-box";
 import { Client as Styletron } from "styletron-engine-atomic";
 
-import { useMemory } from "./memory";
 import { createReduxStore } from "../store/setup";
+import { exposeDevNamespace } from "./dev";
+import { useMemory } from "./memory";
 import packageInfo from "../../package.json";
-
-
-
-
-/**
- * Development environment libraries.
- */
-const devEnvLibs = async (): Promise<Record<string, unknown>> => ({
-    toolbox: await import("@xcmats/js-toolbox"),
-});
 
 
 
@@ -71,19 +59,7 @@ export default function init (): ({
             logger.info(`Boom! 💥 - ${packageInfo.name}`);
 
             // expose dev. namespace and some convenience shortcuts
-            if (devEnv()) {
-                const
-                    devNs = window[packageInfo.name],
-                    devNsContent = {
-                        libs: await devEnvLibs(),
-                        ctx, packageInfo,
-                    };
-                if (isObject(devNs)) {
-                    assign(devNs, devNsContent);
-                } else {
-                    window[packageInfo.name] = devNs;
-                }
-            }
+            await exposeDevNamespace();
 
             // set window title
             const title = document.getElementsByTagName("title").item(0);
