@@ -8,9 +8,9 @@
 
 /* eslint-disable react-hooks/rules-of-hooks */
 
-import type { Middleware } from "redux";
 import thunk from "redux-thunk";
 
+import type { Middleware } from "./types";
 import { useMemory } from "../root/memory";
 
 
