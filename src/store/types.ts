@@ -5,8 +5,14 @@
  * @copyright Mat. 2020-present
  */
 
-import type { ThunkAction } from "redux-thunk";
+/* eslint-disable @typescript-eslint/ban-types */
+
 import type { Action } from "red-g";
+import type {
+    Dispatch,
+    Middleware as BareMiddleware,
+} from "redux";
+import type { ThunkAction } from "redux-thunk";
 
 import type { rootReducer } from "./root";
 
@@ -30,3 +36,15 @@ export type ThunkType<R = void> = ThunkAction<
     Ctx,
     Action
 >;
+
+
+
+
+/**
+ * Application middleware type.
+ */
+export type Middleware<
+    DispatchExt = {},
+    S = RootState,
+    D extends Dispatch = Dispatch,
+> = BareMiddleware<DispatchExt, S, D>;
