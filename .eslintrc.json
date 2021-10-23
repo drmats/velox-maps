@@ -45,6 +45,7 @@
         "no-unexpected-multiline": "error",
         "no-unused-vars": ["warn", {"args": "all", "argsIgnorePattern": "^_"}],
         "object-curly-newline": "off",
+        "object-curly-spacing": ["error", "always"],
         "prefer-const": "error",
         "quotes": ["error", "double"],
         "semi": ["error", "always"],
