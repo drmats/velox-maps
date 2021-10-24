@@ -14,10 +14,10 @@ import {
     run,
 } from "@xcmats/js-toolbox/utils";
 
-import init from "./root/init";
-import createRootWrapper from "./root/wrapper";
-import { App } from "./app/App";
-import packageInfo from "../package.json";
+import init from "~/root/init";
+import createRootWrapper from "~/root/wrapper";
+import { App } from "~/app/App";
+import packageInfo from "~/../package.json";
 
 
 

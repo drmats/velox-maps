@@ -17,16 +17,16 @@ import {
 import { bindActionCreatorsTree } from "red-g";
 import { isFunction } from "@xcmats/js-toolbox/type";
 
+import { useMemory } from "~/root/memory";
 import {
     action,
     rootReducer,
     thunk,
-} from "./root";
-import { attachListeners } from "./listeners";
-import type { RootState } from "./types";
-import { getComposer } from "./tools";
-import assemblyMiddlewares from "./middlewares";
-import { useMemory } from "../root/memory";
+} from "~/store/root";
+import { attachListeners } from "~/store/listeners";
+import type { RootState } from "~/store/types";
+import { getComposer } from "~/store/tools";
+import assemblyMiddlewares from "~/store/middlewares";
 
 
 

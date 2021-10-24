@@ -16,7 +16,7 @@ import { Client as Styletron } from "styletron-engine-atomic";
 import { Provider as StyletronProvider } from "styletron-react";
 import { DarkTheme, BaseProvider } from "baseui";
 
-import type { RootState } from "../store/types";
+import type { RootState } from "~/store/types";
 
 
 

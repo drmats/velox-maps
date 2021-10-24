@@ -7,7 +7,7 @@
 
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 
-import type { RootState } from "../store/types";
+import type { RootState } from "~/store/types";
 
 
 

@@ -7,8 +7,8 @@ import type { FC } from "react";
 import { styled } from "baseui";
 import { H4 } from "baseui/typography";
 
-import { useShuffle } from "./hooks";
-import packageInfo from "../../package.json";
+import { useShuffle } from "~/app/hooks";
+import packageInfo from "~/../package.json";
 
 
 

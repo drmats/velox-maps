@@ -5,7 +5,7 @@
  * @copyright Mat. 2020-present
  */
 
-import type { ThunkType } from "../store/types";
+import type { ThunkType } from "~/store/types";
 
 
 

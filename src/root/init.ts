@@ -10,10 +10,10 @@
 import { share } from "mem-box";
 import { Client as Styletron } from "styletron-engine-atomic";
 
-import { createReduxStore } from "../store/setup";
-import { exposeDevNamespace } from "./dev";
-import { useMemory } from "./memory";
-import packageInfo from "../../package.json";
+import { createReduxStore } from "~/store/setup";
+import { exposeDevNamespace } from "~/root/dev";
+import { useMemory } from "~/root/memory";
+import packageInfo from "~/../package.json";
 
 
 

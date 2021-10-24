@@ -5,9 +5,8 @@
  * @copyright Mat. 2020-present
  */
 
-import type { ThunkType } from "../store/types";
-
-import { getReady } from "./selectors";
+import type { ThunkType } from "~/store/types";
+import { getReady } from "~/app/selectors";
 
 
 
