@@ -19,6 +19,18 @@ const
         }],
     ],
 
+    plugins = [
+        [
+            "module-resolver",
+            {
+                root: ["./src"],
+                alias: {
+                    "~": "./src",
+                },
+            },
+        ],
+    ],
+
     config = {
         comments: false,
         shouldPrintComment: () => false,
@@ -33,6 +45,7 @@ module.exports = function (api) {
 
     return {
         presets,
+        plugins,
         ...config,
     };
 };
