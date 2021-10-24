@@ -38,7 +38,7 @@ module.exports = {
 
     "parserOptions": {
         "ecmaFeatures": {
-            "jsx": true
+            "jsx": true,
         },
         "ecmaVersion": "latest",
         "sourceType": "module",
@@ -48,7 +48,7 @@ module.exports = {
     "plugins": [
         "import",
         "react",
-        "react-hooks"
+        "react-hooks",
     ],
 
 
@@ -102,12 +102,12 @@ module.exports = {
         "react/sort-prop-types": ["error", {
             "ignoreCase": false,
             "callbacksLast": true,
-            "requiredFirst": true
+            "requiredFirst": true,
         }],
         "react/style-prop-object": "error",
 
         "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn"
+        "react-hooks/exhaustive-deps": "warn",
     },
 
 
@@ -145,9 +145,9 @@ module.exports = {
                 "comma-dangle": "off",
                 "indent": ["warn", 4, { "SwitchCase": 1 }],
                 "prefer-const": "error",
-                "semi": "off"
-            }
-        }
+                "semi": "off",
+            },
+        },
     ],
 
 
@@ -161,7 +161,7 @@ module.exports = {
         "react": {
             "pragma": "React",
             "version": "detect",
-        }
-    }
+        },
+    },
 
 };
