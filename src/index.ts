@@ -7,7 +7,7 @@
 
 /* eslint-disable no-console */
 
-import packageInfo from "../package.json";
+import packageInfo from "~/../package.json";
 
 
 
