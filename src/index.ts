@@ -13,7 +13,8 @@ import { shuffle } from "@xcmats/js-toolbox/array";
 import { delay } from "@xcmats/js-toolbox/async";
 import { timeUnit } from "@xcmats/js-toolbox/utils";
 import { useMemory as useBareMemory } from "mem-box";
-import packageInfo from "../package.json";
+
+import packageInfo from "~/../package.json";
 
 
 
