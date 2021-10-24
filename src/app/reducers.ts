@@ -14,8 +14,8 @@ import {
 import produce from "immer";
 import { inc } from "@xcmats/js-toolbox/math";
 
-import initState from "./state";
-import act from "./actions";
+import initState from "~/app/state";
+import act from "~/app/actions";
 
 
 

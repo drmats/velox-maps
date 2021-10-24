@@ -13,7 +13,7 @@ import type { InferProps } from "prop-types";
 import { Provider as ReduxProvider } from "react-redux";
 import PropTypes from "prop-types";
 
-import type { RootState } from "../store/types";
+import type { RootState } from "~/store/types";
 
 
 

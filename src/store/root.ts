@@ -8,9 +8,9 @@
 
 import { combineReducers } from "redux";
 
-import appActions from "../app/actions";
-import appReducers from "../app/reducers";
-import appThunks from "../app/thunks";
+import appActions from "~/app/actions";
+import appReducers from "~/app/reducers";
+import appThunks from "~/app/thunks";
 
 
 

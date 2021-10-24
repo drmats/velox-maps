@@ -11,9 +11,9 @@ import { assign } from "@xcmats/js-toolbox/struct";
 import { devEnv } from "@xcmats/js-toolbox/utils";
 import { isObject } from "@xcmats/js-toolbox/type";
 
-import { devNamespaceKey } from "./config";
-import { useMemory } from "./memory";
-import packageInfo from "../../package.json";
+import { devNamespaceKey } from "~/root/config";
+import { useMemory } from "~/root/memory";
+import packageInfo from "~/../package.json";
 
 
 

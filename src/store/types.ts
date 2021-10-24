@@ -14,7 +14,7 @@ import type {
 } from "redux";
 import type { ThunkAction } from "redux-thunk";
 
-import type { rootReducer } from "./root";
+import type { rootReducer } from "~/store/root";
 
 
 

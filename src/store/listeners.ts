@@ -6,8 +6,8 @@
  * @copyright Mat. 2021-present
  */
 
-import type { ThunkType } from "./types";
-import appListener from "../app/listener";
+import type { ThunkType } from "~/store/types";
+import appListener from "~/app/listener";
 
 
 

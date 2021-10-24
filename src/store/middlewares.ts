@@ -10,8 +10,8 @@
 
 import thunk from "redux-thunk";
 
-import type { Middleware } from "./types";
-import { useMemory } from "../root/memory";
+import type { Middleware } from "~/store/types";
+import { useMemory } from "~/root/memory";
 
 
 
