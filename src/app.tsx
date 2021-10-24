@@ -3,7 +3,7 @@
  * @copyright Mat. 2021-present
  */
 
-import packageInfo from "../package.json";
+import packageInfo from "~/../package.json";
 
 
 
