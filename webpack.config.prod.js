@@ -79,6 +79,7 @@ module.exports = {
 
 
     performance: {
+        maxEntrypointSize: 512*1024,
         maxAssetSize: 1024*1024,
     },
 
