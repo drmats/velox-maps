@@ -6,16 +6,17 @@
  * @copyright Mat. 2020-present
  */
 
-import type { FC } from "react";
-import type { Store } from "redux";
 import type { Action } from "red-g";
+import type { FC } from "react";
 import type { InferProps } from "prop-types";
-import { Provider as ReduxProvider } from "react-redux";
-import PropTypes from "prop-types";
+import type { Store } from "redux";
 import { Client as Styletron } from "styletron-engine-atomic";
+import { BaseProvider } from "baseui";
+import { Provider as ReduxProvider } from "react-redux";
 import { Provider as StyletronProvider } from "styletron-react";
-import { DarkTheme, BaseProvider } from "baseui";
+import PropTypes from "prop-types";
 
+import { MyTheme } from "~/layout/theme";
 import type { RootState } from "~/store/types";
 
 
@@ -45,7 +46,7 @@ export default function createRootWrapper (
     const Root: RootType = ({ element }) =>
         <ReduxProvider store={store}>
             <StyletronProvider value={engine}>
-                <BaseProvider theme={DarkTheme}>
+                <BaseProvider theme={MyTheme}>
                     { element }
                 </BaseProvider>
             </StyletronProvider>
