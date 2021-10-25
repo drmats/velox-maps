@@ -5,11 +5,11 @@
  * @copyright Mat. 2018-present
  */
 
-
-
+"use strict";
 
 // ...
 const
+
     { realpathSync } = require("fs"),
     { resolve } = require("path"),
     appDirectory = realpathSync(process.cwd());

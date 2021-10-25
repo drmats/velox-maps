@@ -5,8 +5,7 @@
  * @copyright Mat. 2019-present
  */
 
-
-
+"use strict";
 
 // ...
 const
