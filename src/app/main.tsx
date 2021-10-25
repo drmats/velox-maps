@@ -4,24 +4,12 @@
  */
 
 import type { FC } from "react";
-import { styled } from "baseui";
+import { useStyletron } from "baseui";
 import { H4 } from "baseui/typography";
 
 import { useShuffle } from "~/app/hooks";
+import { Centered } from "~/layout/containers";
 import packageInfo from "~/../package.json";
-
-
-
-
-/**
- * ...
- */
-const Centered = styled("div", {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100vh",
-});
 
 
 
@@ -31,10 +19,18 @@ const Centered = styled("div", {
  */
 export const App: FC = () => {
     // ...
+    const [css] = useStyletron();
     const text = useShuffle(packageInfo.name);
 
     // ...
     return (
-        <Centered><H4>{text}</H4></Centered>
+        <Centered
+            className={css({
+                alignItems: "center",
+                height: "100vh",
+            })}
+        >
+            <H4>{text}</H4>
+        </Centered>
     );
 };
