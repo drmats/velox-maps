@@ -155,6 +155,7 @@ module.exports = {
         "import/resolver": {
             "alias": {
                 "map": [["~", resolve(appDirectory, "src")]],
+                "mapbox-gl": [["maplibre-gl"]],
             },
         },
 

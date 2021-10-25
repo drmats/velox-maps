@@ -36,6 +36,7 @@ module.exports = {
         extensions: [".js", ".ts", ".jsx", ".tsx", ".json"],
         alias: {
             "~": resolve(appDirectory, "src"),
+            "mapbox-gl": "maplibre-gl",
         },
     },
 
@@ -96,6 +97,10 @@ module.exports = {
                     /node_modules\/react-dom/,
                 ],
                 sideEffects: false,
+            },
+            {
+                test: /\.(css)$/i,
+                use: ["style-loader", "css-loader"],
             },
         ],
     },

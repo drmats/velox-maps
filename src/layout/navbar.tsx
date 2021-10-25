@@ -65,7 +65,7 @@ export default function NavBar (): JSX.Element {
                             <RowContainer
                                 className={css({ alignItems: "baseline" })}
                             >
-                                <Label1>base-react-baseui-styled</Label1>
+                                <Label1>base-react-baseui-maplibre</Label1>
                                 <Label3>{packageInfo.version}</Label3>
                                 <MonoLabelSmall>
                                     ({env.GIT_VERSION})
@@ -75,18 +75,6 @@ export default function NavBar (): JSX.Element {
                     </Centered>
                 </TopBox>
             </Layer>
-
-            <div
-                className={css({
-                    width: "100%",
-                    [theme.mediaQuery.small]: {
-                        height: theme.sizing.scale1200,
-                    },
-                    [theme.mediaQuery.medium]: {
-                        height: "72px",
-                    },
-                })}
-            />
         </>
     );
 }

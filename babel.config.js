@@ -25,6 +25,7 @@ const
                 root: ["./src"],
                 alias: {
                     "~": "./src",
+                    "mapbox-gl": "maplibre-gl",
                 },
             },
         ],
