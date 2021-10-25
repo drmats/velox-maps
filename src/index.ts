@@ -16,7 +16,7 @@ import {
 
 import init from "~/root/init";
 import createRootWrapper from "~/root/wrapper";
-import { App } from "~/app/App";
+import { App } from "~/app/main";
 import packageInfo from "~/../package.json";
 
 
