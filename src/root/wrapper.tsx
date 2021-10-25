@@ -7,10 +7,10 @@
  */
 
 import type { Action } from "red-g";
+import type { Client as Styletron } from "styletron-engine-atomic";
 import type { FC } from "react";
 import type { InferProps } from "prop-types";
 import type { Store } from "redux";
-import { Client as Styletron } from "styletron-engine-atomic";
 import { BaseProvider } from "baseui";
 import { Provider as ReduxProvider } from "react-redux";
 import { Provider as StyletronProvider } from "styletron-react";
