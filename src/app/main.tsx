@@ -8,6 +8,7 @@ import { useStyletron } from "baseui";
 import { H4 } from "baseui/typography";
 
 import { useShuffle } from "~/app/hooks";
+import NavBar from "~/layout/navbar";
 import { Centered } from "~/layout/containers";
 import packageInfo from "~/../package.json";
 
@@ -24,13 +25,17 @@ export const App: FC = () => {
 
     // ...
     return (
-        <Centered
-            className={css({
-                alignItems: "center",
-                height: "100vh",
-            })}
-        >
-            <H4>{text}</H4>
-        </Centered>
+        <>
+            <NavBar />
+
+            <Centered
+                className={css({
+                    alignItems: "center",
+                    height: "calc(100vh - 72px)",
+                })}
+            >
+                <H4>{text}</H4>
+            </Centered>
+        </>
     );
 };
