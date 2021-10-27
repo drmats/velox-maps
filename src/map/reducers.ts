@@ -16,20 +16,19 @@ import act from "~/map/actions";
 /**
  * Map component reducer.
  */
-export default sliceReducer(initState) (
-    (slice) => slice
-        // full state reset
-        .handle(act.RESET, () => initState)
+export default sliceReducer(initState) ((slice) => slice
+    // full state reset
+    .handle(act.RESET, () => initState)
 
-        // set ready state
-        .handle(act.SET_READY, (state, { ready }) => ({
-            ...state,
-            ...{ ready },
-        }))
+    // set ready state
+    .handle(act.SET_READY, (state, { ready }) => ({
+        ...state,
+        ...{ ready },
+    }))
 
-        // set viewport
-        .handle(act.SET_VIEWPORT, (state, { viewport }) => ({
-            ...state,
-            ...{ viewport },
-        })),
+    // set viewport
+    .handle(act.SET_VIEWPORT, (state, { viewport }) => ({
+        ...state,
+        ...{ viewport },
+    })),
 );
