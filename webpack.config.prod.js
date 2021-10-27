@@ -94,6 +94,7 @@ module.exports = {
                 test: /\.(js|ts|jsx|tsx)$/,
                 loader: "babel-loader",
                 exclude: [
+                    /node_modules\/maplibre-gl/,
                     /node_modules\/react-dom/,
                 ],
                 sideEffects: false,
