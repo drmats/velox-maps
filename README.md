@@ -15,8 +15,8 @@ Thin web-ui starter.
 * webpack
 * webpack-dev-server
 * base libs:
-    - @xcmats/js-toolbox
-    - mem-box
+    - [@xcmats/js-toolbox](https://drmats.github.io/js-toolbox/)
+    - [mem-box](https://drmats.github.io/mem-box/)
 
 <br />
 
