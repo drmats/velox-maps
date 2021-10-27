@@ -17,16 +17,40 @@ Thin web-ui starter.
 * simple `css` + `favicon`
 * react
 * base libs:
-    - @xcmats/js-toolbox
+    - [@xcmats/js-toolbox](https://drmats.github.io/js-toolbox/)
     - immer
-    - mem-box
+    - [mem-box](https://drmats.github.io/mem-box/)
     - prop-types
     - react-redux
-    - red-g
+    - [red-g](https://drmats.github.io/red-g/)
     - redux
     - redux-thunk
 * ui:
     - baseweb.design
+
+<br />
+
+
+
+
+## development
+
+```
+npm i
+npm run lint
+npm run dev
+```
+
+<br />
+
+
+
+
+## production build
+
+```
+npm run build
+```
 
 <br />
 
