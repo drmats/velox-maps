@@ -6,6 +6,7 @@
 import type { FC } from "react";
 
 import NavBar from "~/layout/navbar";
+import { InfoBox } from "~/map/components";
 import MapGL from "~/map/mapgl.mod";
 
 
@@ -20,6 +21,7 @@ export const App: FC = () => {
     return (
         <>
             <NavBar />
+            <InfoBox />
             <MapGL
                 {...{ mapStyle }}
                 width="100vw"
