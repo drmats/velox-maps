@@ -7,7 +7,7 @@ Thin web-ui starter.
 
 
 
-## bare -> base | bare-react | bare-styled -> base-react-baseui-maplibre
+## base-react-baseui-styled -> base-react-baseui-maplibre
 
 * typescript
 * babel
