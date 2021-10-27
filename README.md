@@ -7,7 +7,7 @@ Thin web-ui starter.
 
 
 
-## bare -> base | bare-react | bare-styled -> base-react-baseui-styled
+## bare -> base | bare-react | bare-styled -> base-react-baseui-maplibre
 
 * typescript
 * babel
@@ -27,6 +27,8 @@ Thin web-ui starter.
     - redux-thunk
 * ui:
     - baseweb.design
+* maplibre-gl
+* react-map-gl
 
 <br />
 
