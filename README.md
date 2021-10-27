@@ -16,14 +16,38 @@ Thin web-ui starter.
 * webpack-dev-server
 * react
 * base libs:
-    - @xcmats/js-toolbox
+    - [@xcmats/js-toolbox](https://drmats.github.io/js-toolbox/)
     - immer
-    - mem-box
+    - [mem-box](https://drmats.github.io/mem-box/)
     - prop-types
     - react-redux
-    - red-g
+    - [red-g](https://drmats.github.io/red-g/)
     - redux
     - redux-thunk
+
+<br />
+
+
+
+
+## development
+
+```
+npm i
+npm run lint
+npm run dev
+```
+
+<br />
+
+
+
+
+## production build
+
+```
+npm run build
+```
 
 <br />
 
