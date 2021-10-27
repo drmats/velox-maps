@@ -16,3 +16,17 @@ export interface MapViewport {
     longitude: number;
     zoom: number;
 }
+
+
+
+
+/**
+ * ...
+ */
+export interface MapGLProps {
+    mapStyle: string;
+    width: string;
+    height: string;
+    minZoom: number;
+    maxZoom: number;
+}

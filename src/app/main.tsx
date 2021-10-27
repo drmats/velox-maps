@@ -15,12 +15,18 @@ import MapGL from "~/map/mapgl";
  * Main application component.
  */
 export const App: FC = () => {
+    const mapStyle = "https://demotiles.maplibre.org/style.json";
 
-    // ...
     return (
         <>
             <NavBar />
-            <MapGL />
+            <MapGL
+                {...{ mapStyle }}
+                width="100vw"
+                height="100vh"
+                minZoom={2}
+                maxZoom={14}
+            />
         </>
     );
 };
