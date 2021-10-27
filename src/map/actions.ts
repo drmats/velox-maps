@@ -18,6 +18,7 @@ import type { MapViewport } from "~/map/types";
 export enum MapActionType {
 
     RESET = "Map/RESET",
+    SET_READY = "Map/SET_READY",
     SET_VIEWPORT = "Map/SET_VIEWPORT",
 
 }
@@ -30,6 +31,7 @@ export enum MapActionType {
  */
 export default actionCreators(MapActionType, {
 
+    SET_READY: (ready: boolean) => ({ ready }),
     SET_VIEWPORT: (viewport: MapViewport) => ({ viewport }),
 
 });

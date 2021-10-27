@@ -15,6 +15,9 @@ import type { MapViewport } from "~/map/types";
  */
 export default {
 
+    // is map loaded and ready?
+    ready: false,
+
     // viewport state
     viewport: {
         latitude: 52.06,

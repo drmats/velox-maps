@@ -12,4 +12,5 @@ import type { RootState } from "~/store/types";
 
 
 
+export const getReady = (s: RootState) => s.map.ready;
 export const getViewport = (s: RootState) => s.map.viewport;

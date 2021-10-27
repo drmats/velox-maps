@@ -21,6 +21,12 @@ export default sliceReducer(initState) (
         // full state reset
         .handle(act.RESET, () => initState)
 
+        // set ready state
+        .handle(act.SET_READY, (state, { ready }) => ({
+            ...state,
+            ...{ ready },
+        }))
+
         // set viewport
         .handle(act.SET_VIEWPORT, (state, { viewport }) => ({
             ...state,

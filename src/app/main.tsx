@@ -6,7 +6,7 @@
 import type { FC } from "react";
 
 import NavBar from "~/layout/navbar";
-import MapGL from "~/map/mapgl";
+import MapGL from "~/map/mapgl.mod";
 
 
 

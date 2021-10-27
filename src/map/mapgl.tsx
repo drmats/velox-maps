@@ -5,6 +5,9 @@
  * @copyright Mat. 2020-present
  */
 
+/* eslint-disable react-hooks/exhaustive-deps */
+
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import ReactMapGL from "react-map-gl";
 
@@ -21,7 +24,7 @@ import "maplibre-gl/dist/maplibre-gl.css";
 
 
 /**
- * ...
+ * Interactive map display with redux-managed viewport state.
  */
 export default function MapGL ({
     mapStyle,
@@ -33,14 +36,21 @@ export default function MapGL ({
     const { act } = useMemory();
     const viewport = useSelector(getViewport);
 
+    useEffect(() => {
+        act.map.SET_READY(true);
+        return () => { act.map.SET_READY(false); };
+    }, []);
+
     return (
         <ReactMapGL
             attributionControl={false}
-            {...{ mapStyle }}
-            {...{ width }}
-            {...{ height }}
-            {...{ minZoom }}
-            {...{ maxZoom }}
+            {...{
+                mapStyle,
+                width,
+                height,
+                minZoom,
+                maxZoom,
+            }}
             {...viewport}
             onViewportChange={({
                 latitude, longitude, zoom,
