@@ -12,7 +12,7 @@ import packageInfo from "~/../package.json";
 
 
 /**
- * Component example.
+ * Main application component.
  */
 export const App: FC = () => {
     // ...
