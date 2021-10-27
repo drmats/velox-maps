@@ -21,6 +21,30 @@ Thin web-ui starter.
 
 
 
+## development
+
+```
+npm i
+npm run lint
+npm run dev
+```
+
+<br />
+
+
+
+
+## production build
+
+```
+npm run build
+```
+
+<br />
+
+
+
+
 ## license
 
 **velox** is released under the BSD 2-Clause license. See the
