@@ -5,13 +5,15 @@
  * @copyright Mat. 2020-present
  */
 
-import { useState } from "react";
+import { useSelector } from "react-redux";
 import ReactMapGL from "react-map-gl";
 
 import type {
     MapGLProps,
     MapViewport,
 } from "~/map/types";
+import { useMemory } from "~/root/memory";
+import { getViewport } from "~/map/selectors";
 
 import "maplibre-gl/dist/maplibre-gl.css";
 
@@ -28,11 +30,8 @@ export default function MapGL ({
     minZoom,
     maxZoom,
 }: MapGLProps): JSX.Element {
-    const [viewport, setViewport] = useState<MapViewport>({
-        latitude: 52.06,
-        longitude: 19.85,
-        zoom: 5,
-    });
+    const { act } = useMemory();
+    const viewport = useSelector(getViewport);
 
     return (
         <ReactMapGL
@@ -43,10 +42,10 @@ export default function MapGL ({
             {...{ minZoom }}
             {...{ maxZoom }}
             {...viewport}
-            onViewportChange={(v: MapViewport) => setViewport({
-                latitude: v.latitude,
-                longitude: v.longitude,
-                zoom: v.zoom,
+            onViewportChange={({
+                latitude, longitude, zoom,
+            }: MapViewport) => act.map.SET_VIEWPORT({
+                latitude, longitude, zoom,
             })}
         />
     );

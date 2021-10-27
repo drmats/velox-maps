@@ -12,6 +12,9 @@ import appActions from "~/app/actions";
 import appReducers from "~/app/reducers";
 import appThunks from "~/app/thunks";
 
+import mapActions from "~/map/actions";
+import mapReducers from "~/map/reducers";
+
 
 
 
@@ -20,6 +23,7 @@ import appThunks from "~/app/thunks";
  */
 export const action = {
     app: appActions,
+    map: mapActions,
 };
 
 
@@ -30,6 +34,7 @@ export const action = {
  */
 export const rootReducer = combineReducers({
     app: appReducers,
+    map: mapReducers,
 });
 
 
