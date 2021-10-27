@@ -43,6 +43,18 @@ export default function NavBar (): JSX.Element {
                                     backgroundColor: $theme.colors.accent700,
                                 }),
                             },
+                            AppName: {
+                                style: ({ $theme }) => ({
+                                    [$theme.mediaQuery.small]: {
+                                        width: "0px",
+                                        overflow: "hidden",
+                                    },
+                                    [$theme.mediaQuery.medium]: {
+                                        width: "auto",
+                                        overflow: "visible",
+                                    },
+                                }),
+                            },
                         }}
                     />
                 </TopBox>
