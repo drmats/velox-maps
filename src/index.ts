@@ -15,8 +15,6 @@ import {
 } from "@xcmats/js-toolbox/utils";
 
 import init from "~/root/init";
-import createRootWrapper from "~/root/wrapper";
-import { App } from "~/app/main";
 import packageInfo from "~/../package.json";
 
 
@@ -53,11 +51,17 @@ run(async () => {
     const app = document.createElement("div");
     body.item(0)?.prepend(app);
 
+    // fetch root wrapper module tree
+    const { default: createRootWrapper } = await import("~/root/wrapper");
+
     // instantiate root wrapper
     const Root = createRootWrapper(store);
 
     // execute client-entry code
     await clientEntry();
+
+    // fetch Application module tree
+    const { App } = await import("~/app/main");
 
     // embed react application
     render(
