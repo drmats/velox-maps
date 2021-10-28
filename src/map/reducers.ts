@@ -26,6 +26,12 @@ export default sliceReducer(initState) ((slice) => slice
         ...{ ready },
     }))
 
+    // set tilesource
+    .handle(act.SET_TILESOURCE, (state, { tilesource }) => ({
+        ...state,
+        ...{ tilesource },
+    }))
+
     // set viewport
     .handle(act.SET_VIEWPORT, (state, { viewport }) => ({
         ...state,

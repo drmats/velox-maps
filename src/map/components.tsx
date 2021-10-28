@@ -11,14 +11,20 @@ import {
     styled,
     useStyletron,
 } from "baseui";
+import { Combobox } from "baseui/combobox";
+import { SIZE } from "baseui/select";
 import { Layer } from "baseui/layer";
 import { Label3 } from "baseui/typography";
 import { padLeft } from "@xcmats/js-toolbox/string";
 
+import { useMemory } from "~/root/memory";
 import {
     getReady,
+    getTilesource,
     getViewport,
 } from "~/map/selectors";
+import type { TileSource } from "~/map/types";
+import { tileSources } from "~/map/constants";
 
 
 
@@ -97,6 +103,47 @@ export const InfoBox: FC = () => {
                     <Label3>{format(viewport.longitude)}</Label3>
                     <Label3>{format(viewport.zoom)}</Label3>
                 </Column>
+            </Row>
+        </Layer> : null
+    );
+};
+
+
+
+
+/**
+ * ...
+ */
+export const BottomBox: FC = () => {
+    const [css] = useStyletron();
+    const ready = useSelector(getReady);
+    const tilesource = useSelector(getTilesource);
+    const { act } = useMemory();
+
+
+    return (
+        ready ? <Layer>
+            <Row
+                className={css({
+                    position: "fixed",
+                    right: "10px",
+                    justifyContent: "center",
+                    bottom: "10px",
+                })}
+            >
+                <Combobox
+                    autocomplete={false}
+                    value={tilesource.label}
+                    onChange={(_, option) =>
+                        option && act.map.SET_TILESOURCE(option as TileSource)
+                    }
+                    size={SIZE.mini}
+                    options={tileSources}
+                    mapOptionToString={option => option.label}
+                    overrides={{
+                        Root: { style: () => ({ width: "120px" }) },
+                    }}
+                />
             </Row>
         </Layer> : null
     );

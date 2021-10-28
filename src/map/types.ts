@@ -9,7 +9,7 @@
 
 
 /**
- * ...
+ * Real-time viewport state.
  */
 export interface MapViewport {
     latitude: number;
@@ -21,7 +21,7 @@ export interface MapViewport {
 
 
 /**
- * ...
+ * MapGL component properties.
  */
 export interface MapGLProps {
     mapStyle: string;
@@ -29,4 +29,15 @@ export interface MapGLProps {
     height: string;
     minZoom: number;
     maxZoom: number;
+}
+
+
+
+
+/**
+ * Map style source.
+ */
+export interface TileSource {
+    label: string;
+    url: string;
 }

@@ -4,9 +4,14 @@
  */
 
 import type { FC } from "react";
+import { useSelector } from "react-redux";
 
 import NavBar from "~/layout/navbar";
-import { InfoBox } from "~/map/components";
+import {
+    BottomBox,
+    InfoBox,
+} from "~/map/components";
+import { getTilesource } from "~/map/selectors";
 import MapGL from "~/map/mapgl.mod";
 
 
@@ -16,12 +21,13 @@ import MapGL from "~/map/mapgl.mod";
  * Main application component.
  */
 export const App: FC = () => {
-    const mapStyle = "https://demotiles.maplibre.org/style.json";
+    const mapStyle = useSelector(getTilesource).url;
 
     return (
         <>
             <NavBar />
             <InfoBox />
+            <BottomBox />
             <MapGL
                 {...{ mapStyle }}
                 width="100vw"
