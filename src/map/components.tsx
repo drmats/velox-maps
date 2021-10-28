@@ -15,7 +15,6 @@ import { Combobox } from "baseui/combobox";
 import { SIZE } from "baseui/select";
 import { Layer } from "baseui/layer";
 import { Label3 } from "baseui/typography";
-import { padLeft } from "@xcmats/js-toolbox/string";
 
 import { useMemory } from "~/root/memory";
 import {
@@ -25,21 +24,7 @@ import {
 } from "~/map/selectors";
 import type { TileSource } from "~/map/types";
 import { tileSources } from "~/map/constants";
-
-
-
-
-/**
- * ...
- */
-const format = (input: number, n = 3): string => {
-    const i = Math.floor(input*10**n), ia = Math.abs(i);
-    return (
-        (i === ia ? "" : "-") +
-        String(Math.floor(ia/10**n))+ "." +
-        padLeft(String(Math.floor(ia%10**n)), n, "0")
-    );
-};
+import { format } from "~/map/functions";
 
 
 
@@ -96,7 +81,7 @@ export const InfoBox: FC = () => {
                 </Column>
                 <Column
                     className={css({
-                        width: "50px",
+                        width: "60px",
                     })}
                 >
                     <Label3>{format(viewport.latitude)}</Label3>
