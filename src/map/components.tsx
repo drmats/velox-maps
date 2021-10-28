@@ -143,6 +143,7 @@ export const BottomBox: FC = () => {
                     overrides={{
                         Root: { style: () => ({ width: "120px" }) },
                     }}
+                    onFocus={(e) => e.target.blur()}
                 />
             </Row>
         </Layer> : null
