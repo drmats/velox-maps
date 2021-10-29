@@ -12,6 +12,7 @@ import thunk from "redux-thunk";
 
 import type { Middleware } from "~/store/types";
 import { useMemory } from "~/root/memory";
+import createMapGLMiddleware from "~/map/middleware";
 
 
 
@@ -24,5 +25,6 @@ export default function assemblyMiddlewares (): Middleware[] {
 
     return [
         thunk.withExtraArgument(ctx),
+        createMapGLMiddleware(),
     ];
 }
