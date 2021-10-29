@@ -14,7 +14,7 @@ import throttle from "lodash.throttle";
 import { useMemory } from "~/root/memory";
 import type { Middleware } from "~/store/types";
 import type { MapViewport } from "~/map/types";
-import { format as f } from "~/map/functions";
+import { mapViewportToHashString } from "~/map/functions";
 
 
 
@@ -25,8 +25,7 @@ import { format as f } from "~/map/functions";
 const HISTORY_STATE_UPDATE_TRESHOLD = 200;
 const replaceHistoryState = throttle(
     (v: MapViewport) => history.replaceState(
-        undefined, "",
-        `#${f(v.zoom)}/${f(v.latitude)}/${f(v.longitude)}`,
+        undefined, "", mapViewportToHashString(v),
     ),
     HISTORY_STATE_UPDATE_TRESHOLD,
 );
