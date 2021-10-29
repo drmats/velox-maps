@@ -1,13 +1,19 @@
 # velox
 
-Thin web-ui starter.
+Thin web-ui starter (react + ui).
 
 <br />
 
 
 
 
-## base-react | bare-styled -> base-react-baseui-styled
+## content
+
+### base branch
+
+[velox:base-react](https://github.com/drmats/velox/tree/base-react)
+
+### configured environments
 
 * typescript
 * babel
@@ -16,17 +22,21 @@ Thin web-ui starter.
 * webpack-dev-server
 * simple `css` + `favicon`
 * react
-* base libs:
-    - [@xcmats/js-toolbox](https://drmats.github.io/js-toolbox/)
-    - immer
-    - [mem-box](https://drmats.github.io/mem-box/)
-    - prop-types
-    - react-redux
-    - [red-g](https://drmats.github.io/red-g/)
-    - redux
-    - redux-thunk
-* ui:
-    - baseweb.design
+
+### base libraries
+
+* [@xcmats/js-toolbox](https://drmats.github.io/js-toolbox/)
+* [mem-box](https://drmats.github.io/mem-box/)
+* redux
+* react-redux
+* [red-g](https://drmats.github.io/red-g/)
+* redux-thunk
+* immer
+* prop-types
+
+### ui
+
+* baseweb.design
 
 <br />
 
