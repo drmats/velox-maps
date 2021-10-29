@@ -11,7 +11,10 @@
 import { run } from "@xcmats/js-toolbox/utils";
 import { shuffle } from "@xcmats/js-toolbox/array";
 import { delay } from "@xcmats/js-toolbox/async";
-import { timeUnit } from "@xcmats/js-toolbox/utils";
+import {
+    getProcess,
+    timeUnit,
+} from "@xcmats/js-toolbox/utils";
 import { useMemory as useBareMemory } from "mem-box";
 
 import packageInfo from "~/../package.json";
@@ -45,11 +48,9 @@ const shuffleIndefinetely = async (x: HTMLDivElement): Promise<void> => {
  */
 export const version = packageInfo.version;
 export const env = {
-    BABEL_ENV: process.env.BABEL_ENV,
-    DEBUG: process.env.DEBUG,
+    ...getProcess().env,
     GIT_AUTHOR_DATE: process.env.GIT_AUTHOR_DATE,
     GIT_VERSION: process.env.GIT_VERSION,
-    NODE_ENV: process.env.NODE_ENV,
 };
 
 
