@@ -9,7 +9,7 @@ Thin web-ui starter (react and base libs).
 
 ## content
 
-### base branch
+### base branches
 
 [velox:bare-react](https://github.com/drmats/velox/tree/bare-react)
 [velox:base](https://github.com/drmats/velox/tree/base)
