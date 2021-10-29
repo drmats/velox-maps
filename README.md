@@ -9,7 +9,7 @@ Thin web-ui starter (react + ui).
 
 ## content
 
-### base branches
+### base branch
 
 [velox:base-react](https://github.com/drmats/velox/tree/base-react)
 
