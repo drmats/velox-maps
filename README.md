@@ -7,7 +7,9 @@ Thin web-ui starter.
 
 
 
-## bare
+## content
+
+### configured environments
 
 * typescript
 * babel
