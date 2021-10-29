@@ -1,13 +1,19 @@
 # velox
 
-Thin web-ui starter.
+Thin web-ui starter (react).
 
 <br />
 
 
 
 
-## bare -> bare-react
+## content
+
+### base branch
+
+[velox:bare](https://github.com/drmats/velox/tree/bare)
+
+### configured environments
 
 * typescript
 * babel
