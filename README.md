@@ -20,27 +20,39 @@ React maps-app starter (baseweb).
 
 
 
-## base-react-baseui-styled -> base-react-baseui-maplibre
+## content
+
+### base branch
+
+[velox:base-react-baseui-styled](https://github.com/drmats/velox/tree/base-react-baseui-styled)
+
+### configured environments
 
 * typescript
 * babel
 * eslint
 * webpack
 * webpack-dev-server
-* simple `css` + `favicon`
 * react
-* base libs:
-    - [@xcmats/js-toolbox](https://drmats.github.io/js-toolbox/)
-    - immer
-    - [mem-box](https://drmats.github.io/mem-box/)
-    - prop-types
-    - react-redux
-    - [red-g](https://drmats.github.io/red-g/)
-    - redux
-    - redux-thunk
-    - lodash.throttle
-* ui:
-    - baseweb.design
+
+### base libraries
+
+* [@xcmats/js-toolbox](https://drmats.github.io/js-toolbox/)
+* [mem-box](https://drmats.github.io/mem-box/)
+* redux
+* react-redux
+* [red-g](https://drmats.github.io/red-g/)
+* redux-thunk
+* immer
+* prop-types
+* lodash.throttle
+
+### ui
+
+* baseweb.design
+
+### mapping libraries
+
 * maplibre-gl
 * react-map-gl
 
@@ -75,6 +87,6 @@ npm run build
 
 ## license
 
-**velox** is released under the BSD 2-Clause license. See the
-[LICENSE](https://raw.githubusercontent.com/drmats/velox/master/LICENSE)
+**velox-maps** is released under the BSD 2-Clause license. See the
+[LICENSE](https://raw.githubusercontent.com/drmats/velox-maps/master/LICENSE)
 for more details.
