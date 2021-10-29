@@ -7,9 +7,12 @@ React maps-app starter (baseweb).
 
 
 
+## see the [live demo](https://drmats.github.io/velox-maps/)
+
 <p align="center">
-    <br />
-    <img src="./doc/screenshot.png" alt="velox-maps" />
+    <a href="https://drmats.github.io/velox-maps/" target="_blank">
+        <img src="./doc/screenshot.png" alt="velox-maps" />
+    </a>
 </p>
 
 <br />
