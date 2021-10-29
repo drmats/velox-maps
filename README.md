@@ -1,22 +1,30 @@
 # velox
 
-Thin web-ui starter.
+Thin web-ui starter (with base libs).
 
 <br />
 
 
 
 
-## bare -> base
+## content
+
+### base branch
+
+[velox:bare](https://github.com/drmats/velox/tree/bare)
+
+### configured environments
 
 * typescript
 * babel
 * eslint
 * webpack
 * webpack-dev-server
-* base libs:
-    - [@xcmats/js-toolbox](https://drmats.github.io/js-toolbox/)
-    - [mem-box](https://drmats.github.io/mem-box/)
+
+### base libraries
+
+* [@xcmats/js-toolbox](https://drmats.github.io/js-toolbox/)
+* [mem-box](https://drmats.github.io/mem-box/)
 
 <br />
 
