@@ -9,11 +9,27 @@
 
 import type { Action } from "red-g";
 import { isWithPayload } from "red-g";
+import throttle from "lodash.throttle";
 
 import { useMemory } from "~/root/memory";
 import type { Middleware } from "~/store/types";
 import type { MapViewport } from "~/map/types";
 import { format as f } from "~/map/functions";
+
+
+
+
+/**
+ * Throtled history state updates.
+ */
+const HISTORY_STATE_UPDATE_TRESHOLD = 200;
+const replaceHistoryState = throttle(
+    (v: MapViewport) => history.replaceState(
+        undefined, "",
+        `#${f(v.zoom)}/${f(v.latitude)}/${f(v.longitude)}`,
+    ),
+    HISTORY_STATE_UPDATE_TRESHOLD,
+);
 
 
 
@@ -34,11 +50,7 @@ export default function createMapGLMiddleware (): Middleware {
             action.type === act.map.SET_VIEWPORT.type &&
             isWithPayload(action)
         ) {
-            const v: MapViewport = action.payload.viewport;
-            history.replaceState(
-                undefined, "",
-                `#${f(v.zoom)}/${f(v.latitude)}/${f(v.longitude)}`,
-            );
+            replaceHistoryState(action.payload.viewport);
         }
 
         return result;

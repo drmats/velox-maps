@@ -35,6 +35,7 @@ React maps-app starter (baseweb).
     - [red-g](https://drmats.github.io/red-g/)
     - redux
     - redux-thunk
+    - lodash.throttle
 * ui:
     - baseweb.design
 * maplibre-gl
