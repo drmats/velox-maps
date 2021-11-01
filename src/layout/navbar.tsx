@@ -78,7 +78,7 @@ export default function NavBar (): JSX.Element {
                             <RowContainer
                                 className={css({ alignItems: "baseline" })}
                             >
-                                <Label1>base-react-baseui-maplibre</Label1>
+                                <Label1>react-baseui-maplibre</Label1>
                                 <Label3>{packageInfo.version}</Label3>
                                 <MonoLabelSmall>
                                     ({env.GIT_VERSION})

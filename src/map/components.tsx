@@ -66,7 +66,7 @@ export const InfoBox: FC = () => {
                     padding: "8px",
                     justifyContent: "center",
                     backgroundColor: theme.colors.accent700,
-                    [theme.mediaQuery.small]: { top: "56px" },
+                    [theme.mediaQuery.small]: { top: "60px" },
                     [theme.mediaQuery.medium]: { top: "80px" },
                 })}
             >
