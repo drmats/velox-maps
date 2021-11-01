@@ -45,6 +45,7 @@ export default function NavBar (): JSX.Element {
                             },
                             AppName: {
                                 style: ({ $theme }) => ({
+                                    height: "32px",
                                     [$theme.mediaQuery.small]: {
                                         width: "0px",
                                         overflow: "hidden",
