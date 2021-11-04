@@ -19,6 +19,21 @@ import packageInfo from "~/../package.json";
 
 
 /**
+ * Returns standard browser's console in dev mode
+ * and do-nothing-stub in production.
+ */
+export const devConsole = (): Console => devEnv() ?
+    console :
+    (Object.keys(console) as (keyof Omit<Console, "Console">)[])
+        .reduce((a, k) => {
+            a[k] = () => undefined;
+            return a;
+        }, {} as Console);
+
+
+
+
+/**
  * Development environment libraries.
  */
 const devEnvLibs = async (): Promise<Record<string, unknown>> => ({

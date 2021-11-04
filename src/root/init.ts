@@ -11,7 +11,10 @@ import { share } from "mem-box";
 import { Client as Styletron } from "styletron-engine-atomic";
 
 import { createReduxStore } from "~/store/setup";
-import { exposeDevNamespace } from "~/root/dev";
+import {
+    devConsole,
+    exposeDevNamespace,
+} from "~/root/dev";
 import { useMemory } from "~/root/memory";
 import packageInfo from "~/../package.json";
 
@@ -49,8 +52,8 @@ export default function init (): ({
         // should be invoked just on the client-side
         clientEntry: async () => {
 
-            // console logger - more sophisticated logger shouls be set-up here
-            const logger = console;
+            // console logger - more sophisticated logger should be set-up here
+            const logger = devConsole();
 
             // share application-specific variables (client-only)
             share({ logger });
