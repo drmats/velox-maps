@@ -6,7 +6,6 @@
  */
 
 import { tail } from "@xcmats/js-toolbox/array";
-import { padLeft } from "@xcmats/js-toolbox/string";
 
 import type { MapViewport } from "~/map/types";
 
@@ -16,14 +15,8 @@ import type { MapViewport } from "~/map/types";
 /**
  * Format input number as string with desired precision.
  */
-export const format = (input: number, precision = 4): string => {
-    const i = Math.floor(input*10**precision), ia = Math.abs(i);
-    return (
-        (i === ia ? "" : "-") +
-        String(Math.floor(ia/10**precision))+ "." +
-        padLeft(String(Math.floor(ia%10**precision)), precision, "0")
-    );
-};
+export const format = (input: number, precision = 4): string =>
+    input.toFixed(precision);
 
 
 
