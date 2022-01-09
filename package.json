@@ -1,6 +1,5 @@
 {
     "author": "Mat.",
-    "browserslist": "> 0.25%, not ie 11, not op_mini all, not dead",
     "bugs": {
         "url": "https://github.com/drmats/velox/issues"
     },
@@ -12,15 +11,15 @@
         }
     ],
     "dependencies": {
-        "@xcmats/js-toolbox": "0.14.2",
+        "@xcmats/js-toolbox": "0.14.3",
         "baseui": "10.7.1",
         "immer": "9.0.7",
-        "mem-box": "1.0.9",
+        "mem-box": "1.0.10",
         "prop-types": "15.8.1",
         "react": "17.0.2",
         "react-dom": "17.0.2",
         "react-redux": "7.2.6",
-        "red-g": "1.0.4",
+        "red-g": "1.0.5",
         "redux": "4.1.2",
         "redux-devtools-extension": "2.13.9",
         "redux-thunk": "2.4.1",
@@ -45,7 +44,7 @@
         "@typescript-eslint/parser": "5.9.0",
         "babel-loader": "8.2.3",
         "babel-plugin-module-resolver": "4.1.0",
-        "eslint": "7.32.0",
+        "eslint": "8.6.0",
         "eslint-import-resolver-alias": "1.1.2",
         "eslint-plugin-import": "2.25.4",
         "eslint-plugin-react": "7.28.0",
