@@ -28,7 +28,7 @@ module.exports = {
     mode: "development",
 
 
-    target: "browserslist",
+    target: "web",
 
 
     resolve: {
