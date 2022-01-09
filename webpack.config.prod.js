@@ -29,7 +29,7 @@ module.exports = {
     mode: "production",
 
 
-    target: "browserslist",
+    target: "web",
 
 
     resolve: {
