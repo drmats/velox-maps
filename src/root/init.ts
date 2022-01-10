@@ -6,6 +6,7 @@
  */
 
 /* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable @typescript-eslint/no-empty-interface */
 
 import { share } from "mem-box";
 import { Client as Styletron } from "styletron-engine-atomic";
@@ -37,6 +38,9 @@ export default function init (): ({
         // app memory - volatile, imperative context/storage
         ctx = useMemory(),
 
+        // mutable subcontext
+        mut = {},
+
         // redux store with custom middlewares
         store = createReduxStore(),
 
@@ -45,7 +49,7 @@ export default function init (): ({
 
 
     // share application-specific variables
-    share({ store });
+    share({ mut, store });
 
     return {
 
@@ -99,10 +103,16 @@ declare global {
     }
 
     /**
+     * Mutable subcontext.
+     */
+    interface Mut {}
+
+    /**
      * Shared memory context.
      */
     interface Ctx {
         logger: Console;
+        mut: Mut;
         store: ReturnType<typeof createReduxStore>;
     }
 
