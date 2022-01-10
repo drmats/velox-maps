@@ -7,9 +7,15 @@
 
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import { useEffect } from "react";
+import type { MutableRefObject } from "react";
+import {
+    useEffect,
+    useRef,
+} from "react";
 import { useSelector } from "react-redux";
+import type { MapRef } from "react-map-gl";
 import ReactMapGL from "react-map-gl";
+import { share } from "mem-box";
 
 import type {
     MapGLProps,
@@ -35,9 +41,11 @@ export default function MapGL ({
 }: MapGLProps): JSX.Element {
     const { act } = useMemory();
     const viewport = useSelector(getViewport);
+    const mapRef = useRef<MapRef | null>(null);
 
     useEffect(() => {
         act.map.SET_READY(true);
+        share({ mapRef });
         return () => { act.map.SET_READY(false); };
     }, []);
 
@@ -57,6 +65,24 @@ export default function MapGL ({
             }: MapViewport) => act.map.SET_VIEWPORT({
                 latitude, longitude, zoom,
             })}
+            ref={mapRef}
         />
     );
+}
+
+
+
+
+/**
+ * Global declaration merge.
+ */
+declare global {
+
+    /**
+     * Shared memory context.
+     */
+    interface Ctx {
+        mapRef: MutableRefObject<MapRef | null>;
+    }
+
 }
