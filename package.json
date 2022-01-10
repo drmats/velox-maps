@@ -11,7 +11,7 @@
         }
     ],
     "dependencies": {
-        "@xcmats/js-toolbox": "0.14.3",
+        "@xcmats/js-toolbox": "0.14.4",
         "baseui": "10.7.1",
         "immer": "9.0.7",
         "mem-box": "1.0.10",
