@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import { useMemory } from "~/root/memory";
-import NavBar from "~/layout/components/Navbar";
+import NavBar from "~/layout/components/NavBar";
 import LatLonZoomInfoBox from "~/layout/components/LatLonZoomInfoBox";
 import TileSourceSelectionBox from "~/layout/components/TileSourceSelectionBox";
 import { getTilesource } from "~/map/selectors";
