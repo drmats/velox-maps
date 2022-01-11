@@ -52,7 +52,7 @@ run(async () => {
     body.item(0)?.prepend(app);
 
     // fetch root wrapper module tree
-    const { default: createRootWrapper } = await import("~/root/components/wrapper");
+    const { default: createRootWrapper } = await import("~/root/components/Wrapper");
 
     // instantiate root wrapper
     const Root = createRootWrapper(store, styletronEngine);
@@ -61,7 +61,7 @@ run(async () => {
     await clientEntry();
 
     // fetch Application module tree
-    const { App } = await import("~/app/components/main");
+    const { App } = await import("~/app/components/Main");
 
     // embed react application
     render(
