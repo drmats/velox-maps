@@ -18,7 +18,7 @@ import {
     Centered,
     RowContainer,
     TopBox,
-} from "~/layout/containers";
+} from "~/layout/components/containers";
 import { env } from "~/index";
 import packageInfo from "~/../package.json";
 
