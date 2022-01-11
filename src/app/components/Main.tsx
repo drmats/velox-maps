@@ -11,10 +11,8 @@ import { useSelector } from "react-redux";
 
 import { useMemory } from "~/root/memory";
 import NavBar from "~/layout/components/Navbar";
-import {
-    BottomBox,
-    InfoBox,
-} from "~/map/components";
+import LatLonZoomInfoBox from "~/layout/components/LatLonZoomInfoBox";
+import TileSourceSelectionBox from "~/layout/components/TileSourceSelectionBox";
 import { getTilesource } from "~/map/selectors";
 import LazyMapGL from "~/map/components/LazyMapGL";
 
@@ -34,8 +32,8 @@ export const App: FC = () => {
     return (
         <>
             <NavBar />
-            <InfoBox />
-            <BottomBox />
+            <LatLonZoomInfoBox />
+            <TileSourceSelectionBox />
             <LazyMapGL
                 {...{ mapStyle }}
                 width="100vw"

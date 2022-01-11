@@ -67,3 +67,27 @@ export const TopBox = styled("div", {
     top: "0",
     left: "0",
 });
+
+
+
+
+/**
+ * ...
+ */
+export const TextColumn = styled("div", {
+    display: "flex",
+    flexDirection: "column",
+    gap: "2px",
+});
+
+
+
+
+/**
+ * ...
+ */
+export const TextRow = styled("div", {
+    display: "flex",
+    flexDirection: "row",
+    gap: "5px",
+});
