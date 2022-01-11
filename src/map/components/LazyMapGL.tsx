@@ -46,8 +46,8 @@ const Loader: FC<{
 /**
  * Dynamically loaded MapGL component.
  */
-export default function MapGLMod (props: MapGLProps): JSX.Element {
-    const MapGL = lazy(() => import("~/map/mapgl"));
+export default function LazyMapGL (props: MapGLProps): JSX.Element {
+    const MapGL = lazy(() => import("~/map/components/MapGL"));
 
     return (
         <Suspense

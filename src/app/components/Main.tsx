@@ -10,13 +10,13 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import { useMemory } from "~/root/memory";
-import NavBar from "~/layout/navbar";
+import NavBar from "~/layout/components/Navbar";
 import {
     BottomBox,
     InfoBox,
 } from "~/map/components";
 import { getTilesource } from "~/map/selectors";
-import MapGL from "~/map/mapgl.mod";
+import LazyMapGL from "~/map/components/LazyMapGL";
 
 
 
@@ -36,7 +36,7 @@ export const App: FC = () => {
             <NavBar />
             <InfoBox />
             <BottomBox />
-            <MapGL
+            <LazyMapGL
                 {...{ mapStyle }}
                 width="100vw"
                 height="100vh"
