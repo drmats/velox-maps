@@ -97,7 +97,7 @@ declare global {
     /**
      * Mutable subcontext.
      */
-    interface Mut {}
+    interface Mut { }
 
     /**
      * Shared memory context.
