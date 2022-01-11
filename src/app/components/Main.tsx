@@ -8,8 +8,8 @@ import { useStyletron } from "baseui";
 import { H4 } from "baseui/typography";
 
 import { useShuffle } from "~/app/hooks";
-import NavBar from "~/layout/components/navbar";
-import { Centered } from "~/layout/components/containers";
+import NavBar from "~/layout/components/Navbar";
+import { Centered } from "~/layout/components/Containers";
 import packageInfo from "~/../package.json";
 
 
