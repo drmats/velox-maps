@@ -16,6 +16,23 @@ import {
 /**
  * ...
  */
+export const FullScreen = styled("div", {
+    position: "fixed",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    top: 0,
+    left: 0,
+    width: "100vw",
+    height: "100vh",
+});
+
+
+
+
+/**
+ * ...
+ */
 export const Centered = styled("div", {
     display: "flex",
     justifyContent: "center",
