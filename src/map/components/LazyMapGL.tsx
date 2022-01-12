@@ -11,7 +11,7 @@ import {
     Suspense,
 } from "react";
 import { useStyletron } from "baseui";
-import { Spinner } from "baseui/spinner";
+import { StyledSpinnerNext } from "baseui/spinner";
 
 import type { MapGLProps } from "~/map/types";
 
@@ -35,7 +35,7 @@ const Loader: FC<{
                 justifyContent: "center",
             })}
         >
-            <Spinner />
+            <StyledSpinnerNext />
         </div>
     );
 };
