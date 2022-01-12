@@ -14,7 +14,6 @@ import appThunks from "~/app/thunks";
 
 import mapActions from "~/map/actions";
 import mapReducers from "~/map/reducers";
-import mapThunks from "~/map/thunks";
 
 
 
@@ -46,5 +45,4 @@ export const rootReducer = combineReducers({
  */
 export const thunk = {
     app: appThunks,
-    map: mapThunks,
 };

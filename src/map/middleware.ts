@@ -12,7 +12,10 @@ import { isWithPayload } from "red-g";
 import throttle from "lodash.throttle";
 
 import { useMemory } from "~/root/memory";
-import type { Middleware } from "~/store/types";
+import type {
+    Middleware,
+    ThunkType,
+} from "~/store/types";
 import type { MapViewport } from "~/map/types";
 import { mapViewportToHashString } from "~/map/functions";
 
@@ -20,14 +23,13 @@ import { mapViewportToHashString } from "~/map/functions";
 
 
 /**
- * Throtled history state updates.
+ * Throtled SPA hash state updates.
  */
-const HISTORY_STATE_UPDATE_TRESHOLD = 200;
-const replaceHistoryState = throttle(
-    (v: MapViewport) => history.replaceState(
-        undefined, "", mapViewportToHashString(v),
-    ),
-    HISTORY_STATE_UPDATE_TRESHOLD,
+const SPA_HASH_UPDATE_TRESHOLD = 200;
+const replaceSpaHash = throttle(
+    (rsh: (h: string) => ThunkType, v: MapViewport) =>
+        rsh(mapViewportToHashString(v)),
+    SPA_HASH_UPDATE_TRESHOLD,
 );
 
 
@@ -41,15 +43,15 @@ export default function createMapGLMiddleware (): Middleware {
     // ...
     return () => (next) => (action: Action) => {
 
-        const { act } = useMemory();
+        const { act, tnk } = useMemory();
         const result = next(action);
 
-        // change url hash on each 'SET_VIEWPORT' action dispatch
+        // change SPA hash on each 'SET_VIEWPORT' action dispatch
         if (
             action.type === act.map.SET_VIEWPORT.type &&
             isWithPayload(action)
         ) {
-            replaceHistoryState(action.payload.viewport);
+            replaceSpaHash(tnk.app.replaceSPAHash, action.payload.viewport);
         }
 
         return result;

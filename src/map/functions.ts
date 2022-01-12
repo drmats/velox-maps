@@ -5,8 +5,6 @@
  * @copyright Mat. 2020-present
  */
 
-import { tail } from "@xcmats/js-toolbox/array";
-
 import type { MapViewport } from "~/map/types";
 
 
@@ -22,20 +20,20 @@ export const format = (input: number, precision = 4): string =>
 
 
 /**
- * MapViewport -> "#zoom/lat/lon" conversion
+ * MapViewport -> "zoom/lat/lon" conversion
  */
 export const mapViewportToHashString = (v: MapViewport): string =>
-    `#${format(v.zoom)}/${format(v.latitude)}/${format(v.longitude)}`;
+    `${format(v.zoom)}/${format(v.latitude)}/${format(v.longitude)}`;
 
 
 
 
 /**
- * "#zoom/lat/lon" -> [zoom, lat, lon] conversion.
+ * "zoom/lat/lon" -> [zoom, lat, lon] conversion.
  * @throws Error if conversion is not possible
  */
-export const hashStringToCoords = (i: string): [number, number, number] => {
-    const candidate = tail(i).split("/").map(Number);
+export const hashStringToCoords = (input: string): [number, number, number] => {
+    const candidate = input.split("/").map(Number);
     if (candidate.length === 3 && candidate.every(c => !Number.isNaN(c))) {
         return candidate as [number, number, number];
     } else {
