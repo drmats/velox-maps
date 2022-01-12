@@ -37,7 +37,14 @@ export const devConsole = (): Console => devEnv() ?
  * Development environment libraries.
  */
 const devEnvLibs = async (): Promise<Record<string, unknown>> => ({
+    d3: await import("d3"),
+    geoviewport: await import("@mapbox/geo-viewport"),
+    ngeohash: await import("ngeohash"),
+    polyline: await import("@mapbox/polyline"),
+    SphericalMercator: (await import("@mapbox/sphericalmercator")).default,
+    tilebelt: await import("@mapbox/tilebelt"),
     toolbox: await import("@xcmats/js-toolbox"),
+    turf: await import("@turf/turf"),
 });
 
 
