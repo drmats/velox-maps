@@ -7,6 +7,7 @@
 
 import type { FC } from "react";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { timeUnit } from "@xcmats/js-toolbox/utils";
 import {
     Card,
@@ -14,6 +15,8 @@ import {
 } from "baseui/card";
 import { Display4 } from "baseui/typography";
 
+import { getViewport } from "~/map/selectors";
+import { mapViewportToHashString } from "~/map/functions";
 import { useMemory } from "~/root/memory";
 import { FullScreen } from "~/layout/components/Containers";
 
@@ -25,9 +28,13 @@ import { FullScreen } from "~/layout/components/Containers";
  */
 const NotFound: FC = () => {
     const { tnk } = useMemory();
+    const viewport = useSelector(getViewport);
 
     useEffect(() => {
-        setTimeout(() => tnk.app.replaceSPARoute(""), 2 * timeUnit.second);
+        setTimeout(() => {
+            tnk.app.replaceSPARoute("");
+            tnk.app.replaceSPAHash(mapViewportToHashString(viewport));
+        }, 2 * timeUnit.second);
     }, []);
 
     return (
