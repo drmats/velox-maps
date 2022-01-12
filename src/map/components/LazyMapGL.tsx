@@ -6,6 +6,7 @@
  */
 
 import type { FC } from "react";
+import { memo } from "react";
 import {
     lazy,
     Suspense,
@@ -46,7 +47,7 @@ const Loader: FC<{
 /**
  * Dynamically loaded MapGL component.
  */
-export default function LazyMapGL (props: MapGLProps): JSX.Element {
+function LazyMapGL (props: MapGLProps): JSX.Element {
     const MapGL = lazy(() => import("~/map/components/MapGL"));
 
     return (
@@ -62,3 +63,5 @@ export default function LazyMapGL (props: MapGLProps): JSX.Element {
         </Suspense>
     );
 }
+
+export default memo(LazyMapGL);
