@@ -62,7 +62,12 @@ const LatLonZoomInfoBox: FC = () => {
             <Surface>
                 <Card
                     overrides={{
-                        Contents: { style: { margin: "8px !important" } },
+                        Contents: { style: {
+                            marginTop: "8px !important",
+                            marginRight: "8px !important",
+                            marginBottom: "8px !important",
+                            marginLeft: "8px !important",
+                        } },
                         Body: { style: { marginBottom: "0px !important" } },
                     }}
                 >
