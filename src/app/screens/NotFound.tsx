@@ -9,6 +9,7 @@ import type { FC } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { timeUnit } from "@xcmats/js-toolbox/utils";
+import { useStyletron } from "baseui";
 import {
     Card,
     StyledBody,
@@ -27,6 +28,7 @@ import { FullScreen } from "~/layout/components/Containers";
  * NotFound screen.
  */
 const NotFound: FC = () => {
+    const [css] = useStyletron();
     const { tnk } = useMemory();
     const viewport = useSelector(getViewport);
 
@@ -40,8 +42,12 @@ const NotFound: FC = () => {
     return (
         <FullScreen>
             <Card>
-                <StyledBody>
-                    <Display4>Not Found</Display4>
+                <StyledBody
+                    className={css({
+                        userSelect: "none",
+                    })}
+                >
+                    <Display4>Wrong Path</Display4>
                 </StyledBody>
             </Card>
         </FullScreen>
