@@ -15,7 +15,7 @@ import {
     devConsole,
     exposeDevNamespace,
 } from "~/root/dev";
-import { useMemory } from "~/root/memory";
+import { appMemory } from "~/root/memory";
 import packageInfo from "~/../package.json";
 
 
@@ -34,7 +34,7 @@ export default function init (): ({
     const
 
         // app memory - volatile, imperative context/storage
-        ctx = useMemory(),
+        ctx = appMemory(),
 
         // mutable subcontext
         mut = {},
