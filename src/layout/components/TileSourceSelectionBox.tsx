@@ -56,11 +56,15 @@ const TileSourceSelectionBox: FC = () => {
                     onChange={(_, option) =>
                         option && act.map.SET_TILESOURCE(option as TileSource)
                     }
-                    size={SIZE.mini}
+                    size={SIZE.compact}
                     options={tileSources}
                     mapOptionToString={option => option.label}
                     overrides={{
                         Root: { style: () => ({ width: "120px" }) },
+                        Input: { props: { overrides: {
+                            Input: { style: { fontWeight: 600 } },
+                        } } },
+
                     }}
                     onFocus={(e) => e.target.blur()}
                 />

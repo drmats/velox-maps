@@ -39,9 +39,12 @@ const Surface = styled("div", ({ $theme }) => ({
     [$theme.mediaQuery.small]: { top: "60px" },
     [$theme.mediaQuery.medium]: { top: "80px" },
 }));
-const L = styled(Label3, ({ $theme }) => ({
+const LL = styled(Label3, ({ $theme }) => ({
     color: $theme.colors.primary600,
 }));
+const LV = styled(Label3, {
+    fontWeight: 600,
+});
 
 
 
@@ -68,7 +71,7 @@ const LatLonZoomInfoBox: FC = () => {
                             display: "flex",
                             flexDirection: "row",
                             justifyContent: "center",
-                            gap: "8px",
+                            gap: "5px",
                             marginBottom: "0px !important",
                         })}
                     >
@@ -78,19 +81,19 @@ const LatLonZoomInfoBox: FC = () => {
                                 margin: "0px",
                             })}
                         >
-                            <L>lat:</L>
-                            <L>lon:</L>
-                            <L>zoom:</L>
+                            <LL>lat:</LL>
+                            <LL>lon:</LL>
+                            <LL>zoom:</LL>
                         </TextColumn>
                         <TextColumn
                             className={css({
-                                width: "60px",
+                                width: "68px",
                                 margin: "0px",
                             })}
                         >
-                            <Label3>{format(viewport.latitude)}</Label3>
-                            <Label3>{format(viewport.longitude)}</Label3>
-                            <Label3>{format(viewport.zoom)}</Label3>
+                            <LV>{format(viewport.latitude)}</LV>
+                            <LV>{format(viewport.longitude)}</LV>
+                            <LV>{format(viewport.zoom)}</LV>
                         </TextColumn>
                     </StyledBody>
                 </Card>
