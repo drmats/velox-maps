@@ -53,8 +53,18 @@ React maps-app starter (baseweb).
 
 ### mapping libraries
 
+* @mapbox/geo-viewport
+* @mapbox/polyline
+* @mapbox/sphericalmercator
+* @mapbox/tilebelt
 * maplibre-gl
+* ngeohash
 * react-map-gl
+* turf
+
+### data manipulation
+
+* d3
 
 <br />
 
