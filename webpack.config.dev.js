@@ -111,13 +111,15 @@ module.exports = {
 
 
     devServer: {
+        allowedHosts: "all",
+        compress: true,
+        host: "0.0.0.0",
+        hot: false,
+        liveReload: true,
+        port: 8000,
         static: {
             directory: resolve(__dirname, "static"),
         },
-        liveReload: true,
-        hot: false,
-        compress: true,
-        port: 8000,
     },
 
 };
