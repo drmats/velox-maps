@@ -41,5 +41,3 @@ export const MyTheme: CustomTheme = {
     },
     /* customProps */
 };
-
-MyTheme.borders.useRoundedCorners = false;
