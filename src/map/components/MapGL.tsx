@@ -5,8 +5,6 @@
  * @copyright Mat. 2020-present
  */
 
-/* eslint-disable react-hooks/exhaustive-deps */
-
 import type { MutableRefObject } from "react";
 import {
     useEffect,
@@ -29,6 +27,14 @@ import "maplibre-gl/dist/maplibre-gl.css";
 
 
 /**
+ * ...
+ */
+const { act, mut } = appMemory();
+
+
+
+
+/**
  * Interactive map display with redux-managed viewport state.
  */
 export default function MapGL ({
@@ -38,7 +44,6 @@ export default function MapGL ({
     minZoom,
     maxZoom,
 }: MapGLProps): JSX.Element {
-    const { act, mut } = appMemory();
     const viewport = useSelector(getViewport);
     const mapRef = useRef<MapRef | null>(null);
 

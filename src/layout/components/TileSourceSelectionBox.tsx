@@ -27,8 +27,15 @@ import { TextRow } from "~/layout/components/Containers";
 /**
  * ...
  */
+const { act } = appMemory();
+
+
+
+
+/**
+ * ...
+ */
 const TileSourceSelectionBox: FC = () => {
-    const { act } = appMemory();
     const [css] = useStyletron();
     const ready = useSelector(getReady);
     const tilesource = useSelector(getTilesource);

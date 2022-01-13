@@ -3,8 +3,6 @@
  * @copyright Mat. 2021-present
  */
 
-/* eslint-disable react-hooks/exhaustive-deps */
-
 import type { FC } from "react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
@@ -25,10 +23,17 @@ import { FullScreen } from "~/layout/components/Containers";
 
 
 /**
+ * ...
+ */
+const { tnk } = appMemory();
+
+
+
+
+/**
  * NotFound screen.
  */
 const NotFound: FC = () => {
-    const { tnk } = appMemory();
     const [css] = useStyletron();
     const viewport = useSelector(getViewport);
 
@@ -37,7 +42,7 @@ const NotFound: FC = () => {
             tnk.app.replaceSPARoute("");
             tnk.app.replaceSPAHash(mapViewportToHashString(viewport));
         }, 2 * timeUnit.second);
-    }, []);
+    }, [viewport]);
 
     return (
         <FullScreen>
