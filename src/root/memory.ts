@@ -7,7 +7,7 @@
 
 /* eslint-disable @typescript-eslint/no-empty-interface */
 
-import { useMemory as useBareMemory } from "mem-box";
+import { useMemory } from "mem-box";
 
 
 
@@ -15,7 +15,7 @@ import { useMemory as useBareMemory } from "mem-box";
 /**
  * Type-safe instance of useMemory.
  */
-export const useMemory: (() => Ctx) = useBareMemory;
+export const appMemory: (() => Ctx) = useMemory;
 
 
 
