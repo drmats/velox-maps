@@ -15,7 +15,7 @@ import {
     getProcess,
     timeUnit,
 } from "@xcmats/js-toolbox/utils";
-import { useMemory as useBareMemory } from "mem-box";
+import { useMemory } from "mem-box";
 
 import packageInfo from "~/../package.json";
 
@@ -25,7 +25,7 @@ import packageInfo from "~/../package.json";
 /**
  * Type-safe instance of useMemory.
  */
-export const useMemory: (() => Ctx) = useBareMemory;
+export const appMemory: (() => Ctx) = useMemory;
 
 
 
