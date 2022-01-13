@@ -30,6 +30,9 @@ import packageInfo from "~/../package.json";
  */
 export default function NavBar (): JSX.Element {
     const [css, theme] = useStyletron();
+    const overrides = {
+        Block: { style: { color: theme.colors.foregroundInv } },
+    };
 
     return (
         <>
@@ -46,6 +49,7 @@ export default function NavBar (): JSX.Element {
                             AppName: {
                                 style: ({ $theme }) => ({
                                     height: "32px",
+                                    color: $theme.colors.foregroundInv,
                                     [$theme.mediaQuery.small]: {
                                         width: "0px",
                                         overflow: "hidden",
@@ -78,9 +82,13 @@ export default function NavBar (): JSX.Element {
                             <RowContainer
                                 className={css({ alignItems: "baseline" })}
                             >
-                                <Label1>react-baseui-maplibre</Label1>
-                                <Label3>{packageInfo.version}</Label3>
-                                <MonoLabelSmall>
+                                <Label1 overrides={overrides}>
+                                    react-baseui-maplibre
+                                </Label1>
+                                <Label3 overrides={overrides}>
+                                    {packageInfo.version}
+                                </Label3>
+                                <MonoLabelSmall overrides={overrides}>
                                     ({env.GIT_VERSION})
                                 </MonoLabelSmall>
                             </RowContainer>

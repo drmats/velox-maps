@@ -11,6 +11,10 @@ import {
     styled,
     useStyletron,
 } from "baseui";
+import {
+    Card,
+    StyledBody,
+} from "baseui/card";
 import { Layer } from "baseui/layer";
 import { Label3 } from "baseui/typography";
 
@@ -19,10 +23,7 @@ import {
     getViewport,
 } from "~/map/selectors";
 import { format } from "~/map/functions";
-import {
-    TextColumn,
-    TextRow,
-} from "~/layout/components/Containers";
+import { TextColumn } from "~/layout/components/Containers";
 
 
 
@@ -30,8 +31,16 @@ import {
 /**
  * ...
  */
+const Surface = styled("div", ({ $theme }) => ({
+    display: "flex",
+    flexDirection: "row",
+    position: "fixed",
+    right: "10px",
+    [$theme.mediaQuery.small]: { top: "60px" },
+    [$theme.mediaQuery.medium]: { top: "80px" },
+}));
 const L = styled(Label3, ({ $theme }) => ({
-    color: $theme.colors.primary300,
+    color: $theme.colors.primary600,
 }));
 
 
@@ -41,42 +50,51 @@ const L = styled(Label3, ({ $theme }) => ({
  * ...
  */
 const LatLonZoomInfoBox: FC = () => {
-    const [css, theme] = useStyletron();
+    const [css] = useStyletron();
     const ready = useSelector(getReady);
     const viewport = useSelector(getViewport);
 
     return (
         ready ? <Layer>
-            <TextRow
-                className={css({
-                    position: "fixed",
-                    right: "10px",
-                    padding: "8px",
-                    justifyContent: "center",
-                    backgroundColor: theme.colors.accent700,
-                    [theme.mediaQuery.small]: { top: "60px" },
-                    [theme.mediaQuery.medium]: { top: "80px" },
-                })}
-            >
-                <TextColumn
-                    className={css({
-                        alignItems: "flex-end",
-                    })}
+            <Surface>
+                <Card
+                    overrides={{
+                        Contents: { style: { margin: "8px !important" } },
+                        Body: { style: { marginBottom: "0px !important" } },
+                    }}
                 >
-                    <L>lat:</L>
-                    <L>lon:</L>
-                    <L>zoom:</L>
-                </TextColumn>
-                <TextColumn
-                    className={css({
-                        width: "60px",
-                    })}
-                >
-                    <Label3>{format(viewport.latitude)}</Label3>
-                    <Label3>{format(viewport.longitude)}</Label3>
-                    <Label3>{format(viewport.zoom)}</Label3>
-                </TextColumn>
-            </TextRow>
+                    <StyledBody
+                        className={css({
+                            display: "flex",
+                            flexDirection: "row",
+                            justifyContent: "center",
+                            gap: "8px",
+                            marginBottom: "0px !important",
+                        })}
+                    >
+                        <TextColumn
+                            className={css({
+                                alignItems: "flex-end",
+                                margin: "0px",
+                            })}
+                        >
+                            <L>lat:</L>
+                            <L>lon:</L>
+                            <L>zoom:</L>
+                        </TextColumn>
+                        <TextColumn
+                            className={css({
+                                width: "60px",
+                                margin: "0px",
+                            })}
+                        >
+                            <Label3>{format(viewport.latitude)}</Label3>
+                            <Label3>{format(viewport.longitude)}</Label3>
+                            <Label3>{format(viewport.zoom)}</Label3>
+                        </TextColumn>
+                    </StyledBody>
+                </Card>
+            </Surface>
         </Layer> : null
     );
 };
