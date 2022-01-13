@@ -18,7 +18,7 @@ import { Display4 } from "baseui/typography";
 
 import { getViewport } from "~/map/selectors";
 import { mapViewportToHashString } from "~/map/functions";
-import { useMemory } from "~/root/memory";
+import { appMemory } from "~/root/memory";
 import { FullScreen } from "~/layout/components/Containers";
 
 
@@ -28,8 +28,8 @@ import { FullScreen } from "~/layout/components/Containers";
  * NotFound screen.
  */
 const NotFound: FC = () => {
+    const { tnk } = appMemory();
     const [css] = useStyletron();
-    const { tnk } = useMemory();
     const viewport = useSelector(getViewport);
 
     useEffect(() => {

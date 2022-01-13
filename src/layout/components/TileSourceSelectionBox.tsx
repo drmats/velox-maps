@@ -12,7 +12,7 @@ import { Combobox } from "baseui/combobox";
 import { SIZE } from "baseui/select";
 import { Layer } from "baseui/layer";
 
-import { useMemory } from "~/root/memory";
+import { appMemory } from "~/root/memory";
 import {
     getReady,
     getTilesource,
@@ -28,11 +28,10 @@ import { TextRow } from "~/layout/components/Containers";
  * ...
  */
 const TileSourceSelectionBox: FC = () => {
+    const { act } = appMemory();
     const [css] = useStyletron();
     const ready = useSelector(getReady);
     const tilesource = useSelector(getTilesource);
-    const { act } = useMemory();
-
 
     return (
         ready ? <Layer>

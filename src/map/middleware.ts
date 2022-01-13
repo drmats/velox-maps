@@ -11,7 +11,7 @@ import type { Action } from "red-g";
 import { isWithPayload } from "red-g";
 import throttle from "lodash.throttle";
 
-import { useMemory } from "~/root/memory";
+import { appMemory } from "~/root/memory";
 import type {
     Middleware,
     ThunkType,
@@ -43,7 +43,7 @@ export default function createMapGLMiddleware (): Middleware {
     // ...
     return () => (next) => (action: Action) => {
 
-        const { act, tnk } = useMemory();
+        const { act, tnk } = appMemory();
         const result = next(action);
 
         // change SPA hash on each 'SET_VIEWPORT' action dispatch

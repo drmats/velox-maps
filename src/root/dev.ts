@@ -12,7 +12,7 @@ import { devEnv } from "@xcmats/js-toolbox/utils";
 import { isObject } from "@xcmats/js-toolbox/type";
 
 import { devNamespaceKey } from "~/root/config";
-import { useMemory } from "~/root/memory";
+import { appMemory } from "~/root/memory";
 import packageInfo from "~/../package.json";
 
 
@@ -59,7 +59,7 @@ export const exposeDevNamespace = async (): Promise<void> => {
             devNs = window[packageInfo.name],
             devNsContent = {
                 libs: await devEnvLibs(),
-                ctx: useMemory(),
+                ctx: appMemory(),
                 packageInfo,
             };
         if (isObject(devNs)) {

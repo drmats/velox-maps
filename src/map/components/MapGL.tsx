@@ -20,7 +20,7 @@ import type {
     MapGLProps,
     MapViewport,
 } from "~/map/types";
-import { useMemory } from "~/root/memory";
+import { appMemory } from "~/root/memory";
 import { getViewport } from "~/map/selectors";
 
 import "maplibre-gl/dist/maplibre-gl.css";
@@ -38,7 +38,7 @@ export default function MapGL ({
     minZoom,
     maxZoom,
 }: MapGLProps): JSX.Element {
-    const { act, mut } = useMemory();
+    const { act, mut } = appMemory();
     const viewport = useSelector(getViewport);
     const mapRef = useRef<MapRef | null>(null);
 

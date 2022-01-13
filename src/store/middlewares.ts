@@ -6,12 +6,10 @@
  * @copyright Mat. 2020-present
  */
 
-/* eslint-disable react-hooks/rules-of-hooks */
-
 import thunk from "redux-thunk";
 
 import type { Middleware } from "~/store/types";
-import { useMemory } from "~/root/memory";
+import { appMemory } from "~/root/memory";
 import createMapGLMiddleware from "~/map/middleware";
 
 
@@ -21,7 +19,7 @@ import createMapGLMiddleware from "~/map/middleware";
  * Assembly list of all application-specific middlewares.
  */
 export default function assemblyMiddlewares (): Middleware[] {
-    const ctx = useMemory();
+    const ctx = appMemory();
 
     return [
         thunk.withExtraArgument(ctx),

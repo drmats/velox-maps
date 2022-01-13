@@ -17,7 +17,7 @@ import {
 import { bindActionCreatorsTree } from "red-g";
 import { isFunction } from "@xcmats/js-toolbox/type";
 
-import { useMemory } from "~/root/memory";
+import { appMemory } from "~/root/memory";
 import {
     action,
     rootReducer,
@@ -68,7 +68,7 @@ export const createReduxStore = (): Store<RootState, Action> => {
     share({ act, tnk, resetState });
 
     // attach all external-world event listeners
-    attachListeners(store.dispatch, store.getState, useMemory());
+    attachListeners(store.dispatch, store.getState, appMemory());
 
     return store;
 
