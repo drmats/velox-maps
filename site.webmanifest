@@ -1,0 +1,20 @@
+{
+    "background_color": "#ebebeb",
+    "description": "React maps-app starter (baseweb).",
+    "display": "fullscreen",
+    "icons": [
+        {
+            "src": "icons/velox-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/velox-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "name": "Velox maps",
+    "short_name": "Velox",
+    "start_url": "index.html"
+}
