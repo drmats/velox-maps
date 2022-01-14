@@ -7,6 +7,7 @@
 
 import type { Action } from "red-g";
 import {
+    isStringActionType,
     isWithPayload,
     sliceReducer,
 } from "red-g";
@@ -37,8 +38,11 @@ export default sliceReducer(initState) ((slice) => slice
     .handle(act.CLEAR_ERROR, (state) => ({ ...state, error: null }))
     .match(
         (action): action is Action<{ error: string }> =>
-            isWithPayload(action) && action.payload.error,
-        (state, { error }) => ({ ...state, error }),
+            isStringActionType(action) &&
+            action.type.startsWith("App/") &&
+            isWithPayload(action) &&
+            action.payload.error,
+        (state, payload) => ({ ...state, error: payload.error }),
     ),
 
 );
