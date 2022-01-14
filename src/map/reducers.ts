@@ -17,6 +17,7 @@ import act from "~/map/actions";
  * Map component reducer.
  */
 export default sliceReducer(initState) ((slice) => slice
+
     // full state reset
     .handle(act.RESET, () => initState)
 
@@ -44,4 +45,5 @@ export default sliceReducer(initState) ((slice) => slice
     .handle(act.SET_VIEWPORT, (state, { viewport }) => ({
         ...state, viewport,
     })),
+
 );

@@ -21,6 +21,7 @@ import act from "~/app/actions";
  * App component reducer.
  */
 export default sliceReducer(initState) ((slice) => slice
+
     // full state reset
     .handle(act.RESET, () => initState)
 
@@ -32,9 +33,6 @@ export default sliceReducer(initState) ((slice) => slice
     .handle(act.VISIBLE, (state) => ({ ...state, visible: true }))
     .handle(act.HIDDEN, (state) => ({ ...state, visible: false }))
 
-    // url hash handling
-    .handle(act.SET_HASH, (state, { hash }) => ({ ...state, hash }))
-
     // error handling
     .handle(act.CLEAR_ERROR, (state) => ({ ...state, error: null }))
     .match(
@@ -42,4 +40,5 @@ export default sliceReducer(initState) ((slice) => slice
             isWithPayload(action) && action.payload.error,
         (state, { error }) => ({ ...state, error }),
     ),
+
 );

@@ -23,8 +23,6 @@ export enum AppActionType {
     VISIBLE = "App/VISIBLE",
     HIDDEN = "App/HIDDEN",
 
-    SET_HASH = "App/SET_HASH",
-
     CLEAR_ERROR = "App/CLEAR_ERROR",
 
 }
@@ -37,6 +35,6 @@ export enum AppActionType {
  */
 export default actionCreators(AppActionType, {
 
-    SET_HASH: (hash: string) => ({ hash }),
+    NOT_READY: (error?: string) => ({ error }),
 
 });

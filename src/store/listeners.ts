@@ -8,6 +8,7 @@
 
 import type { ThunkType } from "~/store/types";
 import appListener from "~/app/listener";
+import routerListener from "~/router/listener";
 
 
 
@@ -17,6 +18,7 @@ import appListener from "~/app/listener";
  */
 const listeners = [
     appListener,
+    routerListener,
 ];
 
 

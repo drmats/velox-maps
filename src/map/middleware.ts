@@ -51,7 +51,7 @@ export default function createMapGLMiddleware (): Middleware {
             action.type === act.map.SET_VIEWPORT.type &&
             isWithPayload(action)
         ) {
-            replaceSpaHash(tnk.app.replaceSPAHash, action.payload.viewport);
+            replaceSpaHash(tnk.router.replaceSPAHash, action.payload.viewport);
         }
 
         return result;

@@ -39,8 +39,8 @@ const NotFound: FC = () => {
 
     useEffect(() => {
         setTimeout(() => {
-            tnk.app.replaceSPARoute("");
-            tnk.app.replaceSPAHash(mapViewportToHashString(viewport));
+            tnk.router.replaceSPARoute("");
+            tnk.router.replaceSPAHash(mapViewportToHashString(viewport));
         }, 2 * timeUnit.second);
     }, [viewport]);
 

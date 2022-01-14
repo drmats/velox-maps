@@ -5,8 +5,8 @@
 
 import { useSelector } from "react-redux";
 
-import { getHash } from "~/app/selectors";
-import { hashToSPARoute } from "~/app/functions";
+import { getHash } from "~/router/selectors";
+import { hashToSPARoute } from "~/router/functions";
 
 
 

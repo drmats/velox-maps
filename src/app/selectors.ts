@@ -14,5 +14,4 @@ import type { RootState } from "~/store/types";
 
 export const getReady = (s: RootState) => s.app.ready;
 export const getVisible = (s: RootState) => s.app.visible;
-export const getHash = (s: RootState) => s.app.hash;
 export const getError = (s: RootState) => s.app.error;

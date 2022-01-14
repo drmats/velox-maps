@@ -19,9 +19,6 @@ export default {
     // is application visible (browser tab active)?
     visible: true,
 
-    // url hash (basic SPA routing)
-    hash: "",
-
     // last error
     error: null as string | null,
 

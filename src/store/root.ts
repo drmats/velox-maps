@@ -15,6 +15,10 @@ import appThunks from "~/app/thunks";
 import mapActions from "~/map/actions";
 import mapReducers from "~/map/reducers";
 
+import routerActions from "~/router/actions";
+import routerReducers from "~/router/reducers";
+import routerThunks from "~/router/thunks";
+
 
 
 
@@ -24,6 +28,7 @@ import mapReducers from "~/map/reducers";
 export const action = {
     app: appActions,
     map: mapActions,
+    router: routerActions,
 };
 
 
@@ -35,6 +40,7 @@ export const action = {
 export const rootReducer = combineReducers({
     app: appReducers,
     map: mapReducers,
+    router: routerReducers,
 });
 
 
@@ -45,4 +51,5 @@ export const rootReducer = combineReducers({
  */
 export const thunk = {
     app: appThunks,
+    router: routerThunks,
 };
