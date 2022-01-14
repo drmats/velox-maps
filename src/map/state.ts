@@ -5,7 +5,10 @@
  * @copyright Mat. 2020-present
  */
 
-import type { MapViewport } from "~/map/types";
+import type {
+    MapViewport,
+    MapSelection,
+} from "~/map/types";
 import { tileSources } from "~/map/constants";
 
 
@@ -28,5 +31,8 @@ export default {
         longitude: 19.85,
         zoom: 5,
     } as MapViewport,
+
+    // last map-click details
+    selection: null as MapSelection | null,
 
 };

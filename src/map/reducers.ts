@@ -20,21 +20,28 @@ export default sliceReducer(initState) ((slice) => slice
     // full state reset
     .handle(act.RESET, () => initState)
 
-    // set ready state
+    // set map selection
+    .handle(act.SET_SELECTION, (state, { selection }) => ({
+        ...state, selection,
+    }))
+
+    // clear map selection
+    .handle(act.CLEAR_SELECTION, (state) => ({
+        ...state, selection: null,
+    }))
+
+    // set map ready state
     .handle(act.SET_READY, (state, { ready }) => ({
-        ...state,
-        ...{ ready },
+        ...state, ready,
     }))
 
-    // set tilesource
+    // set map tilesource
     .handle(act.SET_TILESOURCE, (state, { tilesource }) => ({
-        ...state,
-        ...{ tilesource },
+        ...state, tilesource,
     }))
 
-    // set viewport
+    // set map viewport
     .handle(act.SET_VIEWPORT, (state, { viewport }) => ({
-        ...state,
-        ...{ viewport },
+        ...state, viewport,
     })),
 );

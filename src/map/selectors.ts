@@ -13,5 +13,6 @@ import type { RootState } from "~/store/types";
 
 
 export const getReady = (s: RootState) => s.map.ready;
+export const getSelection = (s: RootState) => s.map.selection;
 export const getTilesource = (s: RootState) => s.map.tilesource;
 export const getViewport = (s: RootState) => s.map.viewport;

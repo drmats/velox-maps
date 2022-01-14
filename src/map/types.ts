@@ -5,6 +5,8 @@
  * @copyright Mat. 2020-present
  */
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 
 
 
@@ -40,4 +42,16 @@ export interface MapGLProps {
 export interface TileSource {
     label: string;
     url: string;
+}
+
+
+
+
+/**
+ * Map selection (subset of Maplibre's MapEvent type).
+ */
+export interface MapSelection {
+    point: [number, number],   // [x, y]
+    lngLat: [number, number],  // [longitude, latitude]
+    features?: Array<any>
 }

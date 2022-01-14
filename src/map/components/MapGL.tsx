@@ -11,7 +11,10 @@ import {
     useRef,
 } from "react";
 import { useSelector } from "react-redux";
-import type { MapRef } from "react-map-gl";
+import type {
+    MapEvent,
+    MapRef,
+} from "react-map-gl";
 import ReactMapGL from "react-map-gl";
 
 import type {
@@ -47,11 +50,23 @@ export default function MapGL ({
     const viewport = useSelector(getViewport);
     const mapRef = useRef<MapRef | null>(null);
 
+    // take care of map reference upon mount/unmount
     useEffect(() => {
         act.map.SET_READY(true);
         mut.mapRef = mapRef;
-        return () => { act.map.SET_READY(false); };
+        return () => {
+            delete mut.mapRef;
+            act.map.SET_READY(false);
+        };
     }, []);
+
+    // synchronize map movement with redux state
+    const onMapViewportChange = ({ latitude, longitude, zoom }: MapViewport) =>
+        act.map.SET_VIEWPORT({ latitude, longitude, zoom });
+
+    // store last map selection in redux state
+    const onMapClick = ({ point, lngLat, features }: MapEvent) =>
+        act.map.SET_SELECTION({ point, lngLat, features });
 
     return (
         <ReactMapGL
@@ -64,11 +79,8 @@ export default function MapGL ({
                 maxZoom,
             }}
             {...viewport}
-            onViewportChange={({
-                latitude, longitude, zoom,
-            }: MapViewport) => act.map.SET_VIEWPORT({
-                latitude, longitude, zoom,
-            })}
+            onViewportChange={onMapViewportChange}
+            onClick={onMapClick}
             ref={mapRef}
         />
     );
@@ -86,7 +98,7 @@ declare global {
      * Shared memory context.
      */
     interface Mut {
-        mapRef: MutableRefObject<MapRef | null>;
+        mapRef?: MutableRefObject<MapRef | null>;
     }
 
 }
