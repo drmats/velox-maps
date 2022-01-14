@@ -36,9 +36,6 @@ export enum AppActionType {
 export default actionCreators(AppActionType, {
 
     // ...
-    READY: (error?: string) => ({ error }),
-
-    // ...
-    VISIBLE: (error?: string) => ({ error }),
+    NOT_READY: (error?: string) => ({ error }),
 
 });

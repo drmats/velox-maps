@@ -14,6 +14,7 @@ import type { ThunkType } from "~/store/types";
  * Setup App component listener.
  */
 const setupListener: ThunkType = (_d, _getState, { act }) => {
+
     // handle application visibility change
     document.addEventListener("visibilitychange", () => {
         if (document.visibilityState === "visible") {
@@ -22,5 +23,6 @@ const setupListener: ThunkType = (_d, _getState, { act }) => {
             act.app.HIDDEN();
         }
     });
+
 };
 export default setupListener;

@@ -22,7 +22,4 @@ export default {
     // last error
     error: null as string | null,
 
-    // how many actions of this type has been spawned? (example)
-    actionCount: 0,
-
 };
