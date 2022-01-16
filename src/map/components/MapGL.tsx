@@ -66,7 +66,9 @@ export default function MapGL ({
 
     // store last map selection in redux state
     const onMapClick = ({ point, lngLat, features }: MapEvent) =>
-        act.map.SET_SELECTION({ point, lngLat, features });
+        act.map.SET_SELECTION({
+            point, lngLat, features, timestamp: Date.now(),
+        });
 
     return (
         <ReactMapGL

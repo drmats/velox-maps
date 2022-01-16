@@ -54,4 +54,5 @@ export interface MapSelection {
     point: [number, number],   // [x, y]
     lngLat: [number, number],  // [longitude, latitude]
     features?: Array<any>
+    timestamp: number;
 }
