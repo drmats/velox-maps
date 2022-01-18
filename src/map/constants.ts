@@ -6,6 +6,7 @@
  */
 
 import type { TileSource } from "~/map/types";
+import { ThemeVariant } from "~/layout/theme";
 
 
 
@@ -17,5 +18,6 @@ export const tileSources: TileSource[] = [
     {
         label: "Demo Tiles",
         url: "https://demotiles.maplibre.org/style.json",
+        themeVariant: ThemeVariant.LIGHT,
     },
 ];

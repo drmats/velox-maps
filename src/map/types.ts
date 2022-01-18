@@ -7,6 +7,8 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+import { ThemeVariant } from "~/layout/theme";
+
 
 
 
@@ -42,6 +44,7 @@ export interface MapGLProps {
 export interface TileSource {
     label: string;
     url: string;
+    themeVariant: ThemeVariant;
 }
 
 

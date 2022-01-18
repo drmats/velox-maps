@@ -3,7 +3,7 @@
  * @copyright Mat. 2020-present
  */
 
-import { ThemeVariant } from "~/layout/theme";
+import { tileSources } from "~/map/constants";
 
 
 
@@ -13,6 +13,6 @@ import { ThemeVariant } from "~/layout/theme";
  */
 export default {
 
-    theme: ThemeVariant.LIGHT,
+    theme: tileSources[0].themeVariant,
 
 };

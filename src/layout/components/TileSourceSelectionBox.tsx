@@ -6,7 +6,10 @@
  */
 
 import type { FC } from "react";
-import { useSelector } from "react-redux";
+import {
+    batch,
+    useSelector,
+} from "react-redux";
 import { useStyletron } from "baseui";
 import { Combobox } from "baseui/combobox";
 import { SIZE } from "baseui/select";
@@ -53,9 +56,14 @@ const TileSourceSelectionBox: FC = () => {
                 <Combobox
                     autocomplete={false}
                     value={tilesource.label}
-                    onChange={(_, option) =>
-                        option && act.map.SET_TILESOURCE(option as TileSource)
-                    }
+                    onChange={(_, option?: TileSource) => {
+                        if (option) {
+                            batch(() => {
+                                act.map.SET_TILESOURCE(option);
+                                act.layout.SET_THEME(option.themeVariant);
+                            });
+                        }
+                    }}
                     size={SIZE.compact}
                     options={tileSources}
                     mapOptionToString={option => option.label}

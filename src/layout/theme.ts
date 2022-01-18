@@ -34,7 +34,7 @@ export type CustomTheme = Theme /* & { customProps } */;
 
 
 /**
- * Theme customization.
+ * Standard theme prop overrides.
  */
 const borderOverrides = {
     buttonBorderRadius: "0px",
