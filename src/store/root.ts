@@ -12,6 +12,9 @@ import appActions from "~/app/actions";
 import appReducers from "~/app/reducers";
 import appThunks from "~/app/thunks";
 
+import layoutActions from "~/layout/actions";
+import layoutReducers from "~/layout/reducers";
+
 
 
 
@@ -20,6 +23,7 @@ import appThunks from "~/app/thunks";
  */
 export const action = {
     app: appActions,
+    layout: layoutActions,
 };
 
 
@@ -30,6 +34,7 @@ export const action = {
  */
 export const rootReducer = combineReducers({
     app: appReducers,
+    layout: layoutReducers,
 });
 
 
