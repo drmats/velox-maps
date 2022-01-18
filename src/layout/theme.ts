@@ -37,7 +37,7 @@ export type CustomTheme = Theme /* & { customProps } */;
  * Custom theme - dark variant.
  */
 export const DarkTheme: CustomTheme = {
-    ...createDarkTheme({}),
+    ...createDarkTheme({}, { colors: { backgroundPrimary: "#141414" } }),
     /* customProps */
 };
 
@@ -48,7 +48,7 @@ export const DarkTheme: CustomTheme = {
  * Custom theme - light variant.
  */
 export const LightTheme: CustomTheme = {
-    ...createLightTheme({}),
+    ...createLightTheme({}, { colors: { backgroundPrimary: "#ebebeb" } }),
     /* customProps */
 };
 
