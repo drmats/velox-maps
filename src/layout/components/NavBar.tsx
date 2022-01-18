@@ -14,6 +14,7 @@ import {
     MonoLabelSmall,
 } from "baseui/typography";
 
+import { useTheme } from "~/layout/hooks";
 import {
     Centered,
     RowContainer,
@@ -29,7 +30,8 @@ import packageInfo from "~/../package.json";
  * ...
  */
 export default function NavBar (): JSX.Element {
-    const [css, theme] = useStyletron();
+    const [css] = useStyletron();
+    const theme = useTheme();
     const overrides = {
         Block: { style: { color: theme.colors.white } },
     };
