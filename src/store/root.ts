@@ -12,6 +12,9 @@ import appActions from "~/app/actions";
 import appReducers from "~/app/reducers";
 import appThunks from "~/app/thunks";
 
+import layoutActions from "~/layout/actions";
+import layoutReducers from "~/layout/reducers";
+
 import mapActions from "~/map/actions";
 import mapReducers from "~/map/reducers";
 
@@ -27,6 +30,7 @@ import routerThunks from "~/router/thunks";
  */
 export const action = {
     app: appActions,
+    layout: layoutActions,
     map: mapActions,
     router: routerActions,
 };
@@ -39,6 +43,7 @@ export const action = {
  */
 export const rootReducer = combineReducers({
     app: appReducers,
+    layout: layoutReducers,
     map: mapReducers,
     router: routerReducers,
 });

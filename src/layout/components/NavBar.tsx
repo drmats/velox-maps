@@ -14,6 +14,7 @@ import {
     MonoLabelSmall,
 } from "baseui/typography";
 
+import { useTheme } from "~/layout/hooks";
 import {
     Centered,
     RowContainer,
@@ -29,9 +30,10 @@ import packageInfo from "~/../package.json";
  * ...
  */
 export default function NavBar (): JSX.Element {
-    const [css, theme] = useStyletron();
+    const [css] = useStyletron();
+    const theme = useTheme();
     const overrides = {
-        Block: { style: { color: theme.colors.foregroundInv } },
+        Block: { style: { color: theme.colors.white } },
     };
 
     return (
@@ -42,23 +44,23 @@ export default function NavBar (): JSX.Element {
                         title={packageInfo.name}
                         overrides={{
                             Root: {
-                                style: ({ $theme }) => ({
-                                    backgroundColor: $theme.colors.accent700,
-                                }),
+                                style: {
+                                    backgroundColor: theme.colors.accent700,
+                                },
                             },
                             AppName: {
-                                style: ({ $theme }) => ({
+                                style: {
                                     height: "32px",
-                                    color: $theme.colors.foregroundInv,
-                                    [$theme.mediaQuery.small]: {
+                                    color: theme.colors.white,
+                                    [theme.mediaQuery.small]: {
                                         width: "0px",
                                         overflow: "hidden",
                                     },
-                                    [$theme.mediaQuery.medium]: {
+                                    [theme.mediaQuery.medium]: {
                                         width: "auto",
                                         overflow: "visible",
                                     },
-                                }),
+                                },
                             },
                         }}
                     />

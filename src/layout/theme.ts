@@ -6,38 +6,85 @@
  */
 
 import type { Theme } from "baseui";
-import { createLightTheme } from "baseui";
+import {
+    createDarkTheme,
+    createLightTheme,
+} from "baseui";
 
 
 
 
 /**
- * ...
+ * Theme variants.
  */
-type CustomTheme = Theme /* & { customProps } */;
+export enum ThemeVariant {
+    LIGHT = "LIGHT",
+    DARK = "DARK",
+}
 
 
 
 
 /**
- * ...
+ * Custom theme type.
  */
-const theme = createLightTheme({});
-export const MyTheme: CustomTheme = {
-    ...theme,
-    borders: {
-        ...theme.borders,
-        buttonBorderRadius: "0px",
-        inputBorderRadius: "0px",
-        popoverBorderRadius: "0px",
-        radius100: "0px",
-        radius200: "0px",
-        radius300: "0px",
-        radius400: "0px",
-        radius500: "0px",
-        surfaceBorderRadius: "0px",
-        tagBorderRadius: "0px",
-        useRoundedCorners: false,
-    },
+export type CustomTheme = Theme /* & { customProps } */;
+
+
+
+
+/**
+ * Theme customization.
+ */
+const borderOverrides = {
+    buttonBorderRadius: "0px",
+    inputBorderRadius: "0px",
+    popoverBorderRadius: "0px",
+    radius100: "0px",
+    radius200: "0px",
+    radius300: "0px",
+    radius400: "0px",
+    radius500: "0px",
+    surfaceBorderRadius: "0px",
+    tagBorderRadius: "0px",
+    useRoundedCorners: false,
+};
+
+
+
+
+/**
+ * Custom theme - dark variant.
+ */
+export const DarkTheme: CustomTheme = {
+    ...createDarkTheme({}, {
+        colors: { backgroundPrimary: "#141414" },
+        borders: borderOverrides,
+    }),
     /* customProps */
+};
+
+
+
+
+/**
+ * Custom theme - light variant.
+ */
+export const LightTheme: CustomTheme = {
+    ...createLightTheme({}, {
+        colors: { backgroundPrimary: "#ffffff" },
+        borders: borderOverrides,
+    }),
+    /* customProps */
+};
+
+
+
+
+/**
+ * Theme "registry".
+ */
+export const Themes = {
+    [ThemeVariant.DARK]: DarkTheme,
+    [ThemeVariant.LIGHT]: LightTheme,
 };

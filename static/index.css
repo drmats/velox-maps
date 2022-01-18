@@ -10,8 +10,8 @@
 
 html {
     box-sizing: border-box !important;
-    background-color: #ebebeb;
-    color: #000;
+    background-color: #ffffff;
+    color: #000000;
     font-size: 16px;
     font-family: sans-serif;
 }
@@ -23,4 +23,5 @@ html {
 body {
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }

@@ -40,7 +40,7 @@ const Surface = styled("div", ({ $theme }) => ({
     [$theme.mediaQuery.medium]: { top: "80px" },
 }));
 const LL = styled(Label3, ({ $theme }) => ({
-    color: $theme.colors.primary600,
+    color: $theme.colors.colorSecondary,
 }));
 const LV = styled(Label3, {
     fontWeight: 600,

@@ -11,13 +11,12 @@ import type { Client as Styletron } from "styletron-engine-atomic";
 import type { FC } from "react";
 import type { InferProps } from "prop-types";
 import type { Store } from "redux";
-import { BaseProvider } from "baseui";
 import { Provider as ReduxProvider } from "react-redux";
 import { Provider as StyletronProvider } from "styletron-react";
 import PropTypes from "prop-types";
 
-import { MyTheme } from "~/layout/theme";
 import type { RootState } from "~/store/types";
+import ThemeProvider from "~/layout/components/ThemeProvider";
 
 
 
@@ -46,9 +45,9 @@ export default function createRootWrapper (
     const Root: RootType = ({ element }) =>
         <ReduxProvider store={store}>
             <StyletronProvider value={engine}>
-                <BaseProvider theme={MyTheme}>
+                <ThemeProvider>
                     { element }
-                </BaseProvider>
+                </ThemeProvider>
             </StyletronProvider>
         </ReduxProvider>;
 
