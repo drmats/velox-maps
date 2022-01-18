@@ -22,6 +22,7 @@ import {
 } from "~/map/selectors";
 import type { TileSource } from "~/map/types";
 import { tileSources } from "~/map/constants";
+import { useTheme } from "~/layout/hooks";
 import { TextRow } from "~/layout/components/Containers";
 
 
@@ -40,6 +41,7 @@ const { act } = appMemory();
  */
 const TileSourceSelectionBox: FC = () => {
     const [css] = useStyletron();
+    const theme = useTheme();
     const ready = useSelector(getReady);
     const tilesource = useSelector(getTilesource);
 
@@ -68,9 +70,18 @@ const TileSourceSelectionBox: FC = () => {
                     options={tileSources}
                     mapOptionToString={option => option.label}
                     overrides={{
-                        Root: { style: () => ({ width: "120px" }) },
+                        Root: { style: {
+                            width: "110px",
+                            borderWidth: "2px",
+                            borderColor: theme.colors.borderOpaque,
+                            borderStyle: "solid",
+                        } },
                         Input: { props: { overrides: {
-                            Input: { style: { fontWeight: 600 } },
+                            Input: { style: {
+                                fontWeight: 600,
+                                userSelect: "none",
+                                cursor: "pointer",
+                            } },
                         } } },
 
                     }}
