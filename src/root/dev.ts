@@ -5,8 +5,6 @@
  * @copyright Mat. 2020-present
  */
 
-/* eslint-disable react-hooks/rules-of-hooks */
-
 import { assign } from "@xcmats/js-toolbox/struct";
 import { devEnv } from "@xcmats/js-toolbox/utils";
 import { isObject } from "@xcmats/js-toolbox/type";

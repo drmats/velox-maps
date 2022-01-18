@@ -5,8 +5,6 @@
  * @copyright Mat. 2021-present
  */
 
-/* eslint-disable react-hooks/rules-of-hooks */
-
 import type { Action } from "red-g";
 import { isWithPayload } from "red-g";
 import throttle from "lodash.throttle";
