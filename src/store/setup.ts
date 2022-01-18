@@ -5,8 +5,6 @@
  * @copyright Mat. 2020-present
  */
 
-/* eslint-disable react-hooks/rules-of-hooks */
-
 import type { Store } from "redux";
 import type { Action } from "red-g";
 import { share } from "mem-box";

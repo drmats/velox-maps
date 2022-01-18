@@ -5,7 +5,6 @@
  * @copyright Mat. 2020-present
  */
 
-/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable @typescript-eslint/no-empty-interface */
 
 import { share } from "mem-box";
