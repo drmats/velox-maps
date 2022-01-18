@@ -45,7 +45,12 @@ const NotFound: FC = () => {
     }, [viewport]);
 
     return (
-        <FullScreen>
+        <FullScreen
+            className={css({
+                backgroundColor: "#000000AA",
+                zIndex: 100,
+            })}
+        >
             <Card>
                 <StyledBody
                     className={css({
