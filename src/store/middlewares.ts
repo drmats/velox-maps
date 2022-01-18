@@ -6,8 +6,6 @@
  * @copyright Mat. 2020-present
  */
 
-/* eslint-disable react-hooks/rules-of-hooks */
-
 import thunk from "redux-thunk";
 
 import type { Middleware } from "~/store/types";
