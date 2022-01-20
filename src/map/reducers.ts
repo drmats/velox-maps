@@ -44,6 +44,11 @@ export default sliceReducer(initState) ((slice) => slice
     // set map viewport
     .handle(act.SET_VIEWPORT, (state, { viewport }) => ({
         ...state, viewport,
+    }))
+
+    // set SPA hash (browser location bar) synchronization flag
+    .handle(act.SET_SPA_HASH_SYNC, (state, { spaHashSync }) => ({
+        ...state, spaHashSync,
     })),
 
 );

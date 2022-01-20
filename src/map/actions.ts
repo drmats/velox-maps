@@ -27,6 +27,7 @@ export enum MapActionType {
     CLEAR_SELECTION = "Map/CLEAR_SELECTION",
     SET_TILESOURCE = "Map/SET_TILESOURCE",
     SET_VIEWPORT = "Map/SET_VIEWPORT",
+    SET_SPA_HASH_SYNC = "Map/SET_SPA_HASH_SYNC",
 
 }
 
@@ -42,5 +43,6 @@ export default actionCreators(MapActionType, {
     SET_SELECTION: (selection: MapSelection) => ({ selection }),
     SET_TILESOURCE: (tilesource: TileSource) => ({ tilesource }),
     SET_VIEWPORT: (viewport: MapViewport) => ({ viewport }),
+    SET_SPA_HASH_SYNC: (spaHashSync: boolean) => ({ spaHashSync }),
 
 });

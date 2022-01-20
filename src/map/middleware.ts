@@ -15,6 +15,10 @@ import type {
     ThunkType,
 } from "~/store/types";
 import type { MapViewport } from "~/map/types";
+import {
+    getSpaHashSync,
+    getViewport,
+} from "~/map/selectors";
 import { mapViewportToHashString } from "~/map/functions";
 
 
@@ -39,17 +43,36 @@ const replaceSpaHash = throttle(
 export default function createMapGLMiddleware (): Middleware {
 
     // ...
-    return () => (next) => (action: Action) => {
+    return ({ getState }) => (next) => (action: Action) => {
 
         const { act, tnk } = appMemory();
+        const state = getState();
+        const spaHashSyncEnabled = getSpaHashSync(state);
         const result = next(action);
 
         // change SPA hash on each 'SET_VIEWPORT' action dispatch
+        // (if that functionality is enabled with 'spaHashSync' flag)
         if (
+            spaHashSyncEnabled &&
             action.type === act.map.SET_VIEWPORT.type &&
             isWithPayload(action)
         ) {
+
             replaceSpaHash(tnk.router.replaceSPAHash, action.payload.viewport);
+
+        } else if (
+            action.type === act.map.SET_SPA_HASH_SYNC.type &&
+            isWithPayload(action)
+        ) {
+
+            if (!spaHashSyncEnabled && action.payload.spaHashSync) {
+                tnk.router.replaceSPAHash(
+                    mapViewportToHashString(getViewport(state)),
+                );
+            } else if (spaHashSyncEnabled && !action.payload.spaHashSync) {
+                tnk.router.replaceSPAHash("");
+            }
+
         }
 
         return result;

@@ -35,4 +35,7 @@ export default {
     // last map-click details
     selection: null as MapSelection | null,
 
+    // should map viewport be synchronized with browser location bar?
+    spaHashSync: true,
+
 };
