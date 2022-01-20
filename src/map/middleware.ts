@@ -20,6 +20,7 @@ import {
     getViewport,
 } from "~/map/selectors";
 import { mapViewportToHashString } from "~/map/functions";
+import { SPA_HASH_UPDATE_TRESHOLD } from "~/map/constants";
 
 
 
@@ -27,7 +28,6 @@ import { mapViewportToHashString } from "~/map/functions";
 /**
  * Throtled SPA hash state updates.
  */
-const SPA_HASH_UPDATE_TRESHOLD = 200;
 const replaceSpaHash = throttle(
     (rsh: (h: string) => ThunkType, v: MapViewport) =>
         rsh(mapViewportToHashString(v)),

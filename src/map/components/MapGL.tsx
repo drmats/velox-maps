@@ -30,6 +30,7 @@ import {
     getInteractive,
     getViewport,
 } from "~/map/selectors";
+import { LAST_INTERACTION_UPDATE_TRESHOLD } from "~/map/constants";
 
 import "maplibre-gl/dist/maplibre-gl.css";
 
@@ -47,7 +48,6 @@ const { act, mut } = appMemory();
 /**
  * Throtled "last interaction" updates.
  */
-const LAST_INTERACTION_UPDATE_TRESHOLD = 100;
 const userInteraction = throttle(
     () => act.map.USER_INTERACTION(),
     LAST_INTERACTION_UPDATE_TRESHOLD,

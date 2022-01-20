@@ -12,6 +12,15 @@ import { ThemeVariant } from "~/layout/theme";
 
 
 /**
+ * Event throttling.
+ */
+export const SPA_HASH_UPDATE_TRESHOLD = 200;
+export const LAST_INTERACTION_UPDATE_TRESHOLD = 100;
+
+
+
+
+/**
  * Tile sources.
  */
 export const tileSources: TileSource[] = [
