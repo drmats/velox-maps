@@ -21,16 +21,6 @@ export default sliceReducer(initState) ((slice) => slice
     // full state reset
     .handle(act.RESET, () => initState)
 
-    // set map selection
-    .handle(act.SET_SELECTION, (state, { selection }) => ({
-        ...state, selection,
-    }))
-
-    // clear map selection
-    .handle(act.CLEAR_SELECTION, (state) => ({
-        ...state, selection: null,
-    }))
-
     // set map ready state
     .handle(act.SET_READY, (state, { ready }) => ({
         ...state, ready,
@@ -44,6 +34,26 @@ export default sliceReducer(initState) ((slice) => slice
     // set map viewport
     .handle(act.SET_VIEWPORT, (state, { viewport }) => ({
         ...state, viewport,
+    }))
+
+    // set map interactive attribute
+    .handle(act.SET_INTERACTIVE, (state, { interactive }) => ({
+        ...state, interactive,
+    }))
+
+    // clear map selection
+    .handle(act.USER_INTERACTION, (state) => ({
+        ...state, lastInteraction: Date.now(),
+    }))
+
+    // set map selection
+    .handle(act.SET_SELECTION, (state, { selection }) => ({
+        ...state, selection,
+    }))
+
+    // clear map selection
+    .handle(act.CLEAR_SELECTION, (state) => ({
+        ...state, selection: null,
     }))
 
     // set SPA hash (browser location bar) synchronization flag

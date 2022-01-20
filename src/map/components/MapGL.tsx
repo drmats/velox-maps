@@ -10,7 +10,11 @@ import {
     useEffect,
     useRef,
 } from "react";
-import { useSelector } from "react-redux";
+import {
+    batch,
+    useSelector,
+} from "react-redux";
+import throttle from "lodash.throttle";
 import type {
     MapEvent,
     MapRef,
@@ -22,7 +26,10 @@ import type {
     MapViewport,
 } from "~/map/types";
 import { appMemory } from "~/root/memory";
-import { getViewport } from "~/map/selectors";
+import {
+    getInteractive,
+    getViewport,
+} from "~/map/selectors";
 
 import "maplibre-gl/dist/maplibre-gl.css";
 
@@ -38,6 +45,18 @@ const { act, mut } = appMemory();
 
 
 /**
+ * Throtled "last interaction" updates.
+ */
+const LAST_INTERACTION_UPDATE_TRESHOLD = 100;
+const userInteraction = throttle(
+    () => act.map.USER_INTERACTION(),
+    LAST_INTERACTION_UPDATE_TRESHOLD,
+);
+
+
+
+
+/**
  * Interactive map display with redux-managed viewport state.
  */
 export default function MapGL ({
@@ -48,6 +67,7 @@ export default function MapGL ({
     maxZoom,
 }: MapGLProps): JSX.Element {
     const viewport = useSelector(getViewport);
+    const interactive = useSelector(getInteractive);
     const mapRef = useRef<MapRef | null>(null);
 
     // take care of map reference upon mount/unmount
@@ -62,11 +82,15 @@ export default function MapGL ({
 
     // synchronize map movement with redux state
     const onMapViewportChange = ({ latitude, longitude, zoom }: MapViewport) =>
-        act.map.SET_VIEWPORT({ latitude, longitude, zoom });
+        batch(() => {
+            userInteraction();
+            interactive && act.map.SET_VIEWPORT({ latitude, longitude, zoom });
+        });
+
 
     // store last map selection in redux state
     const onMapClick = ({ point, lngLat, features }: MapEvent) =>
-        act.map.SET_SELECTION({
+        interactive && act.map.SET_SELECTION({
             point, lngLat, features, timestamp: Date.now(),
         });
 

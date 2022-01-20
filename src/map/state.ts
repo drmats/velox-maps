@@ -32,6 +32,12 @@ export default {
         zoom: 5,
     } as MapViewport,
 
+    // should map be movable by user?
+    interactive: true,
+
+    // when was the last time when map was touched by user?
+    lastInteraction: -1,
+
     // last map-click details
     selection: null as MapSelection | null,
 
