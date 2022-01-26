@@ -111,6 +111,7 @@ module.exports = {
                         "tuples": "always-multiline",
                     },
                 ],
+                "@typescript-eslint/explicit-module-boundary-types": ["warn"],
                 "@typescript-eslint/indent": "off",
                 "@typescript-eslint/interface-name-prefix": "off",
                 "@typescript-eslint/no-unused-vars": ["warn", { "args": "all", "argsIgnorePattern": "^_" }],
