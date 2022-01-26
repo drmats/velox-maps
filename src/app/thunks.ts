@@ -6,7 +6,7 @@
  */
 
 import type { ThunkType } from "~/store/types";
-import { getReady } from "~/app/selectors";
+import { selectReady } from "~/app/selectors";
 
 
 
@@ -22,7 +22,7 @@ export default {
     setReady: (readyState: boolean): ThunkType =>
         async (_d, getState, { act, logger }) => {
             const state = getState();
-            getReady(state) !== readyState && (
+            selectReady(state) !== readyState && (
                 readyState ? act.app.READY() : act.app.NOT_READY()
             );
             readyState && logger.info("Ready! ✅");
