@@ -48,6 +48,12 @@ export default sliceReducer(initState) ((slice) => slice
             isWithPayload(action) &&
             action.payload.error,
         (state, payload) => ({ ...state, error: payload.error }),
+    )
+
+    // global matcher - spawns on all actions
+    .match(
+        () => true,
+        (state) => ({ ...state, tick: Date.now() }),
     ),
 
 );

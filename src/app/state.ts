@@ -22,4 +22,7 @@ export default {
     // last error
     error: null as string | null,
 
+    // last state-change timestamp (global - any action)
+    tick: Date.now(),
+
 };
