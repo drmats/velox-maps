@@ -47,6 +47,12 @@ export default sliceReducer(initState) ((slice) => slice
         (state, payload) => ({ ...state, error: payload.error }),
     )
 
+    // global matcher - spawns on all actions
+    .match(
+        () => true,
+        (state) => ({ ...state, tick: Date.now() }),
+    )
+
     // type-predicate action matcher example (action type)
     .match(
         (action) =>

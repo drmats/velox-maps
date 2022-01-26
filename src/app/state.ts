@@ -22,6 +22,9 @@ export default {
     // last error
     error: null as string | null,
 
+    // last state-change timestamp (global - any action)
+    tick: Date.now(),
+
     // how many actions of this type has been spawned? (example)
     actionCount: 0,
 
