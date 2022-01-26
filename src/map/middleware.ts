@@ -16,8 +16,8 @@ import type {
 } from "~/store/types";
 import type { MapViewport } from "~/map/types";
 import {
-    getSpaHashSync,
-    getViewport,
+    selectSpaHashSync,
+    selectViewport,
 } from "~/map/selectors";
 import { mapViewportToHashString } from "~/map/functions";
 import { SPA_HASH_UPDATE_TRESHOLD } from "~/map/constants";
@@ -47,7 +47,7 @@ export default function createMapGLMiddleware (): Middleware {
 
         const { act, tnk } = appMemory();
         const state = getState();
-        const spaHashSyncEnabled = getSpaHashSync(state);
+        const spaHashSyncEnabled = selectSpaHashSync(state);
         const result = next(action);
 
         // change SPA hash on each 'SET_VIEWPORT' action dispatch
@@ -67,7 +67,7 @@ export default function createMapGLMiddleware (): Middleware {
 
             if (!spaHashSyncEnabled && action.payload.spaHashSync) {
                 tnk.router.replaceSPAHash(
-                    mapViewportToHashString(getViewport(state)),
+                    mapViewportToHashString(selectViewport(state)),
                 );
             } else if (spaHashSyncEnabled && !action.payload.spaHashSync) {
                 tnk.router.replaceSPAHash("");

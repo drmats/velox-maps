@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import type { CustomTheme } from "~/layout/theme";
-import { getTheme } from "~/layout/selectors";
+import { selectTheme } from "~/layout/selectors";
 import { Themes } from "~/layout/theme";
 
 
@@ -17,7 +17,7 @@ import { Themes } from "~/layout/theme";
  * Return current theme.
  */
 export const useTheme = (): CustomTheme => {
-    const currentThemeVariant = useSelector(getTheme);
+    const currentThemeVariant = useSelector(selectTheme);
     const currentTheme = Themes[currentThemeVariant];
 
     // imperative change of root style colors

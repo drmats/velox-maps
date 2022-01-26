@@ -12,10 +12,10 @@ import type { RootState } from "~/store/types";
 
 
 
-export const getInteractive = (s: RootState) => s.map.interactive;
-export const getLastInteraction = (s: RootState) => s.map.lastInteraction;
-export const getReady = (s: RootState) => s.map.ready;
-export const getSelection = (s: RootState) => s.map.selection;
-export const getSpaHashSync = (s: RootState) => s.map.spaHashSync;
-export const getTilesource = (s: RootState) => s.map.tilesource;
-export const getViewport = (s: RootState) => s.map.viewport;
+export const selectInteractive = (s: RootState) => s.map.interactive;
+export const selectLastInteraction = (s: RootState) => s.map.lastInteraction;
+export const selectReady = (s: RootState) => s.map.ready;
+export const selectSelection = (s: RootState) => s.map.selection;
+export const selectSpaHashSync = (s: RootState) => s.map.spaHashSync;
+export const selectTilesource = (s: RootState) => s.map.tilesource;
+export const selectViewport = (s: RootState) => s.map.viewport;

@@ -14,7 +14,7 @@ import {
 } from "baseui/card";
 import { Display4 } from "baseui/typography";
 
-import { getViewport } from "~/map/selectors";
+import { selectViewport } from "~/map/selectors";
 import { mapViewportToHashString } from "~/map/functions";
 import { appMemory } from "~/root/memory";
 import { FullScreen } from "~/layout/components/Containers";
@@ -35,7 +35,7 @@ const { tnk } = appMemory();
  */
 const NotFound: FC = () => {
     const [css] = useStyletron();
-    const viewport = useSelector(getViewport);
+    const viewport = useSelector(selectViewport);
 
     useEffect(() => {
         setTimeout(() => {

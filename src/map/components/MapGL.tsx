@@ -27,8 +27,8 @@ import type {
 } from "~/map/types";
 import { appMemory } from "~/root/memory";
 import {
-    getInteractive,
-    getViewport,
+    selectInteractive,
+    selectViewport,
 } from "~/map/selectors";
 import { LAST_INTERACTION_UPDATE_TRESHOLD } from "~/map/constants";
 
@@ -66,8 +66,8 @@ export default function MapGL ({
     minZoom,
     maxZoom,
 }: MapGLProps): JSX.Element {
-    const viewport = useSelector(getViewport);
-    const interactive = useSelector(getInteractive);
+    const viewport = useSelector(selectViewport);
+    const interactive = useSelector(selectInteractive);
     const mapRef = useRef<MapRef | null>(null);
 
     // take care of map reference upon mount/unmount

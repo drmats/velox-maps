@@ -10,4 +10,4 @@ import type { RootState } from "~/store/types";
 
 
 
-export const getTheme = (s: RootState) => s.layout.theme;
+export const selectTheme = (s: RootState) => s.layout.theme;

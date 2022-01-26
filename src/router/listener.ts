@@ -14,7 +14,7 @@ import {
 
 import type { ThunkType } from "~/store/types";
 import { getHash } from "~/router/selectors";
-import { getSpaHashSync } from "~/map/selectors";
+import { selectSpaHashSync } from "~/map/selectors";
 import { hashToSPARoute } from "~/router/functions";
 import {
     coordsToMapViewport,
@@ -54,12 +54,12 @@ const setupListener: ThunkType = (_d, getState, { act }) => {
 
     // initial hash synchronization
     browserHashToRedux();
-    if (getSpaHashSync(getState())) browserHashToMapViewport();
+    if (selectSpaHashSync(getState())) browserHashToMapViewport();
 
     // hash synchronization on every external change
     window.addEventListener("hashchange", () => {
         browserHashToRedux();
-        if (getSpaHashSync(getState())) browserHashToMapViewport();
+        if (selectSpaHashSync(getState())) browserHashToMapViewport();
     });
 
 };

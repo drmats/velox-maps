@@ -10,8 +10,8 @@ import { useSelector } from "react-redux";
 import { useStyletron } from "baseui";
 
 import {
-    getReady,
-    getViewport,
+    selectReady,
+    selectViewport,
 } from "~/map/selectors";
 import { format } from "~/map/functions";
 import { useTheme } from "~/layout/hooks";
@@ -26,8 +26,8 @@ import KvInfoBox from "~/layout/components/KvInfoBox";
 const LatLonZoomInfoBox: FC = () => {
     const [css] = useStyletron();
     const theme = useTheme();
-    const ready = useSelector(getReady);
-    const viewport = useSelector(getViewport);
+    const ready = useSelector(selectReady);
+    const viewport = useSelector(selectViewport);
 
     return (
         ready ? (

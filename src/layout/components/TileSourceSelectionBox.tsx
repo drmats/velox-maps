@@ -17,8 +17,8 @@ import { Layer } from "baseui/layer";
 
 import { appMemory } from "~/root/memory";
 import {
-    getReady,
-    getTilesource,
+    selectReady,
+    selectTilesource,
 } from "~/map/selectors";
 import type { TileSource } from "~/map/types";
 import { tileSources } from "~/map/constants";
@@ -42,8 +42,8 @@ const { act } = appMemory();
 const TileSourceSelectionBox: FC = () => {
     const [css] = useStyletron();
     const theme = useTheme();
-    const ready = useSelector(getReady);
-    const tilesource = useSelector(getTilesource);
+    const ready = useSelector(selectReady);
+    const tilesource = useSelector(selectTilesource);
 
     return (
         ready ? <Layer>

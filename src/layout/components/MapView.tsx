@@ -6,7 +6,7 @@
 import type { FC } from "react";
 import { useSelector } from "react-redux";
 
-import { getTilesource } from "~/map/selectors";
+import { selectTilesource } from "~/map/selectors";
 import LazyMapGL from "~/map/components/LazyMapGL";
 
 
@@ -16,7 +16,7 @@ import LazyMapGL from "~/map/components/LazyMapGL";
  * Map View.
  */
 const MapView: FC = () => {
-    const mapStyle = useSelector(getTilesource).url;
+    const mapStyle = useSelector(selectTilesource).url;
 
     return (
         <LazyMapGL
