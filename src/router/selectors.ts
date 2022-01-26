@@ -10,4 +10,4 @@ import type { RootState } from "~/store/types";
 
 
 
-export const getHash = (s: RootState) => s.router.hash;
+export const selectHash = (s: RootState) => s.router.hash;

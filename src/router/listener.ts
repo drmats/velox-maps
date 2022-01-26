@@ -13,7 +13,7 @@ import {
 } from "@xcmats/js-toolbox/func";
 
 import type { ThunkType } from "~/store/types";
-import { getHash } from "~/router/selectors";
+import { selectHash } from "~/router/selectors";
 import { selectSpaHashSync } from "~/map/selectors";
 import { hashToSPARoute } from "~/router/functions";
 import {
@@ -43,7 +43,7 @@ const setupListener: ThunkType = (_d, getState, { act }) => {
         handleException(() =>
             pipe() (
                 getState,
-                getHash,
+                selectHash,
                 hashToSPARoute,
                 last,
                 hashStringToCoords,

@@ -5,7 +5,7 @@
 
 import { useSelector } from "react-redux";
 
-import { getHash } from "~/router/selectors";
+import { selectHash } from "~/router/selectors";
 import { hashToSPARoute } from "~/router/functions";
 
 
@@ -15,4 +15,4 @@ import { hashToSPARoute } from "~/router/functions";
  * Simplest possible SPA routing.
  */
 export const useSPARoute = (): [string, string] =>
-    hashToSPARoute(useSelector(getHash));
+    hashToSPARoute(useSelector(selectHash));

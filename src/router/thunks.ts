@@ -5,7 +5,7 @@
 
 import type { ThunkType } from "~/store/types";
 import { SPA_HASH_SEPARATOR } from "~/router/constants";
-import { getHash } from "~/router/selectors";
+import { selectHash } from "~/router/selectors";
 
 
 
@@ -20,7 +20,7 @@ export default {
      */
     pushHash: (hash: string): ThunkType =>
         async (_d, getState, { act }) => {
-            if (getHash(getState()) !== hash) {
+            if (selectHash(getState()) !== hash) {
                 const pathname = (new URL(document.URL)).pathname;
                 const h = hash.length === 0 ? pathname : `#${hash}`;
                 history.pushState(undefined, "", h);
@@ -33,7 +33,7 @@ export default {
      */
     replaceHash: (hash: string): ThunkType =>
         async (_d, getState, { act }) => {
-            if (getHash(getState()) !== hash) {
+            if (selectHash(getState()) !== hash) {
                 const pathname = (new URL(document.URL)).pathname;
                 const h = hash.length === 0 ? pathname : `#${hash}`;
                 history.replaceState(undefined, "", h);
@@ -46,7 +46,7 @@ export default {
      */
     pushSPARoute: (route: string): ThunkType =>
         async (_d, getState, { tnk }) => {
-            const [r, h] = getHash(getState()).split(SPA_HASH_SEPARATOR);
+            const [r, h] = selectHash(getState()).split(SPA_HASH_SEPARATOR);
             if (r !== route) {
                 if (h && h !== "") {
                     tnk.router.pushHash([route, h].join(SPA_HASH_SEPARATOR));
@@ -61,7 +61,7 @@ export default {
      */
     replaceSPARoute: (route: string): ThunkType =>
         async (_d, getState, { tnk }) => {
-            const [r, h] = getHash(getState()).split(SPA_HASH_SEPARATOR);
+            const [r, h] = selectHash(getState()).split(SPA_HASH_SEPARATOR);
             if (r !== route) {
                 if (h && h !== "") {
                     tnk.router.replaceHash([route, h].join(SPA_HASH_SEPARATOR));
@@ -76,7 +76,7 @@ export default {
      */
     pushSPAHash: (hash: string): ThunkType =>
         async (_d, getState, { tnk }) => {
-            const [r, h] = getHash(getState()).split(SPA_HASH_SEPARATOR);
+            const [r, h] = selectHash(getState()).split(SPA_HASH_SEPARATOR);
             if (h !== hash) {
                 if (hash !== "") {
                     tnk.router.pushHash([r, hash].join(SPA_HASH_SEPARATOR));
@@ -91,7 +91,7 @@ export default {
      */
     replaceSPAHash: (hash: string): ThunkType =>
         async (_d, getState, { tnk }) => {
-            const [r, h] = getHash(getState()).split(SPA_HASH_SEPARATOR);
+            const [r, h] = selectHash(getState()).split(SPA_HASH_SEPARATOR);
             if (h !== hash) {
                 if (hash !== "") {
                     tnk.router.replaceHash([r, hash].join(SPA_HASH_SEPARATOR));
