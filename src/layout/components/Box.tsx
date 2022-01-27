@@ -9,6 +9,7 @@ import type { FC } from "react";
 import { styled } from "baseui";
 import { Card } from "baseui/card";
 import { Layer } from "baseui/layer";
+import { isNumber } from "@xcmats/js-toolbox/type";
 
 
 
@@ -29,26 +30,30 @@ const Surface = styled("div", {
  */
 const Box: FC<{
     surfaceStyle?: string;
+    padding?: number;
 }> = ({
-    surfaceStyle, children,
-}) => (
-    <Layer>
-        <Surface className={surfaceStyle}>
-            <Card
-                overrides={{
-                    Contents: { style: {
-                        marginTop: "8px !important",
-                        marginRight: "8px !important",
-                        marginBottom: "8px !important",
-                        marginLeft: "8px !important",
-                    } },
-                    Body: { style: { marginBottom: "0px !important" } },
-                }}
-            >
-                {children}
-            </Card>
-        </Surface>
-    </Layer>
-);
+    surfaceStyle, children, padding,
+}) => {
+    const p = String(isNumber(padding) ? padding : 8);
+    return (
+        <Layer>
+            <Surface className={surfaceStyle}>
+                <Card
+                    overrides={{
+                        Contents: { style: {
+                            marginTop: `${p}px !important`,
+                            marginRight: `${p}px !important`,
+                            marginBottom: `${p}px !important`,
+                            marginLeft: `${p}px !important`,
+                        } },
+                        Body: { style: { marginBottom: "0px !important" } },
+                    }}
+                >
+                    {children}
+                </Card>
+            </Surface>
+        </Layer>
+    );
+};
 
 export default Box;
