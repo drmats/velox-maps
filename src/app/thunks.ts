@@ -12,20 +12,13 @@ import { selectReady } from "~/app/selectors";
 
 
 /**
- * App component thunks.
+ * Set application ready state - example.
  */
-export default {
-
-    /**
-     * Set application ready state - example.
-     */
-    setReady: (readyState: boolean): ThunkType =>
-        async (_d, getState, { act, logger }) => {
-            const state = getState();
-            selectReady(state) !== readyState && (
-                readyState ? act.app.READY() : act.app.NOT_READY()
-            );
-            readyState && logger.info("Ready! ✅");
-        },
-
-};
+export const setReady = (readyState: boolean): ThunkType =>
+    async (_d, getState, { act, logger }) => {
+        const state = getState();
+        selectReady(state) !== readyState && (
+            readyState ? act.app.READY() : act.app.NOT_READY()
+        );
+        readyState && logger.info("Ready! ✅");
+    };

@@ -5,8 +5,6 @@
  * @copyright Mat. 2021-present
  */
 
-/* eslint-disable no-console */
-
 import { createElement } from "react";
 import { render } from "react-dom";
 import {
