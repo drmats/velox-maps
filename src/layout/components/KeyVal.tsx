@@ -12,6 +12,7 @@ import {
 } from "baseui";
 import { StyledBody } from "baseui/card";
 import { Label3 } from "baseui/typography";
+import { isNumber } from "@xcmats/js-toolbox/type";
 
 import { TextColumn } from "~/layout/components/Containers";
 
@@ -42,7 +43,10 @@ const KeyVal: FC<{
 }) => {
     const [css] = useStyletron();
     const entries = Object.entries(data);
-    const valueWidth = `${valueFieldMaxWidth || 100}px`;
+    const valueWidth =
+        isNumber(valueFieldMaxWidth) ?
+            `${valueFieldMaxWidth}px` :
+            "auto";
 
     return (
         <StyledBody
