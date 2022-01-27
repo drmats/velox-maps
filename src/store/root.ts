@@ -10,7 +10,7 @@ import { combineReducers } from "redux";
 
 import appActions from "~/app/actions";
 import appReducers from "~/app/reducers";
-import appThunks from "~/app/thunks";
+import * as appThunks from "~/app/thunks";
 
 import layoutActions from "~/layout/actions";
 import layoutReducers from "~/layout/reducers";
