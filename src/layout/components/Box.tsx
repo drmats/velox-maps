@@ -40,6 +40,9 @@ const Box: FC<{
             <Surface className={surfaceStyle}>
                 <Card
                     overrides={{
+                        Root: { style: {
+                            width: "100%",
+                        } },
                         Contents: { style: {
                             marginTop: `${p}px !important`,
                             marginRight: `${p}px !important`,
