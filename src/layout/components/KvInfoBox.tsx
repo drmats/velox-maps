@@ -10,13 +10,10 @@ import {
     styled,
     useStyletron,
 } from "baseui";
-import {
-    Card,
-    StyledBody,
-} from "baseui/card";
-import { Layer } from "baseui/layer";
+import { StyledBody } from "baseui/card";
 import { Label3 } from "baseui/typography";
 
+import Box from "~/layout/components/Box";
 import { TextColumn } from "~/layout/components/Containers";
 
 
@@ -25,10 +22,6 @@ import { TextColumn } from "~/layout/components/Containers";
 /**
  * ...
  */
-const Surface = styled("div", {
-    display: "flex",
-    flexDirection: "row",
-});
 const LL = styled(Label3, ({ $theme }) => ({
     color: $theme.colors.colorSecondary,
 }));
@@ -54,53 +47,39 @@ const KvInfoBox: FC<{
     const valueWidth = `${valueFieldMaxWidth || 100}px`;
 
     return (
-        <Layer>
-            <Surface className={surfaceStyle}>
-                <Card
-                    overrides={{
-                        Contents: { style: {
-                            marginTop: "8px !important",
-                            marginRight: "8px !important",
-                            marginBottom: "8px !important",
-                            marginLeft: "8px !important",
-                        } },
-                        Body: { style: { marginBottom: "0px !important" } },
-                    }}
+        <Box surfaceStyle={surfaceStyle}>
+            <StyledBody
+                className={css({
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "center",
+                    gap: "5px",
+                    marginBottom: "0px !important",
+                })}
+            >
+                <TextColumn
+                    className={css({
+                        alignItems: "flex-end",
+                        margin: "0px",
+                    })}
                 >
-                    <StyledBody
-                        className={css({
-                            display: "flex",
-                            flexDirection: "row",
-                            justifyContent: "center",
-                            gap: "5px",
-                            marginBottom: "0px !important",
-                        })}
-                    >
-                        <TextColumn
-                            className={css({
-                                alignItems: "flex-end",
-                                margin: "0px",
-                            })}
-                        >
-                            { entries.map(([k, _]) => (
-                                <LL key={k}>{`${k}:`}</LL>
-                            )) }
-                        </TextColumn>
-                        <TextColumn
-                            className={css({
-                                width: valueWidth,
-                                margin: "0px",
-                                overflow: "hidden",
-                            })}
-                        >
-                            { entries.map(([k, v]) => (
-                                <LV key={k}>{v}</LV>
-                            )) }
-                        </TextColumn>
-                    </StyledBody>
-                </Card>
-            </Surface>
-        </Layer>
+                    { entries.map(([k, _]) => (
+                        <LL key={k}>{`${k}:`}</LL>
+                    )) }
+                </TextColumn>
+                <TextColumn
+                    className={css({
+                        width: valueWidth,
+                        margin: "0px",
+                        overflow: "hidden",
+                    })}
+                >
+                    { entries.map(([k, v]) => (
+                        <LV key={k}>{v}</LV>
+                    )) }
+                </TextColumn>
+            </StyledBody>
+        </Box>
     );
 };
 
