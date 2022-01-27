@@ -5,8 +5,8 @@
 
 import type { FC } from "react";
 
-import LatLonZoomInfoBox from "~/layout/components/LatLonZoomInfoBox";
-import TileSourceSelectionBox from "~/layout/components/TileSourceSelectionBox";
+import LatLonZoomInfoBox from "~/map/components/LatLonZoomInfoBox";
+import TileSourceSelectionBox from "~/map/components/TileSourceSelectionBox";
 
 
 

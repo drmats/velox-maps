@@ -8,7 +8,7 @@ import { choose } from "@xcmats/js-toolbox/func";
 
 import { useSPARoute } from "~/router/hooks";
 import NavBar from "~/layout/components/NavBar";
-import MapView from "~/layout/components/MapView";
+import MapView from "~/map/components/MapView";
 import Index from "~/app/screens/Index";
 import NotFound from "~/app/screens/NotFound";
 
