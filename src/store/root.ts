@@ -20,7 +20,7 @@ import mapReducers from "~/map/reducers";
 
 import routerActions from "~/router/actions";
 import routerReducers from "~/router/reducers";
-import routerThunks from "~/router/thunks";
+import * as routerThunks from "~/router/thunks";
 
 
 
