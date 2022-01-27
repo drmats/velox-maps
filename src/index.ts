@@ -6,6 +6,7 @@
  */
 
 /* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/no-empty-interface */
 
 import { createElement } from "react";
 import { render } from "react-dom";
@@ -50,11 +51,10 @@ window.addEventListener("load", () => {
 
 
 /**
- *  Global declaration merge.
+ * Global declaration merge.
  */
 declare global {
 
-    // eslint-disable-next-line @typescript-eslint/no-empty-interface
     interface Window { }
 
 }
