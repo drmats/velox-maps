@@ -21,7 +21,6 @@ import {
 } from "~/map/selectors";
 import type { TileSource } from "~/map/types";
 import { tileSources } from "~/map/constants";
-import { useTheme } from "~/layout/hooks";
 import Box from "~/layout/components/Box";
 
 
@@ -40,7 +39,6 @@ const { act } = appMemory();
  */
 const TileSourceSelectionBox: FC = () => {
     const [css] = useStyletron();
-    const theme = useTheme();
     const ready = useSelector(selectReady);
     const tilesource = useSelector(selectTilesource);
 
@@ -52,7 +50,7 @@ const TileSourceSelectionBox: FC = () => {
                 bottom: "10px",
                 justifyContent: "center",
             })}
-            padding={4}
+            padding={6}
         >
             <Combobox
                 autocomplete={false}
@@ -69,12 +67,7 @@ const TileSourceSelectionBox: FC = () => {
                 options={tileSources}
                 mapOptionToString={option => option.label}
                 overrides={{
-                    Root: { style: {
-                        width: "110px",
-                        borderWidth: "2px",
-                        borderColor: theme.colors.borderOpaque,
-                        borderStyle: "solid",
-                    } },
+                    Root: { style: { width: "110px" } },
                     Input: { props: { overrides: {
                         Input: { style: {
                             fontWeight: 600,
