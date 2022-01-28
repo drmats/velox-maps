@@ -26,7 +26,7 @@ const LL = styled(Label3, ({ $theme }) => ({
     color: $theme.colors.colorSecondary,
 }));
 const LV = styled(Label3, {
-    fontWeight: 600,
+    fontWeight: "600 !important",
 });
 
 
