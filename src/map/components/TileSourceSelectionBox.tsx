@@ -79,7 +79,7 @@ const TileSourceSelectionBox: FC = () => {
                                 borderLeftStyle: "none",
                             } },
                             Input: { style: {
-                                fontWeight: 700,
+                                fontWeight: 600,
                                 userSelect: "none",
                                 cursor: "pointer",
                                 paddingTop: "0px",
