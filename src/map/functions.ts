@@ -5,7 +5,31 @@
  * @copyright Mat. 2020-present
  */
 
+import type { Map } from "maplibre-gl";
+
 import type { MapViewport } from "~/map/types";
+
+
+
+
+/**
+ * Imperative operations on map.
+ */
+type MapOps = {
+    addSymbol: (name: string, url: string) => MapOps;
+};
+export const mapOps = (map: Map | null): MapOps => {
+    const ops: MapOps = {
+        // load image and add it to map under chosen name
+        addSymbol: (name, url) => {
+            map && map.loadImage(url, (error: Error, image: ImageData) => {
+                if (!error && image) map.addImage(name, image);
+            });
+            return ops;
+        },
+    };
+    return ops;
+};
 
 
 
