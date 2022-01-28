@@ -87,7 +87,6 @@ export default function MapGL ({
             interactive && act.map.SET_VIEWPORT({ latitude, longitude, zoom });
         });
 
-
     // store last map selection in redux state
     const onMapClick = ({ point, lngLat, features }: MapEvent) =>
         interactive && act.map.SET_SELECTION({

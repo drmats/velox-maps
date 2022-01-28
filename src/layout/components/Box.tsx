@@ -52,7 +52,7 @@ const Box: FC<{
                         Body: { style: { marginBottom: "0px !important" } },
                     }}
                 >
-                    {children}
+                    { children }
                 </Card>
             </Surface>
         </Layer>

@@ -24,13 +24,13 @@ export const App: FC = () => {
     return (
         <>
             <MapView />
-            {choose(
+            { choose(
                 route,
                 {
                     "": () => <Index />,
                 },
                 () => <NotFound />,
-            )}
+            ) }
             <NavBar />
         </>
     );

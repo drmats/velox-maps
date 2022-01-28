@@ -65,7 +65,7 @@ const KeyVal: FC<{
                 })}
             >
                 { entries.map(([k, _]) => (
-                    <LL key={k}>{`${k}:`}</LL>
+                    <LL key={k}>{ `${k}:` }</LL>
                 )) }
             </TextColumn>
             <TextColumn
@@ -76,7 +76,7 @@ const KeyVal: FC<{
                 })}
             >
                 { entries.map(([k, v]) => (
-                    <LV key={k}>{v}</LV>
+                    <LV key={k}>{ v }</LV>
                 )) }
             </TextColumn>
         </StyledBody>

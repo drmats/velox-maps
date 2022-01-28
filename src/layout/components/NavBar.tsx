@@ -88,10 +88,10 @@ export default function NavBar (): JSX.Element {
                                     react-baseui-maplibre
                                 </Label1>
                                 <Label3 overrides={overrides}>
-                                    {packageInfo.version}
+                                    { packageInfo.version }
                                 </Label3>
                                 <MonoLabelSmall overrides={overrides}>
-                                    ({env.GIT_VERSION})
+                                    ({ env.GIT_VERSION })
                                 </MonoLabelSmall>
                             </RowContainer>
                         </RowContainer>
