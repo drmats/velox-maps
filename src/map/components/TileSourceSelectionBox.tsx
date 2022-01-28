@@ -21,6 +21,7 @@ import {
 } from "~/map/selectors";
 import type { TileSource } from "~/map/types";
 import { tileSources } from "~/map/constants";
+import { useTheme } from "~/layout/hooks";
 import Box from "~/layout/components/Box";
 
 
@@ -39,6 +40,7 @@ const { act } = appMemory();
  */
 const TileSourceSelectionBox: FC = () => {
     const [css] = useStyletron();
+    const theme = useTheme();
     const ready = useSelector(selectReady);
     const tilesource = useSelector(selectTilesource);
 
@@ -68,16 +70,24 @@ const TileSourceSelectionBox: FC = () => {
                 mapOptionToString={option => option.label}
                 overrides={{
                     Root: { style: { width: "110px" } },
-                    Input: { props: { overrides: {
-                        Input: { style: {
-                            fontWeight: 600,
-                            userSelect: "none",
-                            cursor: "pointer",
-                            paddingTop: "0px",
-                            paddingBottom: "0px",
-                        } },
-                    } } },
-
+                    Input: { props: {
+                        overrides: {
+                            Root: { style: {
+                                borderTopStyle: "none",
+                                borderRightStyle: "none",
+                                borderBottomStyle: "none",
+                                borderLeftStyle: "none",
+                            } },
+                            Input: { style: {
+                                fontWeight: 700,
+                                userSelect: "none",
+                                cursor: "pointer",
+                                paddingTop: "0px",
+                                paddingBottom: "0px",
+                                backgroundColor: theme.colors.backgroundPrimary,
+                            } },
+                        },
+                    } },
                 }}
                 onFocus={(e) => e.target.blur()}
             />
