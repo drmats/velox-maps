@@ -20,6 +20,6 @@ export const App: FC = () => {
 
     // ...
     return (
-        <>{text}</>
+        <>{ text }</>
     );
 };
