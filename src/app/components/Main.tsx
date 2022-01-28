@@ -34,7 +34,7 @@ export const App: FC = () => {
                     height: "calc(100vh - 72px)",
                 })}
             >
-                <H4>{text}</H4>
+                <H4>{ text }</H4>
             </Centered>
         </>
     );
