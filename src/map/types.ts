@@ -16,8 +16,11 @@ import { ThemeVariant } from "~/layout/theme";
  * Real-time viewport state.
  */
 export interface MapViewport {
+    altitude: number;
+    bearing: number;
     latitude: number;
     longitude: number;
+    pitch: number;
     zoom: number;
 }
 

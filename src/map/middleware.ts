@@ -46,9 +46,11 @@ export default function createMapGLMiddleware (): Middleware {
     return ({ getState }) => (next) => (action: Action) => {
 
         const { act, tnk } = appMemory();
-        const state = getState();
-        const spaHashSyncEnabled = selectSpaHashSync(state);
+        const preState = getState();
+        const spaHashSyncEnabled = selectSpaHashSync(preState);
         const result = next(action);
+        const postState = getState();
+        const viewport = selectViewport(postState);
 
         // change SPA hash on each 'SET_VIEWPORT' action dispatch
         // (if that functionality is enabled with 'spaHashSync' flag)
@@ -58,7 +60,7 @@ export default function createMapGLMiddleware (): Middleware {
             isWithPayload(action)
         ) {
 
-            replaceSpaHash(tnk.router.replaceSPAHash, action.payload.viewport);
+            replaceSpaHash(tnk.router.replaceSPAHash, viewport);
 
         } else if (
             action.type === act.map.SET_SPA_HASH_SYNC.type &&
@@ -67,7 +69,7 @@ export default function createMapGLMiddleware (): Middleware {
 
             if (!spaHashSyncEnabled && action.payload.spaHashSync) {
                 tnk.router.replaceSPAHash(
-                    mapViewportToHashString(selectViewport(state)),
+                    mapViewportToHashString(viewport),
                 );
             } else if (spaHashSyncEnabled && !action.payload.spaHashSync) {
                 tnk.router.replaceSPAHash("");

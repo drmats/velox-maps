@@ -6,6 +6,7 @@
  */
 
 import { sliceReducer } from "red-g";
+import p from "immer";
 
 import initState from "~/map/state";
 import act from "~/map/actions";
@@ -32,8 +33,14 @@ export default sliceReducer(initState) ((slice) => slice
     }))
 
     // set map viewport
-    .handle(act.SET_VIEWPORT, (state, { viewport }) => ({
-        ...state, viewport,
+    // (immer shorts: p - produce, s - state, d - draft)
+    .handle(act.SET_VIEWPORT, (s, { viewport }) => p(s, (d) => {
+        if (viewport.altitude) d.viewport.altitude = viewport.altitude;
+        if (viewport.bearing) d.viewport.bearing = viewport.bearing;
+        if (viewport.latitude) d.viewport.latitude = viewport.latitude;
+        if (viewport.longitude) d.viewport.longitude = viewport.longitude;
+        if (viewport.pitch) d.viewport.pitch = viewport.pitch;
+        if (viewport.zoom) d.viewport.zoom = viewport.zoom;
     }))
 
     // set map interactive attribute

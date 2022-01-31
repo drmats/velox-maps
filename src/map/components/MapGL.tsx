@@ -81,10 +81,10 @@ export default function MapGL ({
     }, []);
 
     // synchronize map movement with redux state
-    const onMapViewportChange = ({ latitude, longitude, zoom }: MapViewport) =>
+    const onMapViewportChange = (viewportState: MapViewport) =>
         batch(() => {
             userInteraction();
-            interactive && act.map.SET_VIEWPORT({ latitude, longitude, zoom });
+            interactive && act.map.SET_VIEWPORT(viewportState);
         });
 
     // store last map selection in redux state

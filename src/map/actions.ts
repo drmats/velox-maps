@@ -43,7 +43,7 @@ export default actionCreators(MapActionType, {
 
     SET_READY: (ready: boolean) => ({ ready }),
     SET_TILESOURCE: (tilesource: TileSource) => ({ tilesource }),
-    SET_VIEWPORT: (viewport: MapViewport) => ({ viewport }),
+    SET_VIEWPORT: (viewport: Partial<MapViewport>) => ({ viewport }),
     SET_INTERACTIVE: (interactive: boolean) => ({ interactive }),
     SET_SELECTION: (selection: MapSelection) => ({ selection }),
     SET_SPA_HASH_SYNC: (spaHashSync: boolean) => ({ spaHashSync }),
