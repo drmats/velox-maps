@@ -9,6 +9,7 @@ import type { MutableRefObject } from "react";
 import {
     useEffect,
     useRef,
+    useState,
 } from "react";
 import {
     batch,
@@ -69,6 +70,7 @@ export default function MapGL ({
     const viewport = useSelector(selectViewport);
     const interactive = useSelector(selectInteractive);
     const mapRef = useRef<MapRef | null>(null);
+    const [afterInitialSetup, setAfterInitialSetup] = useState(false);
 
     // take care of map reference upon mount/unmount
     useEffect(() => {
@@ -83,7 +85,8 @@ export default function MapGL ({
     // synchronize map movement with redux state
     const onMapViewportChange = (viewportState: MapViewport) =>
         batch(() => {
-            userInteraction();
+            if (afterInitialSetup) userInteraction();
+            else setAfterInitialSetup(true);
             interactive && act.map.SET_VIEWPORT(viewportState);
         });
 
