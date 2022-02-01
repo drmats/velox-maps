@@ -6,8 +6,12 @@
  */
 
 import type { Map } from "maplibre-gl";
+import type { BBox } from "@turf/turf";
 
-import type { MapViewport } from "~/map/types";
+import type {
+    MapDimensions,
+    MapViewport,
+} from "~/map/types";
 
 
 
@@ -29,6 +33,23 @@ export const mapOps = (map: Map | null): MapOps => {
         },
     };
     return ops;
+};
+
+
+
+
+/**
+ * Similar to map.getBounds() but works well on rotated and tilted map.
+ */
+export const mapDimensionsToBbox = (
+    map: Map | null, dimensions: MapDimensions,
+): BBox => {
+    if (map) {
+        const ne = map.unproject([0, 0]);
+        const sw = map.unproject([dimensions.width, dimensions.height]);
+        return [ne.lng, ne.lat, sw.lng, sw.lat];
+    }
+    return [0, 0, 0, 0];
 };
 
 
