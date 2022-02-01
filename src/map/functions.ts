@@ -73,7 +73,7 @@ export const hashStringToCoords = (input: string): [number, number, number] => {
  */
 export const coordsToMapViewport = (
     coords: [number, number, number],
-): MapViewport => ({
+): Partial<MapViewport> => ({
     zoom: coords[0],
     latitude: coords[1],
     longitude: coords[2],
