@@ -29,6 +29,7 @@ import type {
 } from "~/map/types";
 import { appMemory } from "~/root/memory";
 import {
+    selectDimensions,
     selectInteractive,
     selectViewport,
 } from "~/map/selectors";
@@ -69,6 +70,7 @@ export default function MapGL ({
     maxZoom,
 }: MapGLProps): JSX.Element {
     const viewport = useSelector(selectViewport);
+    const dimensions = useSelector(selectDimensions);
     const interactive = useSelector(selectInteractive);
     const mapRef = useRef<MapRef | null>(null);
     const [afterInitialSetup, setAfterInitialSetup] = useState(false);
@@ -86,8 +88,12 @@ export default function MapGL ({
     // synchronize map movement with redux state
     const onMapViewportChange = (viewportState: MapViewport & MapDimensions) =>
         batch(() => {
-            if (afterInitialSetup) userInteraction();
-            else setAfterInitialSetup(true);
+            if (afterInitialSetup) {
+                if (
+                    dimensions.width === viewportState.width &&
+                    dimensions.height === viewportState.height
+                ) userInteraction();
+            } else setAfterInitialSetup(true);
             interactive && act.map.SET_VIEWPORT(viewportState);
         });
 
