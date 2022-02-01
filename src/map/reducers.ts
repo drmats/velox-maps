@@ -37,9 +37,11 @@ export default sliceReducer(initState) ((slice) => slice
     .handle(act.SET_VIEWPORT, (s, { viewport }) => p(s, (d) => {
         if (viewport.altitude) d.viewport.altitude = viewport.altitude;
         if (viewport.bearing) d.viewport.bearing = viewport.bearing;
+        if (viewport.height) d.dimensions.height = viewport.height;
         if (viewport.latitude) d.viewport.latitude = viewport.latitude;
         if (viewport.longitude) d.viewport.longitude = viewport.longitude;
         if (viewport.pitch) d.viewport.pitch = viewport.pitch;
+        if (viewport.width) d.dimensions.width = viewport.width;
         if (viewport.zoom) d.viewport.zoom = viewport.zoom;
     }))
 

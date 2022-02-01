@@ -12,6 +12,7 @@ import type { RootState } from "~/store/types";
 
 
 
+export const selectDimensions = (s: RootState) => s.map.dimensions;
 export const selectInteractive = (s: RootState) => s.map.interactive;
 export const selectLastInteraction = (s: RootState) => s.map.lastInteraction;
 export const selectReady = (s: RootState) => s.map.ready;

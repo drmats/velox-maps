@@ -35,6 +35,12 @@ export default {
         zoom: 5,
     } as MapViewport,
 
+    // viewport dimensions
+    dimensions: {
+        width: 0,
+        height: 0,
+    },
+
     // should map be movable by user?
     interactive: true,
 

@@ -23,6 +23,7 @@ import type {
 import ReactMapGL from "react-map-gl";
 
 import type {
+    MapDimensions,
     MapGLProps,
     MapViewport,
 } from "~/map/types";
@@ -83,7 +84,7 @@ export default function MapGL ({
     }, []);
 
     // synchronize map movement with redux state
-    const onMapViewportChange = (viewportState: MapViewport) =>
+    const onMapViewportChange = (viewportState: MapViewport & MapDimensions) =>
         batch(() => {
             if (afterInitialSetup) userInteraction();
             else setAfterInitialSetup(true);
