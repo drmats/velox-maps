@@ -77,11 +77,11 @@ export default function MapGL ({
 
     // take care of map reference upon mount/unmount
     useEffect(() => {
-        act.map.SET_READY(true);
         mut.mapRef = mapRef;
+        act.map.SET_READY(true);
         return () => {
-            delete mut.mapRef;
             act.map.SET_READY(false);
+            delete mut.mapRef;
         };
     }, []);
 
