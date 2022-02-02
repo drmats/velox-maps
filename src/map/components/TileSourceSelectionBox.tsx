@@ -70,6 +70,7 @@ const TileSourceSelectionBox: FC = () => {
                 mapOptionToString={option => option.label}
                 overrides={{
                     Root: { style: { width: "110px" } },
+                    ListBox: { style: { maxHeight: "460px" } },
                     Input: { props: {
                         overrides: {
                             Root: { style: {
