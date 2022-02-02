@@ -49,3 +49,16 @@ export const useInterval = (time = timeUnit.second): number => {
 
     return now;
 };
+
+
+
+
+/**
+ * Set document title on component mount, revert on umount.
+ */
+export const useDocumentTitle = (title: string): void =>
+    useEffect(() => {
+        const originalTitle = document.title;
+        document.title = title;
+        return () => { document.title = originalTitle; };
+    }, [title]);
