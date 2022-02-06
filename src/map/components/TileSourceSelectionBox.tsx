@@ -38,7 +38,9 @@ const { act } = appMemory();
 /**
  * ...
  */
-const TileSourceSelectionBox: FC = () => {
+const TileSourceSelectionBox: FC<{ extraSources?: TileSource[]; }> = ({
+    extraSources,
+}) => {
     const [css] = useStyletron();
     const theme = useTheme();
     const ready = useSelector(selectReady);
@@ -66,7 +68,11 @@ const TileSourceSelectionBox: FC = () => {
                     }
                 }}
                 size={SIZE.compact}
-                options={tileSources}
+                options={
+                    extraSources ?
+                        tileSources.concat(extraSources) :
+                        tileSources
+                }
                 mapOptionToString={option => option.label}
                 overrides={{
                     Root: { style: { width: "110px" } },
