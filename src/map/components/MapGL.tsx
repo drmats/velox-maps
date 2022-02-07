@@ -49,7 +49,7 @@ const { act, mut } = appMemory();
 
 
 /**
- * Throtled "last interaction" updates.
+ * Throttled "last interaction" updates.
  */
 const userInteraction = throttle(
     () => act.map.USER_INTERACTION(),
@@ -130,7 +130,7 @@ export default function MapGL ({
 declare global {
 
     /**
-     * Shared memory context.
+     * Augmenting mutable subcontext.
      */
     interface Mut {
         mapRef?: MutableRefObject<MapRef | null>;
