@@ -34,6 +34,7 @@ import {
     selectViewport,
 } from "~/map/selectors";
 import { LAST_INTERACTION_UPDATE_TRESHOLD } from "~/map/constants";
+import MapContent from "~/map/components/MapContent";
 
 import "maplibre-gl/dist/maplibre-gl.css";
 
@@ -117,7 +118,9 @@ export default function MapGL ({
             onViewportChange={onMapViewportChange}
             onClick={onMapClick}
             ref={mapRef}
-        />
+        >
+            <MapContent />
+        </ReactMapGL>
     );
 }
 
