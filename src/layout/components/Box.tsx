@@ -6,6 +6,7 @@
  */
 
 import type { FC } from "react";
+import type { StyleObject } from "styletron-react";
 import { styled } from "baseui";
 import { Card } from "baseui/card";
 import { Layer } from "baseui/layer";
@@ -31,8 +32,9 @@ const Surface = styled("div", {
 const Box: FC<{
     surfaceStyle?: string;
     padding?: number;
+    rootOverride?: StyleObject;
 }> = ({
-    surfaceStyle, children, padding,
+    surfaceStyle, children, padding, rootOverride,
 }) => {
     const p = String(isNumber(padding) ? padding : 8);
     return (
@@ -42,6 +44,7 @@ const Box: FC<{
                     overrides={{
                         Root: { style: {
                             width: "100%",
+                            ...(rootOverride || {}),
                         } },
                         Contents: { style: {
                             marginTop: `${p}px !important`,
