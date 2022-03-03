@@ -50,14 +50,17 @@ export default function NavBar (): JSX.Element {
                             },
                             AppName: {
                                 style: {
-                                    height: "32px",
+                                    display: "flex",
+                                    alignItems: "center",
                                     color: theme.colors.white,
                                     [theme.mediaQuery.small]: {
                                         width: "0px",
+                                        height: "28px",
                                         overflow: "hidden",
                                     },
                                     [theme.mediaQuery.medium]: {
                                         width: "auto",
+                                        height: "24px",
                                         overflow: "visible",
                                     },
                                 },
@@ -77,7 +80,7 @@ export default function NavBar (): JSX.Element {
                                     height: theme.sizing.scale1200,
                                 },
                                 [theme.mediaQuery.medium]: {
-                                    height: "72px",
+                                    height: theme.sizing.scale1600,
                                 },
                             })}
                         >

@@ -41,7 +41,7 @@ const LatLonZoomInfoBox: FC = () => {
                     position: "fixed",
                     right: "10px",
                     [theme.mediaQuery.small]: { top: "60px" },
-                    [theme.mediaQuery.medium]: { top: "80px" },
+                    [theme.mediaQuery.medium]: { top: "76px" },
                 })}
                 valueFieldMaxWidth={68}
             />
