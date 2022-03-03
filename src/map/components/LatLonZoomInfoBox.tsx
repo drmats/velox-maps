@@ -40,8 +40,8 @@ const LatLonZoomInfoBox: FC = () => {
                 surfaceStyle={css({
                     position: "fixed",
                     right: "10px",
-                    [theme.mediaQuery.small]: { top: "60px" },
-                    [theme.mediaQuery.medium]: { top: "76px" },
+                    [theme.mediaQuery.small]: { top: "58px" },
+                    [theme.mediaQuery.medium]: { top: "74px" },
                 })}
                 valueFieldMaxWidth={68}
             />
