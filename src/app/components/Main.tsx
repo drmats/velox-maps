@@ -9,7 +9,10 @@ import { H4 } from "baseui/typography";
 
 import { useShuffle } from "~/app/hooks";
 import NavBar from "~/layout/components/NavBar";
-import { Centered } from "~/layout/components/Containers";
+import {
+    Centered,
+    AppContent,
+} from "~/layout/components/Containers";
 import packageInfo from "~/../package.json";
 
 
@@ -28,14 +31,21 @@ export const App: FC = () => {
         <>
             <NavBar />
 
-            <Centered
-                className={css({
-                    alignItems: "center",
-                    height: "calc(100vh - 72px)",
-                })}
+            <AppContent
+                overrides={{
+                    overflowX: "hidden",
+                    overflowY: "hidden",
+                }}
             >
-                <H4>{ text }</H4>
-            </Centered>
+                <Centered
+                    className={css({
+                        alignItems: "center",
+                        height: "100%",
+                    })}
+                >
+                    <H4>{ text }</H4>
+                </Centered>
+            </AppContent>
         </>
     );
 };

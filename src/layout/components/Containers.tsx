@@ -5,10 +5,15 @@
  * @copyright Mat. 2020-present
  */
 
+import type { FC } from "react";
+import type { StyleObject } from "styletron-react";
 import {
     styled,
+    useStyletron,
     withStyle,
 } from "baseui";
+
+import { useTheme } from "~/layout/hooks";
 
 
 
@@ -67,3 +72,32 @@ export const TopBox = styled("div", {
     top: "0",
     left: "0",
 });
+
+
+
+
+/**
+ * ...
+ */
+export const AppContent: FC<{ overrides: StyleObject; }> = ({
+    overrides, children,
+}) => {
+    const [css] = useStyletron();
+    const theme = useTheme();
+    return (
+        <main
+            className={css({
+                width: "100%",
+                [theme.mediaQuery.small]: {
+                    height: `calc(100vh - ${theme.sizing.scale1000})`,
+                },
+                [theme.mediaQuery.medium]: {
+                    height: `calc(100vh - ${theme.sizing.scale1600})`,
+                },
+                ...overrides,
+            })}
+        >
+            {children}
+        </main>
+    );
+};
