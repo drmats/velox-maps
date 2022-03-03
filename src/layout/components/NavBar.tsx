@@ -52,14 +52,15 @@ export default function NavBar (): JSX.Element {
                                 style: {
                                     display: "flex",
                                     alignItems: "center",
-                                    height: "24px",
                                     color: theme.colors.white,
                                     [theme.mediaQuery.small]: {
                                         width: "0px",
+                                        height: "28px",
                                         overflow: "hidden",
                                     },
                                     [theme.mediaQuery.medium]: {
                                         width: "auto",
+                                        height: "24px",
                                         overflow: "visible",
                                     },
                                 },
