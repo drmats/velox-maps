@@ -89,7 +89,7 @@ export const AppContent: FC<{ overrides: StyleObject; }> = ({
             className={css({
                 width: "100%",
                 [theme.mediaQuery.small]: {
-                    height: `calc(100vh - ${theme.sizing.scale1000})`,
+                    height: `calc(100vh - ${theme.sizing.scale1200})`,
                 },
                 [theme.mediaQuery.medium]: {
                     height: `calc(100vh - ${theme.sizing.scale1600})`,

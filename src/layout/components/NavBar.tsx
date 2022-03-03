@@ -106,7 +106,7 @@ export default function NavBar (): JSX.Element {
                 className={css({
                     width: "100%",
                     [theme.mediaQuery.small]: {
-                        height: theme.sizing.scale1000,
+                        height: theme.sizing.scale1200,
                     },
                     [theme.mediaQuery.medium]: {
                         height: theme.sizing.scale1600,
