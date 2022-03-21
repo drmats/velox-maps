@@ -11,14 +11,14 @@
         }
     ],
     "dependencies": {
-        "@xcmats/js-toolbox": "0.14.4",
+        "@xcmats/js-toolbox": "0.14.5",
         "immer": "9.0.12",
-        "mem-box": "1.0.10",
+        "mem-box": "1.0.11",
         "prop-types": "15.8.1",
         "react-dom": "17.0.2",
         "react-redux": "7.2.6",
         "react": "17.0.2",
-        "red-g": "1.0.5",
+        "red-g": "1.0.6",
         "redux": "4.1.2",
         "redux-devtools-extension": "2.13.9",
         "redux-thunk": "2.4.1"
