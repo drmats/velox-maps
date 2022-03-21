@@ -11,8 +11,8 @@
         }
     ],
     "dependencies": {
-        "@xcmats/js-toolbox": "0.14.4",
-        "mem-box": "1.0.10"
+        "@xcmats/js-toolbox": "0.14.5",
+        "mem-box": "1.0.11"
     },
     "description": "Thin web-ui starter.",
     "devDependencies": {
