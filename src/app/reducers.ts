@@ -28,10 +28,10 @@ export default sliceReducer(initState) ((slice) => slice
     .handle(act.RESET, () => initState)
 
     // immer usage example
-    .handle(act.READY, (state) => produce(state, (draft) => {
+    .handle(act.READY, produce((draft) => {
         draft.ready = true;
     }))
-    .handle(act.NOT_READY, (state) => produce(state, (draft) => {
+    .handle(act.NOT_READY, produce((draft) => {
         draft.ready = false;
     }))
 
