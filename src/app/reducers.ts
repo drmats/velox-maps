@@ -44,20 +44,24 @@ export default sliceReducer(initState) ((slice) => slice
     .match(
         (action): action is Action<{ error: string }> =>
             isWithPayload(action) && action.payload.error,
-        (state, payload) => ({ ...state, error: payload.error }),
+        produce((draft, { error }) => {
+            draft.error = error;
+        }),
     )
 
     // global matcher - spawns on all actions
     .match(
         () => true,
-        (state) => ({ ...state, tick: Date.now() }),
+        produce((draft) => {
+            draft.tick = Date.now();
+        }),
     )
 
     // type-predicate action matcher example (action type)
     .match(
         (action) =>
             isStringActionType(action) && action.type.startsWith("App/"),
-        (state) => produce(state, (draft) => {
+        produce((draft) => {
             draft.actionCount = inc(draft.actionCount);
         }),
     ),
