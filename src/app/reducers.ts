@@ -28,10 +28,10 @@ export default sliceReducer(initState) ((slice) => slice
     .handle(act.RESET, () => initState)
 
     // immer usage example
-    .handle(act.READY, (state) => produce(state, (draft) => {
+    .handle(act.READY, produce((draft) => {
         draft.ready = true;
     }))
-    .handle(act.NOT_READY, (state) => produce(state, (draft) => {
+    .handle(act.NOT_READY, produce((draft) => {
         draft.ready = false;
     }))
 
@@ -47,13 +47,17 @@ export default sliceReducer(initState) ((slice) => slice
             action.type.startsWith("App/") &&
             isWithPayload(action) &&
             action.payload.error,
-        (state, payload) => ({ ...state, error: payload.error }),
+        produce((draft, { error }) => {
+            draft.error = error;
+        }),
     )
 
     // global matcher - spawns on all actions
     .match(
         () => true,
-        (state) => ({ ...state, tick: Date.now() }),
+        produce((draft) => {
+            draft.tick = Date.now();
+        }),
     ),
 
 );
