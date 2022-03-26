@@ -33,8 +33,8 @@ export default sliceReducer(initState) ((slice) => slice
     }))
 
     // set map viewport
-    // (immer shorts: p - produce, s - state, d - draft)
-    .handle(act.SET_VIEWPORT, (s, { viewport }) => p(s, (d) => {
+    // (immer shorts: p - produce, d - draft)
+    .handle(act.SET_VIEWPORT, p((d, { viewport }) => {
         if (viewport.altitude) d.viewport.altitude = viewport.altitude;
         if (viewport.bearing) d.viewport.bearing = viewport.bearing;
         if (viewport.height) d.dimensions.height = viewport.height;
