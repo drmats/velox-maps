@@ -27,7 +27,6 @@ export default {
 
     // viewport state
     viewport: {
-        altitude: 1.5,
         bearing: 0,
         latitude: 52.06,
         longitude: 19.85,

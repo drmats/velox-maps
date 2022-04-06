@@ -35,14 +35,17 @@ export default sliceReducer(initState) ((slice) => slice
     // set map viewport
     // (immer shorts: p - produce, d - draft)
     .handle(act.SET_VIEWPORT, p((d, { viewport }) => {
-        if (viewport.altitude) d.viewport.altitude = viewport.altitude;
         if (viewport.bearing) d.viewport.bearing = viewport.bearing;
-        if (viewport.height) d.dimensions.height = viewport.height;
         if (viewport.latitude) d.viewport.latitude = viewport.latitude;
         if (viewport.longitude) d.viewport.longitude = viewport.longitude;
         if (viewport.pitch) d.viewport.pitch = viewport.pitch;
-        if (viewport.width) d.dimensions.width = viewport.width;
         if (viewport.zoom) d.viewport.zoom = viewport.zoom;
+    }))
+
+    // set map dimensions
+    .handle(act.SET_DIMENSIONS, p((d, { dimensions }) => {
+        if (dimensions.height) d.dimensions.height = dimensions.height;
+        if (dimensions.width) d.dimensions.width = dimensions.width;
     }))
 
     // set map interactive attribute

@@ -7,6 +7,7 @@
 
 import type { MutableRefObject } from "react";
 import {
+    useCallback,
     useEffect,
     useRef,
     useState,
@@ -16,20 +17,18 @@ import {
     useSelector,
 } from "react-redux";
 import throttle from "lodash.throttle";
+import MapLibreGL from "maplibre-gl";
 import type {
-    MapEvent,
+    MapLayerMouseEvent,
     MapRef,
+    ViewStateChangeEvent,
 } from "react-map-gl";
 import ReactMapGL from "react-map-gl";
+import type { MapboxEvent } from "mapbox-gl";
 
-import type {
-    MapDimensions,
-    MapGLProps,
-    MapViewport,
-} from "~/map/types";
+import type { MapGLProps } from "~/map/types";
 import { appMemory } from "~/root/memory";
 import {
-    selectDimensions,
     selectInteractive,
     selectViewport,
 } from "~/map/selectors";
@@ -70,54 +69,78 @@ export default function MapGL ({
     minZoom,
     maxZoom,
 }: MapGLProps): JSX.Element {
-    const viewport = useSelector(selectViewport);
-    const dimensions = useSelector(selectDimensions);
+    const [interactiveLayers, setInteractiveLayers] = useState<string[]>([]);
     const interactive = useSelector(selectInteractive);
     const mapRef = useRef<MapRef | null>(null);
-    const [afterInitialSetup, setAfterInitialSetup] = useState(false);
+    const viewport = useSelector(selectViewport);
 
-    // take care of map reference upon mount/unmount
-    useEffect(() => {
+    // take care of map reference and dimensions upon mount
+    // (also make all layers interactive for 'onMapClick' features inspection)
+    const onMapLoad = useCallback(() => {
         mut.mapRef = mapRef;
+        if (mapRef.current) {
+            act.map.SET_DIMENSIONS(mapRef.current.getCanvas());
+            setInteractiveLayers(
+                mapRef.current.getStyle().layers?.map(l => l.id) || [],
+            );
+        }
         act.map.SET_READY(true);
+    }, [mapRef]);
+
+    // take care of map reference upon unmount
+    useEffect(() => {
         return () => {
             act.map.SET_READY(false);
             delete mut.mapRef;
         };
+    }, [mapRef]);
+
+    // synchronize map viewport with redux state
+    const onMapMove = useCallback(({ viewState }: ViewStateChangeEvent) =>
+        batch(() => {
+            if (interactive) {
+                userInteraction();
+                act.map.SET_VIEWPORT(viewState);
+            }
+        }),
+    [interactive]);
+
+    // synchronize map dimensions with redux state
+    const onMapResize = useCallback((e: MapboxEvent) => {
+        act.map.SET_DIMENSIONS(e.target.getCanvas());
     }, []);
 
-    // synchronize map movement with redux state
-    const onMapViewportChange = (viewportState: MapViewport & MapDimensions) =>
-        batch(() => {
-            if (afterInitialSetup) {
-                if (
-                    dimensions.width === viewportState.width &&
-                    dimensions.height === viewportState.height
-                ) userInteraction();
-            } else setAfterInitialSetup(true);
-            interactive && act.map.SET_VIEWPORT(viewportState);
-        });
-
     // store last map selection in redux state
-    const onMapClick = ({ point, lngLat, features }: MapEvent) =>
-        interactive && act.map.SET_SELECTION({
-            point, lngLat, features, timestamp: Date.now(),
-        });
+    const onMapClick = useCallback(
+        ({ point, lngLat, features }: MapLayerMouseEvent) => {
+            interactive && act.map.SET_SELECTION({
+                point: [point.x, point.y],
+                lngLat: [lngLat.lng, lngLat.lat],
+                features,
+                timestamp: Date.now(),
+            });
+        },
+        [interactive],
+    );
 
     return (
         <ReactMapGL
             attributionControl={false}
+            interactive={interactive}
+            interactiveLayerIds={interactiveLayers}
+            mapLib={MapLibreGL}
             {...{
                 mapStyle,
-                width,
-                height,
                 minZoom,
                 maxZoom,
             }}
-            {...viewport}
-            onViewportChange={onMapViewportChange}
             onClick={onMapClick}
+            onLoad={onMapLoad}
+            onMove={onMapMove}
+            onResize={onMapResize}
             ref={mapRef}
+            style={{ width, height }}
+            {...viewport}
         >
             <MapContent />
         </ReactMapGL>
