@@ -126,7 +126,6 @@ export default function MapGL ({
     return (
         <ReactMapGL
             attributionControl={false}
-            interactive={interactive}
             interactiveLayerIds={interactiveLayers}
             mapLib={MapLibreGL}
             {...{
