@@ -96,11 +96,11 @@ export default function MapGL ({
     }, [mapRef]);
 
     // synchronize map viewport with redux state
-    const onMapMove = useCallback(({ viewState }: ViewStateChangeEvent) =>
+    const onMapMove = useCallback((e: ViewStateChangeEvent) =>
         batch(() => {
             if (interactive) {
-                userInteraction();
-                act.map.SET_VIEWPORT(viewState);
+                if (e.originalEvent) userInteraction();
+                act.map.SET_VIEWPORT(e.viewState);
             }
         }),
     [interactive]);
