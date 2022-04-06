@@ -5,7 +5,7 @@
  * @copyright Mat. 2020-present
  */
 
-import type { Map } from "maplibre-gl";
+import type { Map } from "mapbox-gl";
 import type { BBox } from "@turf/turf";
 
 import type {
@@ -26,9 +26,12 @@ export const mapOps = (map: Map | null): MapOps => {
     const ops: MapOps = {
         // load image and add it to map under chosen name
         addSymbol: (name, url) => {
-            map && map.loadImage(url, (error: Error, image: ImageData) => {
-                if (!error && image) map.addImage(name, image);
-            });
+            map && map.loadImage(
+                url,
+                (error?: Error, image?: HTMLImageElement | ImageBitmap) => {
+                    if (!error && image) map.addImage(name, image);
+                },
+            );
             return ops;
         },
     };
