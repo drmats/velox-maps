@@ -138,6 +138,7 @@ export default function MapGL ({
             onMove={onMapMove}
             onResize={onMapResize}
             ref={mapRef}
+            reuseMaps
             style={{ width, height }}
             {...viewport}
         >
