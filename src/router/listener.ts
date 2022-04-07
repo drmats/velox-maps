@@ -27,7 +27,7 @@ import {
 /**
  * Setup Router-related listeners.
  */
-const setupListener: ThunkType = (_d, getState, { act }) => {
+const setupListener: ThunkType = (_d, getState, { act, tnk }) => {
 
     // handle url hash change - update redux state
     const browserHashToRedux = () =>
@@ -48,7 +48,7 @@ const setupListener: ThunkType = (_d, getState, { act }) => {
                 last,
                 hashStringToCoords,
                 coordsToMapViewport,
-                act.map.SET_VIEWPORT,
+                tnk.map.setViewport,
             ),
         );
 
