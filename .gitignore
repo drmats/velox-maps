@@ -1,8 +1,5 @@
 # dependencies
 node_modules
 
-# lockfiles
-package-lock.json
-
 # output
 dist
