@@ -49,7 +49,7 @@
         "build:prepare": "node scripts/prepare.js",
         "clean": "rimraf dist",
         "clean:modules": "rimraf package-lock.json && rimraf node_modules",
-        "dev": "webpack serve --config=webpack.config.dev.js --progress --open",
+        "dev": "webpack serve --config=webpack.config.dev.js --progress",
         "lint": "echo \"Linting and typechecking...\" && eslint ./src/ --ext .ts && npm run type-check",
         "test": "npm run lint && echo \"Warning: no tests specified (yet)\"",
         "type-check": "tsc --noEmit"
